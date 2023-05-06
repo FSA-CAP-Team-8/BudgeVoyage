@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Home from "../home/Home";
-import Weather from "../Weather/Weather";
-import Generate from "../Generate/Generate";
+
 import Airbnb from "../Airbnb/Airbnb";
 
 const Search = () => {
@@ -18,7 +16,7 @@ const Search = () => {
   };
   return (
     <div className="component search">
-      <h1 id="title">City Search</h1>
+      <h1 id="title">BudgeVoyage</h1>
 
       <form onSubmit={handleSubmit} className="form">
         <input type="text" value={city} onChange={handleInputChange} />
@@ -26,9 +24,6 @@ const Search = () => {
       </form>
       {isSubmitted && (
         <>
-          <Home city={city} />
-          <Weather city={city} />
-          <Generate city={city} />
           <Airbnb city={city} />
         </>
       )}
