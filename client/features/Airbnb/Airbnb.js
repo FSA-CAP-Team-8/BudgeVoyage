@@ -72,12 +72,12 @@ const Airbnb = ({ city }) => {
   return (
     <>
       <div>
-        {" "}
-        Airbnb
+        <h2>Airbnb</h2>
         {airbnb.results && (
-          <div className="airbnb">
+          <div className="cards">
+            {" "}
             {airbnb.results.map((result, index) => (
-              <div key={`result-${index}`}>
+              <div key={`result-${index}`} className="individualCards">
                 <div>
                   <img
                     src={result.images[0]}

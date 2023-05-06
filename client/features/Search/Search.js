@@ -15,10 +15,10 @@ const Search = () => {
     setIsSubmitted(true);
   };
   return (
-    <div className="component search">
+    <div>
       <h1 id="title">BudgeVoyage</h1>
 
-      <form onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit}>
         <input type="text" value={city} onChange={handleInputChange} />
         <button type="submit">Search</button>
       </form>
