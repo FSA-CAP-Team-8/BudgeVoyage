@@ -6492,34 +6492,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _dummyData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dummyData */ "./client/features/Airbnb/dummyData.js");
+/* harmony import */ var _airSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./airSlice */ "./client/features/Airbnb/airSlice.js");
 /**
- * Commented out code is the real code
+ * This is the real code
+ */
+
+
+
+
+
+var Airbnb = function Airbnb(_ref) {
+  var city = _ref.city,
+    checkin = _ref.checkin,
+    checkout = _ref.checkout,
+    adults = _ref.adults,
+    children = _ref.children;
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var airbnb = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.airbnb;
+  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    dispatch((0,_airSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAirbnbListings)({
+      city: city,
+      checkin: checkin,
+      checkout: checkout,
+      adults: adults,
+      children: children
+    }));
+  }, [dispatch, city, checkin, checkout, adults, children]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Airbnb"), airbnb.results && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, airbnb.results.map(function (result, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      key: "result-".concat(index)
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+      src: result.images[0],
+      alt: "First Airbnb image",
+      style: {
+        width: "300px",
+        height: "225px"
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+      href: result.deeplink,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, result.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Bedrooms: ", result.bedrooms), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Bathrooms: ", result.bathrooms), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Rate: $", result.price.rate, " nightly"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Amenities: ", result.previewAmenities.join(", ")), " "));
+  }))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Airbnb);
+
+/**
+ * This is the dummy code
  */
 
 // import React from "react";
-// import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { fetchAirbnbListings } from "./airSlice";
+// import { useSelector } from "react-redux";
+// import dummyData from "./dummyData";
 
 // const Airbnb = ({ city }) => {
-//   const dispatch = useDispatch();
-//   const airbnb = useSelector((state) => state.airbnb);
+//   // const airbnb = useSelector((state) => state.airbnb);
 
-//   useEffect(() => {
-//     dispatch(fetchAirbnbListings(city));
-//   }, [dispatch, city]);
+//   // Uncomment this block and comment out the block below it to use dummy data
+//   const airbnb = { results: dummyData };
 
 //   return (
 //     <>
 //       <div>
-//         {" "}
-//         Airbnb
+//         <h2>Airbnb</h2>
 //         {airbnb.results && (
-//           <div className="airbnb">
-//             {/* <h2>Airbnb</h2> */}
+//           <div className="cards">
+//             {" "}
 //             {airbnb.results.map((result, index) => (
-//               <div key={`result-${index}`}>
+//               <div key={`result-${index}`} className="individualCards">
 //                 <div>
 //                   <img
 //                     src={result.images[0]}
@@ -6550,43 +6592,6 @@ __webpack_require__.r(__webpack_exports__);
 
 // export default Airbnb;
 
-/**
- * Code below is for dummy data
- */
-
-
-
-
-var Airbnb = function Airbnb(_ref) {
-  var city = _ref.city;
-  // const airbnb = useSelector((state) => state.airbnb);
-
-  // Uncomment this block and comment out the block below it to use dummy data
-  var airbnb = {
-    results: _dummyData__WEBPACK_IMPORTED_MODULE_2__["default"]
-  };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Airbnb"), airbnb.results && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "cards"
-  }, " ", airbnb.results.map(function (result, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      key: "result-".concat(index),
-      className: "individualCards"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: result.images[0],
-      alt: "First Airbnb image",
-      style: {
-        width: "300px",
-        height: "225px"
-      }
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-      href: result.deeplink,
-      target: "_blank",
-      rel: "noopener noreferrer"
-    }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, result.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Bedrooms: ", result.bedrooms), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Bathrooms: ", result.bathrooms), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Rate: $", result.price.rate, " nightly"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Amenities: ", result.previewAmenities.join(", ")), " "));
-  }))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Airbnb);
-
 /***/ }),
 
 /***/ "./client/features/Airbnb/airSlice.js":
@@ -6612,22 +6617,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var fetchAirbnbListings = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("airbnb/fetch", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(city) {
-    var options, _yield$axios$request, data;
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
+    var city, checkin, checkout, adults, children, options, _yield$axios$request, data;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
+          city = _ref.city, checkin = _ref.checkin, checkout = _ref.checkout, adults = _ref.adults, children = _ref.children;
           options = {
             method: "GET",
             url: "https://airbnb13.p.rapidapi.com/search-location",
             params: {
               location: city,
-              checkin: "2023-09-16",
-              checkout: "2023-09-17",
-              adults: "1",
-              children: "0",
-              infants: "0",
-              pets: "0",
+              checkin: checkin,
+              checkout: checkout,
+              adults: adults,
+              children: children,
               page: "1",
               currency: "USD"
             },
@@ -6636,25 +6640,25 @@ var fetchAirbnbListings = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.creat
               "X-RapidAPI-Host": "airbnb13.p.rapidapi.com"
             }
           };
-          _context.prev = 1;
-          _context.next = 4;
+          _context.prev = 2;
+          _context.next = 5;
           return axios__WEBPACK_IMPORTED_MODULE_2__["default"].request(options);
-        case 4:
+        case 5:
           _yield$axios$request = _context.sent;
           data = _yield$axios$request.data;
           return _context.abrupt("return", data);
-        case 9:
-          _context.prev = 9;
-          _context.t0 = _context["catch"](1);
+        case 10:
+          _context.prev = 10;
+          _context.t0 = _context["catch"](2);
           throw new Error("Failed to fetch Airbnb listings");
-        case 12:
+        case 13:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[1, 9]]);
+    }, _callee, null, [[2, 10]]);
   }));
   return function (_x) {
-    return _ref.apply(this, arguments);
+    return _ref2.apply(this, arguments);
   };
 }());
 var airSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
@@ -6671,112 +6675,6 @@ var airSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
   }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (airSlice.reducer);
-
-/***/ }),
-
-/***/ "./client/features/Airbnb/dummyData.js":
-/*!*********************************************!*\
-  !*** ./client/features/Airbnb/dummyData.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-var dummyData = [{
-  name: "Airbnb 1",
-  bedrooms: 2,
-  bathrooms: 1,
-  price: {
-    rate: 100
-  },
-  previewAmenities: ["WiFi", "Pool"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 2",
-  bedrooms: 3,
-  bathrooms: 2,
-  price: {
-    rate: 200
-  },
-  previewAmenities: ["WiFi", "Gym"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 3",
-  bedrooms: 1,
-  bathrooms: 1,
-  price: {
-    rate: 80
-  },
-  previewAmenities: ["WiFi", "Kitchen"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 4",
-  bedrooms: 4,
-  bathrooms: 3,
-  price: {
-    rate: 350
-  },
-  previewAmenities: ["WiFi", "Hot tub"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 5",
-  bedrooms: 2,
-  bathrooms: 2,
-  price: {
-    rate: 150
-  },
-  previewAmenities: ["WiFi", "Parking"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 6",
-  bedrooms: 1,
-  bathrooms: 1,
-  price: {
-    rate: 60
-  },
-  previewAmenities: ["WiFi", "Pet-friendly"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 7",
-  bedrooms: 3,
-  bathrooms: 2,
-  price: {
-    rate: 225
-  },
-  previewAmenities: ["WiFi", "Balcony"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 8",
-  bedrooms: 2,
-  bathrooms: 1,
-  price: {
-    rate: 120
-  },
-  previewAmenities: ["WiFi", "Fireplace"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}, {
-  name: "Airbnb 9",
-  bedrooms: 1,
-  bathrooms: 1,
-  price: {
-    rate: 70
-  },
-  previewAmenities: ["WiFi", "Breakfast"],
-  images: ["https://dummyimage.com/300x225/000/fff"],
-  deeplink: "https://www.example.com"
-}];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dummyData);
 
 /***/ }),
 
@@ -6807,12 +6705,40 @@ var Search = function Search() {
     _useState2 = _slicedToArray(_useState, 2),
     city = _useState2[0],
     setCity = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState4 = _slicedToArray(_useState3, 2),
-    isSubmitted = _useState4[0],
-    setIsSubmitted = _useState4[1];
+    checkin = _useState4[0],
+    setCheckin = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    checkout = _useState6[0],
+    setCheckout = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState8 = _slicedToArray(_useState7, 2),
+    adults = _useState8[0],
+    setAdults = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState10 = _slicedToArray(_useState9, 2),
+    children = _useState10[0],
+    setChildren = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    isSubmitted = _useState12[0],
+    setIsSubmitted = _useState12[1];
   var handleInputChange = function handleInputChange(event) {
     setCity(event.target.value);
+  };
+  var handleCheckinChange = function handleCheckinChange(event) {
+    setCheckin(event.target.value);
+  };
+  var handleCheckoutChange = function handleCheckoutChange(event) {
+    setCheckout(event.target.value);
+  };
+  var handleAdultsChange = function handleAdultsChange(event) {
+    setAdults(event.target.value);
+  };
+  var handleChildrenChange = function handleChildrenChange(event) {
+    setChildren(event.target.value);
   };
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
@@ -6820,16 +6746,51 @@ var Search = function Search() {
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     id: "title"
-  }, "BudgeVoyage"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+  }, "BudgeVoyage"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Where would you like to go?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
     onSubmit: handleSubmit
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "city"
+  }, "City:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
+    id: "city",
     value: city,
     onChange: handleInputChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "checkin"
+  }, "Check-in:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "date",
+    id: "checkin",
+    value: checkin,
+    onChange: handleCheckinChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "checkout"
+  }, "Check-out:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "date",
+    id: "checkout",
+    value: checkout,
+    onChange: handleCheckoutChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "adults"
+  }, "Adults:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "number",
+    id: "adults",
+    value: adults,
+    onChange: handleAdultsChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "children"
+  }, "Children:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "number",
+    id: "children",
+    value: children,
+    onChange: handleChildrenChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "submit"
   }, "Search")), isSubmitted && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Airbnb_Airbnb__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    city: city
+    city: city,
+    checkin: checkin,
+    checkout: checkout,
+    adults: adults,
+    children: children
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);

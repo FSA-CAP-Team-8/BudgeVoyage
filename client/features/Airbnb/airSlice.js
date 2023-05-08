@@ -4,18 +4,16 @@ import { XRAPIDAPIKEY } from "../../secrets";
 
 export const fetchAirbnbListings = createAsyncThunk(
   "airbnb/fetch",
-  async (city) => {
+  async ({ city, checkin, checkout, adults, children }) => {
     const options = {
       method: "GET",
       url: "https://airbnb13.p.rapidapi.com/search-location",
       params: {
         location: city,
-        checkin: "2023-09-16",
-        checkout: "2023-09-17",
-        adults: "1",
-        children: "0",
-        infants: "0",
-        pets: "0",
+        checkin: checkin,
+        checkout: checkout,
+        adults: adults,
+        children: children,
         page: "1",
         currency: "USD",
       },
