@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 const Sequelize = require("sequelize");
-const db = require("../db");
+const db = require("..");
 
 const bucketList = db.define("bucketList", {
   trips: [],
