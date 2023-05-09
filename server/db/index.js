@@ -1,5 +1,9 @@
 //this is the access point for all things database related!
-import { user, bucketList, flightCard, lodgingcard, trip } from "./models";
+const user = require("./models/user");
+const flightCard = require("./models/flightCard");
+const lodgingcard = require("./models/lodgingCard");
+const trip = require("./models/trip");
+const bucketList = require("./models/bucketlist");
 
 const db = require("./db");
 
