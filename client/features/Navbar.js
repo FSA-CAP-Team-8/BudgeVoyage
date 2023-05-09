@@ -1,47 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { logout } from "./store";
+import { NavLink } from "react-router-dom";
 
 //we need to figure out how are login system is going to work
 const Navbar = () => {
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const logoutAndRedirectHome = () => {
-    dispatch(logout());
-    navigate("/");
-  };
-
   return (
-    <div>
-      <img className="logo" src="budgeVoyage2.png"></img>
-      <nav>
-        {isLoggedIn ? (
+    <header>
+      <div>
+        <img className="logo" src="budgeVoyage2.png"></img>
+        <nav>
           <div>
-            <Link to="/">Home</Link>
-            <Link to="/about">Our Story</Link>
-            <button type="button" onClick={logoutAndRedirectHome}>
-              Logout
-            </button>
-            <Link to="/cart">
-              <img className="bucket" src="bucketListlogo.png"></img>
-            </Link>
+            <NavLink to="/">BudgeVoyage</NavLink>
+            <NavLink to="/ourstory">Our Story</NavLink>
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/signup">Sign Up</NavLink>
+            <NavLink to="/bucketlist">
+              <img className="bucketlogo" src="bucketListlogo.png"></img>
+            </NavLink>
           </div>
-        ) : (
-          <div>
-            <Link to="/">Home</Link>
-            <Link to="/about">Our Story</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/cart">
-              <img className="bucket" src="bucketListlogo.png"></img>
-            </Link>
-          </div>
-        )}
-      </nav>
-    </div>
+        </nav>
+      </div>
+    </header>
   );
 };
 
