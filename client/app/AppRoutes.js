@@ -11,6 +11,7 @@ const AppRoutes = () => {
           path="/"
           element={<Search name="search" displayName="Search" />}
         />
+        <Route path="/home" element={<Home />} />
         <Route path="/airbnb" element={<Airbnb />} />
       </Routes>
     </div>
