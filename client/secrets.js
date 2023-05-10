@@ -1,2 +1,6 @@
-export const XRAPIDAPIKEY =
-  "7085afcacamshc630e35d43b7a57p1c29f0jsn1141b67ce584";
+export const XRAPIDAPIKEYAIR =
+  "f7c499bf21mshcb1ea0ef8b8663fp194348jsn7668c061259f";
+export const XRAPIDAPIKEYFLIGHTS =
+  "f7c499bf21mshcb1ea0ef8b8663fp194348jsn7668c061259f";
+export const XRAPIDAPIKEYHOTELS =
+  "f7c499bf21mshcb1ea0ef8b8663fp194348jsn7668c061259f";
