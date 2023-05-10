@@ -3,7 +3,14 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHotelID, fetchHotelPrices } from "./hotelIDSlice";
 
-const Hotel = ({ destination, checkin, checkout, adults, children }) => {
+const Hotel = ({
+  destination,
+  checkin,
+  checkout,
+  adults,
+  children,
+  childAges,
+}) => {
   const dispatch = useDispatch();
   const hotelID = useSelector((state) => state.hotelID.data);
   const error = useSelector((state) => state.hotelID.error);
@@ -26,11 +33,12 @@ const Hotel = ({ destination, checkin, checkout, adults, children }) => {
             checkout: checkout,
             adults: adults,
             children: children,
+            childAges: childAges,
           })
         );
       });
     }
-  }, [hotelID, dispatch, checkin, checkout, adults]);
+  }, [hotelID, dispatch, checkin, checkout, adults, childAges]);
 
   return (
     <>
@@ -50,7 +58,15 @@ const Hotel = ({ destination, checkin, checkout, adults, children }) => {
                     <div>
                       {result.prices.results.map((priceResult) => (
                         <div key={priceResult.id}>
+                          {/* <img
+                            src="{priceresult.photoMainUrl}"
+                            alt="main hotel image"
+                            style={{ width: "300px", height: "225px" }}
+                          /> */}
                           <div>Hotel Name: {priceResult.name}</div>
+                          {/* <div>
+                            Hotel Rate: {priceResult.priceBreakdown.grossPrice}
+                          </div> */}
                         </div>
                       ))}
                     </div>

@@ -6501,10 +6501,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _airSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./airSlice */ "./client/features/Airbnb/airSlice.js");
-/**
- * This is the real code
- */
-
 
 
 
@@ -6514,7 +6510,8 @@ var Airbnb = function Airbnb(_ref) {
     checkin = _ref.checkin,
     checkout = _ref.checkout,
     adults = _ref.adults,
-    children = _ref.children;
+    children = _ref.children,
+    childAges = _ref.childAges;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var airbnb = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.airbnb;
@@ -6525,9 +6522,10 @@ var Airbnb = function Airbnb(_ref) {
       checkin: checkin,
       checkout: checkout,
       adults: adults,
-      children: children
+      children: children,
+      childAges: childAges
     }));
-  }, [dispatch, destination, checkin, checkout, adults, children]);
+  }, [dispatch, destination, checkin, checkout, adults, children, childAges]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Airbnb"), airbnb.results && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, airbnb.results.map(function (result, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       key: "result-".concat(index)
@@ -6546,59 +6544,6 @@ var Airbnb = function Airbnb(_ref) {
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Airbnb);
-
-/**
- * This is the dummy code
- */
-
-// import React from "react";
-// import { useSelector } from "react-redux";
-// import dummyData from "./dummyData";
-
-// const Airbnb = ({ destination }) => {
-//   // const airbnb = useSelector((state) => state.airbnb);
-
-//   // Uncomment this block and comment out the block below it to use dummy data
-//   const airbnb = { results: dummyData };
-
-//   return (
-//     <>
-//       <div>
-//         <h2>Airbnb</h2>
-//         {airbnb.results && (
-//           <div className="cards">
-//             {" "}
-//             {airbnb.results.map((result, index) => (
-//               <div key={`result-${index}`} className="individualCards">
-//                 <div>
-//                   <img
-//                     src={result.images[0]}
-//                     alt="First Airbnb image"
-//                     style={{ width: "300px", height: "225px" }}
-//                   />
-//                   <a
-//                     href={result.deeplink}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                   >
-//                     {" "}
-//                     <div>{result.name}</div>
-//                   </a>
-//                   <li>Bedrooms: {result.bedrooms}</li>{" "}
-//                   <li>Bathrooms: {result.bathrooms}</li>{" "}
-//                   <li>Rate: ${result.price.rate} nightly</li>{" "}
-//                   <li>Amenities: {result.previewAmenities.join(", ")}</li>{" "}
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Airbnb;
 
 /***/ }),
 
@@ -6710,7 +6655,8 @@ var Hotel = function Hotel(_ref) {
     checkin = _ref.checkin,
     checkout = _ref.checkout,
     adults = _ref.adults,
-    children = _ref.children;
+    children = _ref.children,
+    childAges = _ref.childAges;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var hotelID = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.hotelID.data;
@@ -6731,11 +6677,12 @@ var Hotel = function Hotel(_ref) {
           checkin: checkin,
           checkout: checkout,
           adults: adults,
-          children: children
+          children: children,
+          childAges: childAges
         }));
       });
     }
-  }, [hotelID, dispatch, checkin, checkout, adults]);
+  }, [hotelID, dispatch, checkin, checkout, adults, childAges]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Hotels"), error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Error: ", error), hotelID && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, hotelID.map(function (result) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       key: result.dest_id
@@ -6818,48 +6765,52 @@ var fetchHotelID = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncT
 }());
 var fetchHotelPrices = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("hotel/fetchPrices", /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_ref3) {
-    var dest_id, checkin, checkout, adults, options, _yield$axios$request2, data;
+    var dest_id, checkin, checkout, adults, children, childAges, params, options, _yield$axios$request2, data;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          dest_id = _ref3.dest_id, checkin = _ref3.checkin, checkout = _ref3.checkout, adults = _ref3.adults;
+          dest_id = _ref3.dest_id, checkin = _ref3.checkin, checkout = _ref3.checkout, adults = _ref3.adults, children = _ref3.children, childAges = _ref3.childAges;
+          params = {
+            order_by: "popularity",
+            adults_number: adults,
+            checkin_date: checkin,
+            filter_by_currency: "USD",
+            dest_id: dest_id,
+            locale: "en-us",
+            checkout_date: checkout,
+            units: "imperial",
+            room_number: "1",
+            dest_type: "city"
+          };
+          if (children > 0) {
+            params.children_number = children;
+            params.children_ages = childAges;
+          }
           options = {
             method: "GET",
             url: "https://booking-com.p.rapidapi.com/v2/hotels/search",
-            params: {
-              order_by: "popularity",
-              adults_number: adults,
-              checkin_date: checkin,
-              filter_by_currency: "USD",
-              dest_id: dest_id,
-              locale: "en-us",
-              checkout_date: checkout,
-              units: "metric",
-              room_number: "1",
-              dest_type: "city"
-            },
+            params: params,
             headers: {
               "X-RapidAPI-Key": _secrets__WEBPACK_IMPORTED_MODULE_0__.XRAPIDAPIKEY,
               "X-RapidAPI-Host": "booking-com.p.rapidapi.com"
             }
           };
-          _context2.prev = 2;
-          _context2.next = 5;
+          _context2.prev = 4;
+          _context2.next = 7;
           return axios__WEBPACK_IMPORTED_MODULE_2__["default"].request(options);
-        case 5:
+        case 7:
           _yield$axios$request2 = _context2.sent;
           data = _yield$axios$request2.data;
-          console.log(data);
           return _context2.abrupt("return", data);
-        case 11:
-          _context2.prev = 11;
-          _context2.t0 = _context2["catch"](2);
+        case 12:
+          _context2.prev = 12;
+          _context2.t0 = _context2["catch"](4);
           throw new Error("Failed to fetch hotel prices");
-        case 14:
+        case 15:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[2, 11]]);
+    }, _callee2, null, [[4, 12]]);
   }));
   return function (_x2) {
     return _ref4.apply(this, arguments);
@@ -6909,6 +6860,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Airbnb_Airbnb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Airbnb/Airbnb */ "./client/features/Airbnb/Airbnb.js");
 /* harmony import */ var _Hotels_Hotel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Hotels/Hotel */ "./client/features/Hotels/Hotel.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -6939,10 +6894,10 @@ var Search = function Search() {
     _useState10 = _slicedToArray(_useState9, 2),
     children = _useState10[0],
     setChildren = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState12 = _slicedToArray(_useState11, 2),
-    isSubmitted = _useState12[0],
-    setIsSubmitted = _useState12[1];
+    childAges = _useState12[0],
+    setChildAges = _useState12[1];
   var handleInputChange = function handleInputChange(event) {
     setDestination(event.target.value);
   };
@@ -6958,9 +6913,13 @@ var Search = function Search() {
   var handleChildrenChange = function handleChildrenChange(event) {
     setChildren(event.target.value);
   };
+  var handleChildAgeChange = function handleChildAgeChange(index, event) {
+    var newChildAges = _toConsumableArray(childAges);
+    newChildAges[index] = event.target.value;
+    setChildAges(newChildAges);
+  };
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
-    setIsSubmitted(true);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     id: "title"
@@ -7001,20 +6960,38 @@ var Search = function Search() {
     id: "children",
     value: children,
     onChange: handleChildrenChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  }), children > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, Array.from({
+    length: children
+  }, function (_, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      key: index
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+      htmlFor: "childAge".concat(index)
+    }, "Child ", index + 1, " age:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+      type: "number",
+      id: "childAge".concat(index),
+      value: childAges[index],
+      onChange: function onChange(event) {
+        return handleChildAgeChange(index, event);
+      }
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "submit"
-  }, "Search")), isSubmitted && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Hotels_Hotel__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "Search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Hotels_Hotel__WEBPACK_IMPORTED_MODULE_2__["default"], {
     destination: destination,
     checkin: checkin,
     checkout: checkout,
-    adults: adults
+    adults: adults,
+    children: children,
+    childAges: childAges
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Airbnb_Airbnb__WEBPACK_IMPORTED_MODULE_1__["default"], {
     destination: destination,
     checkin: checkin,
     checkout: checkout,
     adults: adults,
-    children: children
-  })));
+    children: children,
+    childAges: childAges
+  }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
 

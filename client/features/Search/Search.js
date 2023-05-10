@@ -8,7 +8,7 @@ const Search = () => {
   const [checkout, setCheckout] = useState("");
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [childAges, setChildAges] = useState([]);
 
   const handleInputChange = (event) => {
     setDestination(event.target.value);
@@ -30,9 +30,14 @@ const Search = () => {
     setChildren(event.target.value);
   };
 
+  const handleChildAgeChange = (index, event) => {
+    const newChildAges = [...childAges];
+    newChildAges[index] = event.target.value;
+    setChildAges(newChildAges);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsSubmitted(true);
   };
 
   return (
@@ -81,26 +86,43 @@ const Search = () => {
           onChange={handleChildrenChange}
         />
 
+        {children > 0 && (
+          <>
+            {Array.from({ length: children }, (_, index) => (
+              <div key={index}>
+                <label htmlFor={`childAge${index}`}>
+                  Child {index + 1} age:
+                </label>
+                <input
+                  type="number"
+                  id={`childAge${index}`}
+                  value={childAges[index]}
+                  onChange={(event) => handleChildAgeChange(index, event)}
+                />
+              </div>
+            ))}
+          </>
+        )}
+
         <button type="submit">Search</button>
       </form>
 
-      {isSubmitted && (
-        <>
-          <Hotel
-            destination={destination}
-            checkin={checkin}
-            checkout={checkout}
-            adults={adults}
-          />
-          <Airbnb
-            destination={destination}
-            checkin={checkin}
-            checkout={checkout}
-            adults={adults}
-            children={children}
-          />
-        </>
-      )}
+      <Hotel
+        destination={destination}
+        checkin={checkin}
+        checkout={checkout}
+        adults={adults}
+        children={children}
+        childAges={childAges}
+      />
+      <Airbnb
+        destination={destination}
+        checkin={checkin}
+        checkout={checkout}
+        adults={adults}
+        children={children}
+        childAges={childAges}
+      />
     </div>
   );
 };
