@@ -7,7 +7,7 @@ const bucketlist = () => {
       <h2>
         fights<br></br>
         lodging<br></br>
-        total:
+        total cost: 875$
       </h2>
     </div>
   );

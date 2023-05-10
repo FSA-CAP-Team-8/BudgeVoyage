@@ -147,3 +147,13 @@ nav a {
   min-width: 100%;
   min-height: 100%;
 }
+
+/* bucketkist */
+
+.bucketlist{
+  display: flex;
+  color: rgb(17, 32, 91);;
+  padding-top: 3.5em;
+  padding-left: 1em;
+  font-size: 20px;
+}
