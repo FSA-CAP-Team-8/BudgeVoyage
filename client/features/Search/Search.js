@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
+import Hotel from "../Hotels/Hotel";
 
 const Search = () => {
-  const [city, setCity] = useState("");
+  const [destination, setDestination] = useState("");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [adults, setAdults] = useState(1);
@@ -10,7 +11,7 @@ const Search = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (event) => {
-    setCity(event.target.value);
+    setDestination(event.target.value);
   };
 
   const handleCheckinChange = (event) => {
@@ -40,11 +41,11 @@ const Search = () => {
       <div>Where would you like to go?</div>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="city">City:</label>
+        <label htmlFor="destination">Destination:</label>
         <input
           type="text"
-          id="city"
-          value={city}
+          id="destination"
+          value={destination}
           onChange={handleInputChange}
         />
 
@@ -85,8 +86,9 @@ const Search = () => {
 
       {isSubmitted && (
         <>
+          <Hotel destination={destination} />
           <Airbnb
-            city={city}
+            destination={destination}
             checkin={checkin}
             checkout={checkout}
             adults={adults}

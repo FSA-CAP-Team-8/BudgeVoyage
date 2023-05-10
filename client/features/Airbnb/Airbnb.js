@@ -7,21 +7,21 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
 
-const Airbnb = ({ city, checkin, checkout, adults, children }) => {
+const Airbnb = ({ destination, checkin, checkout, adults, children }) => {
   const dispatch = useDispatch();
   const airbnb = useSelector((state) => state.airbnb);
 
   useEffect(() => {
     dispatch(
       fetchAirbnbListings({
-        city: city,
+        destination: destination,
         checkin: checkin,
         checkout: checkout,
         adults: adults,
         children: children,
       })
     );
-  }, [dispatch, city, checkin, checkout, adults, children]);
+  }, [dispatch, destination, checkin, checkout, adults, children]);
 
   return (
     <>
@@ -69,7 +69,7 @@ export default Airbnb;
 // import { useSelector } from "react-redux";
 // import dummyData from "./dummyData";
 
-// const Airbnb = ({ city }) => {
+// const Airbnb = ({ destination }) => {
 //   // const airbnb = useSelector((state) => state.airbnb);
 
 //   // Uncomment this block and comment out the block below it to use dummy data
