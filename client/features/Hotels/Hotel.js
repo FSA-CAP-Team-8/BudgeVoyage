@@ -30,7 +30,7 @@ const Hotel = ({ destination, checkin, checkout, adults, children }) => {
         );
       });
     }
-  }, [hotelID, dispatch, checkin, checkout, adults, children]);
+  }, [hotelID, dispatch, checkin, checkout, adults]);
 
   return (
     <>
@@ -46,7 +46,7 @@ const Hotel = ({ destination, checkin, checkout, adults, children }) => {
                   <div>City_name: {result.city_name}</div>{" "}
                   <div>region: {result.region}</div>{" "}
                   <div>cc1: {result.cc1}</div>{" "}
-                  {/* {result.prices && result.prices.results && (
+                  {result.prices && result.prices.results && (
                     <div>
                       {result.prices.results.map((priceResult) => (
                         <div key={priceResult.id}>
@@ -54,7 +54,7 @@ const Hotel = ({ destination, checkin, checkout, adults, children }) => {
                         </div>
                       ))}
                     </div>
-                  )} */}
+                  )}
                 </div>
               </div>
             ))}

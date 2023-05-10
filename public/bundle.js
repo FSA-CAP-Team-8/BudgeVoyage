@@ -6735,11 +6735,15 @@ var Hotel = function Hotel(_ref) {
         }));
       });
     }
-  }, [hotelID, dispatch, checkin, checkout, adults, children]);
+  }, [hotelID, dispatch, checkin, checkout, adults]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Hotels"), error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Error: ", error), hotelID && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, hotelID.map(function (result) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       key: result.dest_id
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Dest_ID: ", result.dest_id), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "City_name: ", result.city_name), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "region: ", result.region), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "cc1: ", result.cc1), " "));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Dest_ID: ", result.dest_id), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "City_name: ", result.city_name), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "region: ", result.region), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "cc1: ", result.cc1), " ", result.prices && result.prices.results && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, result.prices.results.map(function (priceResult) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        key: priceResult.id
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Hotel Name: ", priceResult.name));
+    }))));
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Hotel);
@@ -6814,13 +6818,11 @@ var fetchHotelID = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncT
 }());
 var fetchHotelPrices = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("hotel/fetchPrices", /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_ref3) {
-    var dest_id, checkin, checkout, adults, children, options, _yield$axios$request2, data;
+    var dest_id, checkin, checkout, adults, options, _yield$axios$request2, data;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          dest_id = _ref3.dest_id, checkin = _ref3.checkin, checkout = _ref3.checkout, adults = _ref3.adults, children = _ref3.children;
-          console.log(dest_id);
-          console.log(checkin);
+          dest_id = _ref3.dest_id, checkin = _ref3.checkin, checkout = _ref3.checkout, adults = _ref3.adults;
           options = {
             method: "GET",
             url: "https://booking-com.p.rapidapi.com/v2/hotels/search",
@@ -6834,30 +6836,30 @@ var fetchHotelPrices = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAs
               checkout_date: checkout,
               units: "metric",
               room_number: "1",
-              dest_type: "city",
-              children_number: children
+              dest_type: "city"
             },
             headers: {
               "X-RapidAPI-Key": _secrets__WEBPACK_IMPORTED_MODULE_0__.XRAPIDAPIKEY,
               "X-RapidAPI-Host": "booking-com.p.rapidapi.com"
             }
           };
-          _context2.prev = 4;
-          _context2.next = 7;
+          _context2.prev = 2;
+          _context2.next = 5;
           return axios__WEBPACK_IMPORTED_MODULE_2__["default"].request(options);
-        case 7:
+        case 5:
           _yield$axios$request2 = _context2.sent;
           data = _yield$axios$request2.data;
+          console.log(data);
           return _context2.abrupt("return", data);
-        case 12:
-          _context2.prev = 12;
-          _context2.t0 = _context2["catch"](4);
+        case 11:
+          _context2.prev = 11;
+          _context2.t0 = _context2["catch"](2);
           throw new Error("Failed to fetch hotel prices");
-        case 15:
+        case 14:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[4, 12]]);
+    }, _callee2, null, [[2, 11]]);
   }));
   return function (_x2) {
     return _ref4.apply(this, arguments);
@@ -6879,7 +6881,7 @@ var hotelIDSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)
       state.error = action.error.message;
     });
     builder.addCase(fetchHotelPrices.fulfilled, function (state, action) {
-      var hotel = state.find(function (hotel) {
+      var hotel = state.data.find(function (hotel) {
         return hotel.dest_id === action.meta.arg.dest_id;
       });
       if (hotel) {
@@ -7005,8 +7007,7 @@ var Search = function Search() {
     destination: destination,
     checkin: checkin,
     checkout: checkout,
-    adults: adults,
-    children: children
+    adults: adults
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Airbnb_Airbnb__WEBPACK_IMPORTED_MODULE_1__["default"], {
     destination: destination,
     checkin: checkin,

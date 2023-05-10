@@ -32,10 +32,7 @@ export const fetchHotelID = createAsyncThunk(
 
 export const fetchHotelPrices = createAsyncThunk(
   "hotel/fetchPrices",
-  async ({ dest_id, checkin, checkout, adults, children }) => {
-    console.log(dest_id);
-    console.log(checkin);
-
+  async ({ dest_id, checkin, checkout, adults }) => {
     const options = {
       method: "GET",
       url: "https://booking-com.p.rapidapi.com/v2/hotels/search",
@@ -50,7 +47,6 @@ export const fetchHotelPrices = createAsyncThunk(
         units: "metric",
         room_number: "1",
         dest_type: "city",
-        children_number: children,
       },
       headers: {
         "X-RapidAPI-Key": XRAPIDAPIKEY,
@@ -59,6 +55,7 @@ export const fetchHotelPrices = createAsyncThunk(
     };
     try {
       const { data } = await axios.request(options);
+      console.log(data);
       return data;
     } catch (err) {
       throw new Error("Failed to fetch hotel prices");
@@ -79,7 +76,7 @@ const hotelIDSlice = createSlice({
       state.error = action.error.message;
     });
     builder.addCase(fetchHotelPrices.fulfilled, (state, action) => {
-      const hotel = state.find(
+      const hotel = state.data.find(
         (hotel) => hotel.dest_id === action.meta.arg.dest_id
       );
       if (hotel) {

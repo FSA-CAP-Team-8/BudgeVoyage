@@ -91,7 +91,6 @@ const Search = () => {
             checkin={checkin}
             checkout={checkout}
             adults={adults}
-            children={children}
           />
           <Airbnb
             destination={destination}
