@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
+import Hotel from "../Hotels/Hotel";
 
 const Search = () => {
-  const [city, setCity] = useState("");
+  const [destination, setDestination] = useState("");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
+  const [childAges, setChildAges] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (event) => {
-    setCity(event.target.value);
+    setDestination(event.target.value);
   };
 
   const handleCheckinChange = (event) => {
@@ -29,6 +31,12 @@ const Search = () => {
     setChildren(event.target.value);
   };
 
+  const handleChildAgeChange = (index, event) => {
+    const newChildAges = [...childAges];
+    newChildAges[index] = event.target.value;
+    setChildAges(newChildAges);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsSubmitted(true);
@@ -40,11 +48,11 @@ const Search = () => {
       <div>Where would you like to go?</div>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="city">City:</label>
+        <label htmlFor="destination">Destination:</label>
         <input
           type="text"
-          id="city"
-          value={city}
+          id="destination"
+          value={destination}
           onChange={handleInputChange}
         />
 
@@ -80,17 +88,43 @@ const Search = () => {
           onChange={handleChildrenChange}
         />
 
+        {children > 0 && (
+          <>
+            {Array.from({ length: children }, (_, index) => (
+              <div key={index}>
+                <label htmlFor={`childAge${index}`}>
+                  Child {index + 1} age:
+                </label>
+                <input
+                  type="number"
+                  id={`childAge${index}`}
+                  value={childAges[index]}
+                  onChange={(event) => handleChildAgeChange(index, event)}
+                />
+              </div>
+            ))}
+          </>
+        )}
+
         <button type="submit">Search</button>
       </form>
-
       {isSubmitted && (
         <>
-          <Airbnb
-            city={city}
+          <Hotel
+            destination={destination}
             checkin={checkin}
             checkout={checkout}
             adults={adults}
             children={children}
+            childAges={childAges}
+          />
+          <Airbnb
+            destination={destination}
+            checkin={checkin}
+            checkout={checkout}
+            adults={adults}
+            children={children}
+            childAges={childAges}
           />
         </>
       )}

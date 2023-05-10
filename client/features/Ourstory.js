@@ -32,6 +32,8 @@ const OurStory = () => {
             So why wait? Sign up today and start planning your dream vacation on
             a budget!
           </p>
+          <p>checkout our users trips below</p>
+
           <div id="row" className="column">
             <img className="insta" src="./photogrid/1.png"></img>
             <img className="insta" src="./photogrid/2.png"></img>

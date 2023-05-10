@@ -1,44 +1,44 @@
 import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAirbnbListings } from "./airSlice";
+import { fetchFlightsListings } from "./flightsSlice";
 
-const Airbnb = ({
+const Flights = ({
+  origin,
   destination,
-  checkin,
-  checkout,
+  date,
   adults,
-  children,
-  childAges,
+  countryCode,
+  market,
 }) => {
   const dispatch = useDispatch();
-  const airbnb = useSelector((state) => state.airbnb);
+  const flights = useSelector((state) => state.flights);
 
   useEffect(() => {
     dispatch(
-      fetchAirbnbListings({
-        location: destination,
-        checkin: checkin,
-        checkout: checkout,
+      fetchFlightsListings({
+        origin: origin,
+        destination: destination,
+        date: date,
         adults: adults,
-        children: children,
-        childAges: childAges,
+        countryCode: countryCode,
+        market: market,
       })
     );
-  }, [dispatch, destination, checkin, checkout, adults, children, childAges]);
+  }, [dispatch, origin, destination, date, adults, countryCode, market]);
 
   return (
     <>
       <div>
-        <h2>Airbnb</h2>
-        {airbnb.results && (
+        <h2>Flights</h2>
+        {flights.results && (
           <div>
-            {airbnb.results.map((result, index) => (
+            {flights.results.map((result, index) => (
               <div key={`result-${index}`}>
                 <div>
                   <img
                     src={result.images[0]}
-                    alt="First Airbnb image"
+                    alt="First Flight image"
                     style={{ width: "300px", height: "225px" }}
                   />
                   <a
@@ -49,10 +49,10 @@ const Airbnb = ({
                     {" "}
                     <div>{result.name}</div>
                   </a>
-                  <li>Bedrooms: {result.bedrooms}</li>{" "}
+                  {/* <li>Bedrooms: {result.bedrooms}</li>{" "}
                   <li>Bathrooms: {result.bathrooms}</li>{" "}
                   <li>Rate: ${result.price.rate} nightly</li>{" "}
-                  <li>Amenities: {result.previewAmenities.join(", ")}</li>{" "}
+                  <li>Amenities: {result.previewAmenities.join(", ")}</li>{" "} */}
                 </div>
               </div>
             ))}
@@ -63,4 +63,4 @@ const Airbnb = ({
   );
 };
 
-export default Airbnb;
+export default Flights;
