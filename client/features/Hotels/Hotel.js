@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHotelID, fetchHotelPrices } from "./hotelIDSlice";
 
-const Hotel = ({
+const hotel = ({
   destination,
   checkin,
   checkout,
@@ -81,4 +81,4 @@ const Hotel = ({
   );
 };
 
-export default Hotel;
+export default hotel;

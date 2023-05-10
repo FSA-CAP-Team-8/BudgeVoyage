@@ -157,3 +157,12 @@ nav a {
   padding-left: 1em;
   font-size: 20px;
 }
+
+/* QUIZ PAGE */
+
+#quiz {
+  color: rgb(17, 32, 91);
+  padding-top: 6em;
+  padding-left: 1em;
+  font-size: 15px;
+}
