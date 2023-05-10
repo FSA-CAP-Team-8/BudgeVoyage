@@ -5,6 +5,7 @@ import Airbnb from "../features/Airbnb/Airbnb";
 import Home from "../features/Home";
 import OurStory from "../features/Ourstory";
 import BucketList from "../features/Bucketlist/BucketList";
+import Hotel from "../features/Hotels/Hotel";
 
 const AppRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
         <Route path="/signup" element={<Signup />} /> */}
         <Route path="/bucketlist" element={<BucketList />} />
         <Route path="/airbnb" element={<Airbnb />} />
+        <Route path="/hotel" element={<Hotel />} />
       </Routes>
     </div>
   );

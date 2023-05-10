@@ -1,0 +1,11 @@
+node_modules
+public/bundle.js
+public/bundle.js.map
+client/secrets.js
+package-lock.json
+public/bundle.js.LICENSE.txt
+
+#json files
+hotelID.json
+hotelPrice.json
+flights.json

@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { XRAPIDAPIKEY } from "../../secrets";
+import { XRAPIDAPIKE } from "../../secrets";
 
 export const fetchAirbnbListings = createAsyncThunk(
   "airbnb/fetch",
-  async ({ city, checkin, checkout, adults, children }) => {
+  async ({ destination, checkin, checkout, adults, children }) => {
     const options = {
       method: "GET",
       url: "https://airbnb13.p.rapidapi.com/search-location",
       params: {
-        location: city,
+        location: destination,
         checkin: checkin,
         checkout: checkout,
         adults: adults,
