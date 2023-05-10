@@ -6898,6 +6898,10 @@ var Search = function Search() {
     _useState12 = _slicedToArray(_useState11, 2),
     childAges = _useState12[0],
     setChildAges = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    isSubmitted = _useState14[0],
+    setIsSubmitted = _useState14[1];
   var handleInputChange = function handleInputChange(event) {
     setDestination(event.target.value);
   };
@@ -6920,6 +6924,7 @@ var Search = function Search() {
   };
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
+    setIsSubmitted(true);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     id: "title"
@@ -6977,7 +6982,7 @@ var Search = function Search() {
     }));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "submit"
-  }, "Search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Hotels_Hotel__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "Search")), isSubmitted && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Hotels_Hotel__WEBPACK_IMPORTED_MODULE_2__["default"], {
     destination: destination,
     checkin: checkin,
     checkout: checkout,
@@ -6991,7 +6996,7 @@ var Search = function Search() {
     adults: adults,
     children: children,
     childAges: childAges
-  }));
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
 
@@ -7006,9 +7011,14 @@ var Search = function Search() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AMADEUS": () => (/* binding */ AMADEUS),
 /* harmony export */   "XRAPIDAPIKEY": () => (/* binding */ XRAPIDAPIKEY)
 /* harmony export */ });
 var XRAPIDAPIKEY = "7085afcacamshc630e35d43b7a57p1c29f0jsn1141b67ce584";
+var AMADEUS = {
+  clientID: "KcXvSmT1VAkAhQNqeTeF9GvNvVzs8SY6",
+  clientSecret: "cxh730J5VH6DZN66"
+};
 
 /***/ }),
 

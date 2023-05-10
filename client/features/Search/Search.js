@@ -9,6 +9,7 @@ const Search = () => {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [childAges, setChildAges] = useState([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (event) => {
     setDestination(event.target.value);
@@ -38,6 +39,7 @@ const Search = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSubmitted(true);
   };
 
   return (
@@ -106,23 +108,26 @@ const Search = () => {
 
         <button type="submit">Search</button>
       </form>
-
-      <Hotel
-        destination={destination}
-        checkin={checkin}
-        checkout={checkout}
-        adults={adults}
-        children={children}
-        childAges={childAges}
-      />
-      <Airbnb
-        destination={destination}
-        checkin={checkin}
-        checkout={checkout}
-        adults={adults}
-        children={children}
-        childAges={childAges}
-      />
+      {isSubmitted && (
+        <>
+          <Hotel
+            destination={destination}
+            checkin={checkin}
+            checkout={checkout}
+            adults={adults}
+            children={children}
+            childAges={childAges}
+          />
+          <Airbnb
+            destination={destination}
+            checkin={checkin}
+            checkout={checkout}
+            adults={adults}
+            children={children}
+            childAges={childAges}
+          />
+        </>
+      )}
     </div>
   );
 };
