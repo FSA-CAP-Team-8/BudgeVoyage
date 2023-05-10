@@ -8,8 +8,9 @@ const home = () => {
       <video src="/budgevoyage.mp4" autoPlay muted loop></video>
       <div class="overlay">
         <h2>
-          Take our Quiz<br></br>
-          and start your travel journey
+          Start <br></br>your <br></br>Voyage
+          <br></br>
+          take our quiz
         </h2>
       </div>
       {/* </NavLink> */}

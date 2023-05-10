@@ -6746,7 +6746,7 @@ var home = function home() {
     loop: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     "class": "overlay"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Take our Quiz", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "and start your travel journey")));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Start ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "your ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Voyage", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "take our quiz")));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (home);
 
@@ -6810,11 +6810,41 @@ __webpack_require__.r(__webpack_exports__);
 
 var OurStory = function OurStory() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "background",
+    className: "bgimg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "about",
     className: "ourstory"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Spend less time worrying about logistics and more time enjoying your travels."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    id: "ourstory"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Welcome to BudgeVoyage, our innovative travel planning web app! We understand that planning a trip can be stressful, especially when it comes to staying within a budget. That's why we've designed a simple and easy-to-use platform that guides you through a set of questions and populates a set of cards with flights and hotel options that match your budget. You can then choose to like or dislike the cards presented. When satisfied with both BudgeVoyage will create a travel package you can then add to your Bucketlist. Bucketlist is where all your chosen packages are stored."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Our goal is to help you plan the perfect getaway without breaking the bank. With our app, you can spend less time worrying about logistics and more time enjoying your travels. We're dedicated to making your trip planning experience as seamless and stress-free as possible."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "So why wait? Sign up today and start planning your dream vacation on a budget!")));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Spend less time worrying about logistics and more time enjoying your travels.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "arrow",
+    src: "./photogrid/arrow.png"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "about"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Welcome to BudgeVoyage, our innovative travel planning web app! We understand that planning a trip can be stressful, especially when it comes to staying within a budget. That's why we've designed a simple and easy-to-use platform that guides you through a set of questions and populates a set of cards with flights and hotel options that match your budget. You can then choose to like or dislike the cards presented. When satisfied with both BudgeVoyage will create a travel package you can then add to your Bucketlist. Bucketlist is where all your chosen packages are stored."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Our goal is to help you plan the perfect getaway without breaking the bank. With our app, you can spend less time worrying about logistics and more time enjoying your travels. We're dedicated to making your trip planning experience as seamless and stress-free as possible."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "So why wait? Sign up today and start planning your dream vacation on a budget!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "row",
+    className: "column"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "insta",
+    src: "./photogrid/1.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "insta",
+    src: "./photogrid/2.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "insta",
+    src: "./photogrid/3.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "insta",
+    src: "./photogrid/4.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "insta",
+    src: "./photogrid/5.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "insta",
+    src: "./photogrid/6.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "insta",
+    src: "./photogrid/7.png"
+  })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OurStory);
 
