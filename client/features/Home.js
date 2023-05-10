@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const home = () => {
   return (
     <div id="home" className="home">
-      {/* <NavLink to={`/triproutehere/${trip.id}`}> */}
+      <NavLink to={"/quiz"}>
       <video src="/budgevoyage.mp4" autoPlay muted loop></video>
       <div class="overlay">
         <h2>
@@ -13,7 +13,7 @@ const home = () => {
           take our quiz
         </h2>
       </div>
-      {/* </NavLink> */}
+      </NavLink>
     </div>
   );
 };
