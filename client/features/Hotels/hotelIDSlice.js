@@ -47,6 +47,7 @@ export const fetchHotelPrices = createAsyncThunk(
     };
 
     if (children > 0) {
+      console.log(childAges);
       params.children_number = children;
       params.children_ages = childAges;
     }
