@@ -1,46 +1,67 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchHotelID } from "./hotelIDSlice";
-import { fetchHotelPrice } from "./hotelPriceSlice";
+import { fetchHotelID, fetchHotelPrices } from "./hotelIDSlice";
 
 const Hotel = ({ destination, checkin, checkout, adults, children }) => {
   const dispatch = useDispatch();
-  const hotelID = useSelector((state) => state.hotelID);
-  const hotelPrice = useSelector((state) => state.hotelPrice);
-
-  useEffect(() => {
-    dispatch(fetchHotelID({ destination }));
-  }, [dispatch, destination]);
+  const hotelID = useSelector((state) => state.hotelID.data);
+  const error = useSelector((state) => state.hotelID.error);
 
   useEffect(() => {
     dispatch(
-      fetchHotelPrice({
-        dest_id: hotelID.results[0].dest_id,
-        checkin_date: checkin,
-        checkout_date: checkout,
-        adults: adults,
-        children: children,
+      fetchHotelID({
+        destination: destination,
       })
     );
-  }, [dispatch, hotelID, checkin, checkout, adults, children]);
+  }, [dispatch, destination]);
+
+  useEffect(() => {
+    if (hotelID) {
+      hotelID.forEach((hotel) => {
+        dispatch(
+          fetchHotelPrices({
+            dest_id: hotel.dest_id,
+            checkin: checkin,
+            checkout: checkout,
+            adults: adults,
+            children: children,
+          })
+        );
+      });
+    }
+  }, [hotelID, dispatch, checkin, checkout, adults, children]);
 
   return (
-    <div>
-      <h2>Hotels</h2>
-      {hotelPrice.results ? (
-        <div>
-          {hotelPrice.results.map((result) => (
-            <div key={result.id}>
-              <div>
-                <div>Name: {result.name}</div>
+    <>
+      <div>
+        <h2>Hotels</h2>
+        {error && <p>Error: {error}</p>}
+        {hotelID && (
+          <div>
+            {hotelID.map((result) => (
+              <div key={result.dest_id}>
+                <div>
+                  <div>Dest_ID: {result.dest_id}</div>{" "}
+                  <div>City_name: {result.city_name}</div>{" "}
+                  <div>region: {result.region}</div>{" "}
+                  <div>cc1: {result.cc1}</div>{" "}
+                  {/* {result.prices && result.prices.results && (
+                    <div>
+                      {result.prices.results.map((priceResult) => (
+                        <div key={priceResult.id}>
+                          <div>Hotel Name: {priceResult.name}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )} */}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
-    </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
