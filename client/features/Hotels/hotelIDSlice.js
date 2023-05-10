@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { XRAPIDAPIKEY_HOTEL_SEARCHLOCATION } from "../../secrets";
+import { XRAPIDAPIKEY } from "../../secrets";
 
 export const fetchHotelID = createAsyncThunk(
-  "hotel/fetch",
+  "hotel/fetchID",
   async ({ destination }) => {
     const options = {
       method: "GET",
@@ -13,7 +13,7 @@ export const fetchHotelID = createAsyncThunk(
         locale: "en-us",
       },
       headers: {
-        "X-RapidAPI-Key": XRAPIDAPIKEY_HOTEL_SEARCHLOCATION,
+        "X-RapidAPI-Key": XRAPIDAPIKEY,
         "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
       },
     };

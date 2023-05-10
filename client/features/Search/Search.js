@@ -86,7 +86,13 @@ const Search = () => {
 
       {isSubmitted && (
         <>
-          <Hotel destination={destination} />
+          <Hotel
+            destination={destination}
+            checkin={checkin}
+            checkout={checkout}
+            adults={adults}
+            children={children}
+          />
           <Airbnb
             destination={destination}
             checkin={checkin}

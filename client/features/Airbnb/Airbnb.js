@@ -14,7 +14,7 @@ const Airbnb = ({ destination, checkin, checkout, adults, children }) => {
   useEffect(() => {
     dispatch(
       fetchAirbnbListings({
-        destination: destination,
+        location: destination,
         checkin: checkin,
         checkout: checkout,
         adults: adults,
