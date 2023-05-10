@@ -6425,12 +6425,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _features_Search_Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../features/Search/Search */ "./client/features/Search/Search.js");
 /* harmony import */ var _features_Airbnb_Airbnb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../features/Airbnb/Airbnb */ "./client/features/Airbnb/Airbnb.js");
 /* harmony import */ var _features_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../features/Home */ "./client/features/Home.js");
 /* harmony import */ var _features_Ourstory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../features/Ourstory */ "./client/features/Ourstory.js");
 /* harmony import */ var _features_Bucketlist_BucketList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../features/Bucketlist/BucketList */ "./client/features/Bucketlist/BucketList.js");
+/* harmony import */ var _features_Quiz_Quiz__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../features/Quiz/Quiz */ "./client/features/Quiz/Quiz.js");
+
 
 
 
@@ -6441,24 +6443,27 @@ __webpack_require__.r(__webpack_exports__);
 var AppRoutes = function AppRoutes() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "routes"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/search",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_Search_Search__WEBPACK_IMPORTED_MODULE_1__["default"], {
       name: "search",
       displayName: "Search"
     })
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_Home__WEBPACK_IMPORTED_MODULE_3__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/ourstory",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_Ourstory__WEBPACK_IMPORTED_MODULE_4__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/bucketlist",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_Bucketlist_BucketList__WEBPACK_IMPORTED_MODULE_5__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
     path: "/airbnb",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_Airbnb_Airbnb__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+    path: "/quiz",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_Quiz_Quiz__WEBPACK_IMPORTED_MODULE_6__["default"], null)
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRoutes);
@@ -6653,7 +6658,7 @@ var fetchAirbnbListings = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.creat
               currency: "USD"
             },
             headers: {
-              "X-RapidAPI-Key": _secrets__WEBPACK_IMPORTED_MODULE_0__.XRAPIDAPIKEY,
+              "X-RapidAPI-Key": _secrets__WEBPACK_IMPORTED_MODULE_0__.XRAPIDAPIKEYAIR,
               "X-RapidAPI-Host": "airbnb13.p.rapidapi.com"
             }
           };
@@ -6733,12 +6738,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 
 
 var home = function home() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "home",
     className: "home"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+    to: "/quiz"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("video", {
     src: "/budgevoyage.mp4",
     autoPlay: true,
@@ -6746,7 +6754,7 @@ var home = function home() {
     loop: true
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     "class": "overlay"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Start ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "your ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Voyage", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "take our quiz")));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Start ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "your ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Voyage", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "take our quiz"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (home);
 
@@ -6847,6 +6855,40 @@ var OurStory = function OurStory() {
   })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OurStory);
+
+/***/ }),
+
+/***/ "./client/features/Quiz/Quiz.js":
+/*!**************************************!*\
+  !*** ./client/features/Quiz/Quiz.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+var Quiz = function Quiz() {
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var quiz = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.quiz;
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "quiz"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "What is your budget?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Where are you traveling to?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Which airline are you traveling with?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Which days will you need lodging?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "What is your lodging preference?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "How many adults and children are you traveling with?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Are you traveling with a pet?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: function onClick() {
+      return handleSubmit(quiz);
+    }
+  }, "READY FOR MY VOYAGE"))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Quiz);
 
 /***/ }),
 
@@ -6978,9 +7020,13 @@ var Search = function Search() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "XRAPIDAPIKEY": () => (/* binding */ XRAPIDAPIKEY)
+/* harmony export */   "XRAPIDAPIKEYAIR": () => (/* binding */ XRAPIDAPIKEYAIR),
+/* harmony export */   "XRAPIDAPIKEYFLIGHTS": () => (/* binding */ XRAPIDAPIKEYFLIGHTS),
+/* harmony export */   "XRAPIDAPIKEYHOTELS": () => (/* binding */ XRAPIDAPIKEYHOTELS)
 /* harmony export */ });
-var XRAPIDAPIKEY = "7085afcacamshc630e35d43b7a57p1c29f0jsn1141b67ce584";
+var XRAPIDAPIKEYAIR = "f7c499bf21mshcb1ea0ef8b8663fp194348jsn7668c061259f";
+var XRAPIDAPIKEYFLIGHTS = "f7c499bf21mshcb1ea0ef8b8663fp194348jsn7668c061259f";
+var XRAPIDAPIKEYHOTELS = "f7c499bf21mshcb1ea0ef8b8663fp194348jsn7668c061259f";
 
 /***/ }),
 
