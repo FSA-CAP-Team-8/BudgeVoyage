@@ -14,11 +14,13 @@ const Card = () => {
   return (
     <>
       <div id="flightcard">
+        <button />
         <image id=""></image>
         <div id="flightprice">${flight.price}</div>
       </div>
 
       <div id="lodgingcard">
+        <button />
         <image id=""></image>
         <div id="lodgingprice">${lodging.price}</div>
       </div>
