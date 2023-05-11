@@ -73,14 +73,10 @@ header {
   align-items: center;
   justify-content: space-between;
   background: white;
-  position: relative;
   width: 100%;
   text-align: center;
   color: black;
   padding: 0.3em;
-  z-index: 1;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
 }
 
 nav {
@@ -165,51 +161,49 @@ nav a {
   padding-left: 1em;
   font-size: 15px;
 }
-
 #routes {
   height: 100vh;
   margin: 5px;
 }
 
 .submitForm {
-  border: 5px solid red;
   display: flex;
-  justify-content: space-evenly;
-  font-weight: 500;
-  height: fit-content;
-  justify-content: space-around;
-  font-size: large;
-  gap: 30px;
+  font-size: medium;
+  gap: rem;
+  flex-direction: column;
+  width: 100%;
 }
 
-.submitForm input#destination {
-  width: 300px;
+.submitForm input,
+label {
+  height: 2rem;
+  font-size: 1.3rem;
 }
 
 .hotelComponent {
-  border: 5px solid orange;
-  width: fit-content;
   flex-grow: 1;
 }
 
 .searchComponent {
-  border: 5px solid green;
   display: flex;
   flex-direction: column;
 }
 
 .generateComponent {
-  border: 5px solid blue;
   flex-grow: 0.5;
+  text-align: center;
+}
+
+.generateComponent li {
+  list-style: none;
 }
 
 .airbnbComponent {
-  border: 5px solid indigo;
   flex-grow: 1;
 }
+
 .formResults {
   display: flex;
-  border: 5px solid violet;
   justify-content: center;
-  column-gap: 55px;
+  column-gap: 2.75rem;
 }
