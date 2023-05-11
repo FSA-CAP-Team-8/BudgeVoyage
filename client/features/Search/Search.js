@@ -44,70 +44,72 @@ const Search = () => {
 
   return (
     <div className="mainSearch">
-      <h1 id="title">BudgeVoyage</h1>
-      <div>Where would you like to go?</div>
+      <div className="formContainer">
+        <h1 id="title">BudgeVoyage</h1>
+        <div>Where would you like to go?</div>
+        <form onSubmit={handleSubmit} className="mainForm">
+          <label htmlFor="destination">Destination:</label>
+          <input
+            type="text"
+            id="destination"
+            value={destination}
+            onChange={handleInputChange}
+          />
 
-      <form onSubmit={handleSubmit} className="mainForm">
-        <label htmlFor="destination">Destination:</label>
-        <input
-          type="text"
-          id="destination"
-          value={destination}
-          onChange={handleInputChange}
-        />
+          <label htmlFor="checkin">Check-in:</label>
+          <input
+            type="date"
+            id="checkin"
+            value={checkin}
+            onChange={handleCheckinChange}
+          />
 
-        <label htmlFor="checkin">Check-in:</label>
-        <input
-          type="date"
-          id="checkin"
-          value={checkin}
-          onChange={handleCheckinChange}
-        />
+          <label htmlFor="checkout">Check-out:</label>
+          <input
+            type="date"
+            id="checkout"
+            value={checkout}
+            onChange={handleCheckoutChange}
+          />
 
-        <label htmlFor="checkout">Check-out:</label>
-        <input
-          type="date"
-          id="checkout"
-          value={checkout}
-          onChange={handleCheckoutChange}
-        />
+          <label htmlFor="adults">Adults:</label>
+          <input
+            type="number"
+            id="adults"
+            value={adults}
+            onChange={handleAdultsChange}
+          />
 
-        <label htmlFor="adults">Adults:</label>
-        <input
-          type="number"
-          id="adults"
-          value={adults}
-          onChange={handleAdultsChange}
-        />
+          <label htmlFor="children">Children:</label>
+          <input
+            type="number"
+            id="children"
+            value={children}
+            onChange={handleChildrenChange}
+          />
 
-        <label htmlFor="children">Children:</label>
-        <input
-          type="number"
-          id="children"
-          value={children}
-          onChange={handleChildrenChange}
-        />
+          {children > 0 && (
+            <>
+              {Array.from({ length: children }, (_, index) => (
+                <div key={index}>
+                  <label htmlFor={`childAge${index}`}>
+                    Child {index + 1} age:
+                  </label>
+                  <input
+                    type="number"
+                    id={`childAge${index}`}
+                    value={childAges[index]}
+                    onChange={(event) => handleChildAgeChange(index, event)}
+                  />
+                </div>
+              ))}
+            </>
+          )}
 
-        {children > 0 && (
-          <>
-            {Array.from({ length: children }, (_, index) => (
-              <div key={index}>
-                <label htmlFor={`childAge${index}`}>
-                  Child {index + 1} age:
-                </label>
-                <input
-                  type="number"
-                  id={`childAge${index}`}
-                  value={childAges[index]}
-                  onChange={(event) => handleChildAgeChange(index, event)}
-                />
-              </div>
-            ))}
-          </>
-        )}
+          <button type="submit">Search</button>
+        </form>
+      </div>
 
-        <button type="submit">Search</button>
-      </form>
       {isSubmitted && (
         <>
           <Hotel
