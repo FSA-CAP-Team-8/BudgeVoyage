@@ -44,93 +44,92 @@ const Search = () => {
   };
 
   return (
-    <div className="mainSearch">
-      <div className="formContainer">
-        <form onSubmit={handleSubmit} className="mainForm">
-          <label htmlFor="destination">Where would you like to go?</label>
-          <input
-            type="text"
-            id="destination"
-            value={destination}
-            onChange={handleInputChange}
-            placeholder="Enter the name of a city e.g. Spartanburg"
-          />
+    <div className="searchComponent">
+      <form onSubmit={handleSubmit} className="submitForm">
+        <label htmlFor="destination">Where would you like to go?</label>
+        <input
+          type="text"
+          id="destination"
+          value={destination}
+          onChange={handleInputChange}
+          placeholder="Enter the name of a city e.g. Spartanburg"
+        />
 
-          <label htmlFor="checkin">Check-in:</label>
-          <input
-            type="date"
-            id="checkin"
-            value={checkin}
-            onChange={handleCheckinChange}
-          />
+        <label htmlFor="checkin">Check-in:</label>
+        <input
+          type="date"
+          id="checkin"
+          value={checkin}
+          onChange={handleCheckinChange}
+        />
 
-          <label htmlFor="checkout">Check-out:</label>
-          <input
-            type="date"
-            id="checkout"
-            value={checkout}
-            onChange={handleCheckoutChange}
-          />
+        <label htmlFor="checkout">Check-out:</label>
+        <input
+          type="date"
+          id="checkout"
+          value={checkout}
+          onChange={handleCheckoutChange}
+        />
 
-          <label htmlFor="adults">Adults:</label>
-          <input
-            type="number"
-            id="adults"
-            value={adults}
-            onChange={handleAdultsChange}
-          />
+        <label htmlFor="adults">Adults:</label>
+        <input
+          type="number"
+          id="adults"
+          value={adults}
+          onChange={handleAdultsChange}
+        />
 
-          <label htmlFor="children">Children:</label>
-          <input
-            type="number"
-            id="children"
-            value={children}
-            onChange={handleChildrenChange}
-          />
+        <label htmlFor="children">Children:</label>
+        <input
+          type="number"
+          id="children"
+          value={children}
+          onChange={handleChildrenChange}
+        />
 
-          {children > 0 && (
-            <>
-              {Array.from({ length: children }, (_, index) => (
-                <div key={index}>
-                  <label htmlFor={`childAge${index}`}>
-                    Child {index + 1} age:
-                  </label>
-                  <input
-                    type="number"
-                    id={`childAge${index}`}
-                    value={childAges[index]}
-                    onChange={(event) => handleChildAgeChange(index, event)}
-                  />
-                </div>
-              ))}
-            </>
-          )}
+        {children > 0 && (
+          <>
+            {Array.from({ length: children }, (_, index) => (
+              <div key={index}>
+                <label htmlFor={`childAge${index}`}>
+                  Child {index + 1} age:
+                </label>
+                <input
+                  type="number"
+                  id={`childAge${index}`}
+                  value={childAges[index]}
+                  onChange={(event) => handleChildAgeChange(index, event)}
+                />
+              </div>
+            ))}
+          </>
+        )}
 
-          <button type="submit">Search</button>
-        </form>
-      </div>
-
-      {isSubmitted && (
-        <>
-          <Hotel
-            destination={destination}
-            checkin={checkin}
-            checkout={checkout}
-            adults={adults}
-            children={children}
-            childAges={childAges}
-          />
-          <Airbnb
-            destination={destination}
-            checkin={checkin}
-            checkout={checkout}
-            adults={adults}
-          />
-          <div>
+        <button type="submit">Search</button>
+      </form>
+      <div className="formResults">
+        {isSubmitted && (
+          <>
             <Generate destination={destination} />
-          </div>
-        </>
-      )}
+
+            <Hotel
+              destination={destination}
+              checkin={checkin}
+              checkout={checkout}
+              adults={adults}
+              children={children}
+              childAges={childAges}
+            />
+
+            <Airbnb
+              destination={destination}
+              checkin={checkin}
+              checkout={checkout}
+              adults={adults}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };

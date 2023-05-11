@@ -34,44 +34,17 @@ const Generate = ({ destination }) => {
   return (
     <div className="generateComponent">
       {result && result.result && (
-        <div>
-          <h2>Top Places to Visit</h2>
+        <>
+          <h2>Top Places to Visit in {destination}</h2>
           <ul>
             {result.result.split(", ").map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
-        </div>
+        </>
       )}
     </div>
   );
 };
 
 export default Generate;
-
-/** Dummy Data Below */
-
-// import React from "react";
-
-// const Generate = ({ destination }) => {
-//   const dummyData = {
-//     result: "Place A, Place B, Place C, Place D, Place E",
-//   };
-
-//   return (
-//     <div className="generateComponent">
-//       {dummyData && dummyData.result && (
-//         <div>
-//           <h2>Top Places to Visit</h2>
-//           <ul>
-//             {dummyData.result.split(", ").map((item, i) => (
-//               <li key={i}>{item}</li>
-//             ))}
-//           </ul>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Generate;

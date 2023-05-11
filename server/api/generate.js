@@ -58,9 +58,9 @@ function generatePrompt(destination) {
   return `Provide 3 suggestions on things to do when you visit a destination.
 
 destination: New York
-Suggestions: Statue of Liberty, One World Trade, and Yankee Stadium
+Suggestions: Statue of Liberty, One World Trade, and Yankee Stadium. 
 destination: Los Angeles
-Suggestions: Hollywood Sign, Santa Monica Pier, Hollywood Walk of Fame
+Suggestions: Hollywood Sign, Santa Monica Pier, Hollywood Walk of Fame. 
 destination: ${capitalizedDestination}
 Suggestions:`;
 }
