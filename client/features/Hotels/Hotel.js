@@ -41,46 +41,46 @@
 //   }, [hotelID, dispatch, checkin, checkout, adults, childAges]);
 
 //   return (
-//     <>
-//       <div>
-//         <h2>Hotels</h2>
-//         {error && <p>Error: {error}</p>}
-//         {hotelID && (
-//           <div className="apiResults">
-//             {hotelID.map((result) => (
-//               <div key={result.dest_id}>
-//                 <div>
-//                   {result.prices && result.prices.results && (
-//                     <div>
-//                       {result.prices.results.map((priceResult) => (
-//                         <div key={priceResult.id}>
-//                           <div className="resultsCards">
-//                             <img
-//                               src={priceResult.photoMainUrl}
-//                               alt="hotelImages"
-//                               style={{ width: "300px", height: "225px" }}
-//                             />
-//                             <li>Hotel Name: {priceResult.name}</li>
-//                             <li>
-//                               Total Price: $
-//                               {priceResult.priceBreakdown.grossPrice.value}
-//                             </li>
-//                           </div>
+//     <div className="component">
+//       <h2>Hotels</h2>
+//       {error && <p>Error: {error}</p>}
+//       {hotelID && (
+//         <div className="apiResults">
+//           {hotelID.map((result) => (
+//             <div key={result.dest_id}>
+//               <div>
+//                 {result.prices && result.prices.results && (
+//                   <div>
+//                     {result.prices.results.map((priceResult) => (
+//                       <div key={priceResult.id}>
+//                         <div className="resultsCards">
+//                           <img
+//                             src={priceResult.photoMainUrl}
+//                             alt="hotelImages"
+//                             style={{ width: "300px", height: "225px" }}
+//                           />
+//                           <li>Hotel Name: {priceResult.name}</li>
+//                           <li>
+//                             Total Price: $
+//                             {priceResult.priceBreakdown.grossPrice.value}
+//                           </li>
 //                         </div>
-//                       ))}
-//                     </div>
-//                   )}
-//                 </div>
+//                       </div>
+//                     ))}
+//                   </div>
+//                 )}
 //               </div>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//     </>
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </div>
 //   );
 // };
 
 // export default Hotel;
+
+/** The following is dummy data */
 
 import React from "react";
 

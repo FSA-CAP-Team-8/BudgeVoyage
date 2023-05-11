@@ -19,40 +19,40 @@
 //   }, [dispatch, destination, checkin, checkout, adults]);
 
 //   return (
-//     <>
-//       <div>
-//         <h2>Airbnb</h2>
-//         {airbnb.results && (
-//           <div className="apiResults">
-//             {airbnb.results.map((result, index) => (
-//               <div key={`result-${index}`}>
-//                 <div className="resultsCards">
-//                   <img
-//                     src={result.images[0]}
-//                     alt="airbnbImages"
-//                     style={{ width: "300px", height: "225px" }}
-//                   />
-//                   <a
-//                     href={result.deeplink}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                   >
-//                     {" "}
-//                     <div>{result.name}</div>
-//                   </a>
-//                   <li>Type: {result.type}</li>{" "}
-//                   <li>Total Price: ${result.price.total}</li>{" "}
-//                 </div>
+//     <div className="component">
+//       <h2>Airbnb</h2>
+//       {airbnb.results && (
+//         <div className="apiResults">
+//           {airbnb.results.map((result, index) => (
+//             <div key={`result-${index}`}>
+//               <div className="resultsCards">
+//                 <img
+//                   src={result.images[0]}
+//                   alt="airbnbImages"
+//                   style={{ width: "300px", height: "225px" }}
+//                 />
+//                 <a
+//                   href={result.deeplink}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                 >
+//                   {" "}
+//                   <div>{result.name}</div>
+//                 </a>
+//                 <li>Type: {result.type}</li>{" "}
+//                 <li>Total Price: ${result.price.total}</li>{" "}
 //               </div>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//     </>
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </div>
 //   );
 // };
 
 // export default Airbnb;
+
+/** The Following Data is Dummy Data */
 
 import React from "react";
 
