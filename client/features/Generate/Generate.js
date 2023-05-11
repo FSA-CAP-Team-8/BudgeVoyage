@@ -32,7 +32,7 @@ const Generate = ({ destination }) => {
   }, [destination]);
 
   return (
-    <div>
+    <div className="generateComponent">
       {result && result.result && (
         <div>
           <h2>Top Places to Visit</h2>
