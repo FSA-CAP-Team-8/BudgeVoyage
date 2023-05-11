@@ -43,11 +43,11 @@ const Search = () => {
   };
 
   return (
-    <div>
+    <div className="mainSearch">
       <h1 id="title">BudgeVoyage</h1>
       <div>Where would you like to go?</div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="mainForm">
         <label htmlFor="destination">Destination:</label>
         <input
           type="text"
@@ -123,8 +123,6 @@ const Search = () => {
             checkin={checkin}
             checkout={checkout}
             adults={adults}
-            children={children}
-            childAges={childAges}
           />
         </>
       )}
