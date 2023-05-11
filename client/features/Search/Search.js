@@ -46,14 +46,14 @@ const Search = () => {
     <div className="mainSearch">
       <div className="formContainer">
         <h1 id="title">BudgeVoyage</h1>
-        <div>Where would you like to go?</div>
         <form onSubmit={handleSubmit} className="mainForm">
-          <label htmlFor="destination">Destination:</label>
+          <label htmlFor="destination">Where would you like to go?</label>
           <input
             type="text"
             id="destination"
             value={destination}
             onChange={handleInputChange}
+            placeholder="e.g. San Diego"
           />
 
           <label htmlFor="checkin">Check-in:</label>

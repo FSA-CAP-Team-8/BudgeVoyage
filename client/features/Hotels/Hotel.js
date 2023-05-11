@@ -60,11 +60,11 @@
 //                               alt="hotelImages"
 //                               style={{ width: "300px", height: "225px" }}
 //                             />
-//                             <div>Hotel Name: {priceResult.name}</div>
-//                             <div>
+//                             <li>Hotel Name: {priceResult.name}</li>
+//                             <li>
 //                               Total Price: $
 //                               {priceResult.priceBreakdown.grossPrice.value}
-//                             </div>
+//                             </li>
 //                           </div>
 //                         </div>
 //                       ))}
