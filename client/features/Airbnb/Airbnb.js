@@ -76,6 +76,69 @@ const Airbnb = () => {
         total: 100,
       },
     },
+    {
+      name: "Airbnb Listing B",
+      images: ["https://example.com/airbnb-b.jpg"],
+      deeplink: "https://example.com/airbnb-b",
+      type: "Private Room",
+      price: {
+        total: 100,
+      },
+    },
+    {
+      name: "Airbnb Listing B",
+      images: ["https://example.com/airbnb-b.jpg"],
+      deeplink: "https://example.com/airbnb-b",
+      type: "Private Room",
+      price: {
+        total: 100,
+      },
+    },
+    {
+      name: "Airbnb Listing B",
+      images: ["https://example.com/airbnb-b.jpg"],
+      deeplink: "https://example.com/airbnb-b",
+      type: "Private Room",
+      price: {
+        total: 100,
+      },
+    },
+    {
+      name: "Airbnb Listing B",
+      images: ["https://example.com/airbnb-b.jpg"],
+      deeplink: "https://example.com/airbnb-b",
+      type: "Private Room",
+      price: {
+        total: 100,
+      },
+    },
+    {
+      name: "Airbnb Listing B",
+      images: ["https://example.com/airbnb-b.jpg"],
+      deeplink: "https://example.com/airbnb-b",
+      type: "Private Room",
+      price: {
+        total: 100,
+      },
+    },
+    {
+      name: "Airbnb Listing B",
+      images: ["https://example.com/airbnb-b.jpg"],
+      deeplink: "https://example.com/airbnb-b",
+      type: "Private Room",
+      price: {
+        total: 100,
+      },
+    },
+    {
+      name: "Airbnb Listing B",
+      images: ["https://example.com/airbnb-b.jpg"],
+      deeplink: "https://example.com/airbnb-b",
+      type: "Private Room",
+      price: {
+        total: 100,
+      },
+    },
   ];
 
   return (

@@ -141,6 +141,83 @@ const Hotel = () => {
               },
             },
           },
+          {
+            id: 4,
+            name: "Hotel D",
+            photoMainUrl: "https://example.com/hotel-d.jpg",
+            priceBreakdown: {
+              grossPrice: {
+                value: 200,
+                currency: "USD",
+              },
+            },
+          },
+          {
+            id: 4,
+            name: "Hotel D",
+            photoMainUrl: "https://example.com/hotel-d.jpg",
+            priceBreakdown: {
+              grossPrice: {
+                value: 200,
+                currency: "USD",
+              },
+            },
+          },
+          {
+            id: 4,
+            name: "Hotel D",
+            photoMainUrl: "https://example.com/hotel-d.jpg",
+            priceBreakdown: {
+              grossPrice: {
+                value: 200,
+                currency: "USD",
+              },
+            },
+          },
+          {
+            id: 4,
+            name: "Hotel D",
+            photoMainUrl: "https://example.com/hotel-d.jpg",
+            priceBreakdown: {
+              grossPrice: {
+                value: 200,
+                currency: "USD",
+              },
+            },
+          },
+          {
+            id: 4,
+            name: "Hotel D",
+            photoMainUrl: "https://example.com/hotel-d.jpg",
+            priceBreakdown: {
+              grossPrice: {
+                value: 200,
+                currency: "USD",
+              },
+            },
+          },
+          {
+            id: 4,
+            name: "Hotel D",
+            photoMainUrl: "https://example.com/hotel-d.jpg",
+            priceBreakdown: {
+              grossPrice: {
+                value: 200,
+                currency: "USD",
+              },
+            },
+          },
+          {
+            id: 4,
+            name: "Hotel D",
+            photoMainUrl: "https://example.com/hotel-d.jpg",
+            priceBreakdown: {
+              grossPrice: {
+                value: 200,
+                currency: "USD",
+              },
+            },
+          },
         ],
       },
     },
@@ -162,11 +239,11 @@ const Hotel = () => {
                         alt="hotelImages"
                         style={{ width: "300px", height: "225px" }}
                       />
-                      <div>Hotel Name: {priceResult.name}</div>
-                      <div>
+                      <li>Hotel Name: {priceResult.name}</li>
+                      <li>
                         Total Price: $
                         {priceResult.priceBreakdown.grossPrice.value}
-                      </div>
+                      </li>
                     </div>
                   </div>
                 ))}

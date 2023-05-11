@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
 import Hotel from "../Hotels/Hotel";
+import Generate from "../Generate/Generate";
 
 const Search = () => {
   const [destination, setDestination] = useState("");
@@ -53,7 +54,7 @@ const Search = () => {
             id="destination"
             value={destination}
             onChange={handleInputChange}
-            placeholder="e.g. San Diego"
+            placeholder="e.g. New York"
           />
 
           <label htmlFor="checkin">Check-in:</label>
@@ -112,6 +113,7 @@ const Search = () => {
 
       {isSubmitted && (
         <>
+          <Generate destination={destination} />
           <Hotel
             destination={destination}
             checkin={checkin}

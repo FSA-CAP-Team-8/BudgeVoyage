@@ -186,6 +186,5 @@ nav a {
 
 .component {
   border: yellow 5px dashed;
-
   flex-grow: 2;
 }
