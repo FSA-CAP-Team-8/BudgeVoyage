@@ -39,7 +39,6 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                   {" "}
                   <div>{result.name}</div>
                 </a>
-                <li>Type: {result.type}</li>{" "}
                 <li>Total Price: ${result.price.total}</li>{" "}
               </div>
             </div>

@@ -59,7 +59,7 @@ const Hotel = ({
                             alt="hotelImages"
                             style={{ width: "300px", height: "225px" }}
                           />
-                          <li>Hotel Name: {priceResult.name}</li>
+                          <div>{priceResult.name}</div>
                           <li>
                             Total Price: $
                             {priceResult.priceBreakdown.grossPrice.value}

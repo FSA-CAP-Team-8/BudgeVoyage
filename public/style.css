@@ -192,3 +192,8 @@ nav a {
   max-width: fit-content;
   max-height: 500px;
 }
+
+.resultsCards {
+  width: 400;
+  height: 300;
+}

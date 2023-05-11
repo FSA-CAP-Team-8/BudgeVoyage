@@ -46,7 +46,6 @@ const Search = () => {
   return (
     <div className="mainSearch">
       <div className="formContainer">
-        <h1 id="title">BudgeVoyage</h1>
         <form onSubmit={handleSubmit} className="mainForm">
           <label htmlFor="destination">Where would you like to go?</label>
           <input
@@ -54,7 +53,7 @@ const Search = () => {
             id="destination"
             value={destination}
             onChange={handleInputChange}
-            placeholder="e.g. New York"
+            placeholder="Enter the name of a city e.g. Spartanburg"
           />
 
           <label htmlFor="checkin">Check-in:</label>
@@ -113,7 +112,6 @@ const Search = () => {
 
       {isSubmitted && (
         <>
-          <Generate destination={destination} />
           <Hotel
             destination={destination}
             checkin={checkin}
@@ -128,6 +126,9 @@ const Search = () => {
             checkout={checkout}
             adults={adults}
           />
+          <div>
+            <Generate destination={destination} />
+          </div>
         </>
       )}
     </div>
