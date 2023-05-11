@@ -50,23 +50,22 @@ const Hotel = ({
             {hotelID.map((result) => (
               <div key={result.dest_id}>
                 <div>
-                  <div>Dest_ID: {result.dest_id}</div>{" "}
-                  <div>City_name: {result.city_name}</div>{" "}
-                  <div>region: {result.region}</div>{" "}
-                  <div>cc1: {result.cc1}</div>{" "}
+                  {/* <div>Dest_ID: {result.dest_id}</div>{" "}
+                  <div>City_name: {result.city_name}</div>{" "} */}
+                  {/* <div>region: {result.region}</div>{" "}
+                  <div>cc1: {result.cc1}</div>{" "} */}
                   {result.prices && result.prices.results && (
                     <div>
                       {result.prices.results.map((priceResult) => (
                         <div key={priceResult.id}>
-                          {/* <img
-                            src="{priceresult.photoMainUrl}"
-                            alt="main hotel image"
-                            style={{ width: "300px", height: "225px" }}
-                          /> */}
                           <div>Hotel Name: {priceResult.name}</div>
-                          {/* <div>
-                            Hotel Rate: {priceResult.priceBreakdown.grossPrice}
-                          </div> */}
+                          <div>
+                            <img
+                              src={priceResult.photoMainUrl}
+                              alt="hotelImages"
+                              style={{ width: "300px", height: "225px" }}
+                            />
+                          </div>
                         </div>
                       ))}
                     </div>

@@ -38,7 +38,7 @@ const Airbnb = ({
                 <div>
                   <img
                     src={result.images[0]}
-                    alt="First Airbnb image"
+                    alt="airbnbImages"
                     style={{ width: "300px", height: "225px" }}
                   />
                   <a
