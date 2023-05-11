@@ -42,7 +42,7 @@ const Hotel = ({
 
   return (
     <div className="hotelComponent">
-      <h2>Hotels</h2>
+      <h2>Hotel Results</h2>
       {error && <p>Error: {error}</p>}
       {hotelID && (
         <div>
@@ -53,7 +53,7 @@ const Hotel = ({
                   <div>
                     {result.prices.results.map((priceResult) => (
                       <div key={priceResult.id}>
-                        <div>
+                        <div className="lodgingCards">
                           <img
                             src={priceResult.photoMainUrl}
                             alt="hotelImages"

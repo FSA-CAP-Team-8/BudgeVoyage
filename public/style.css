@@ -168,16 +168,32 @@ nav a {
 
 .submitForm {
   display: flex;
-  font-size: medium;
-  gap: rem;
+  gap: 1rem;
   flex-direction: column;
   width: 100%;
+  align-items: center;
 }
 
 .submitForm input,
 label {
   height: 2rem;
   font-size: 1.3rem;
+  text-align: center;
+}
+
+.submitForm input:last-of-type {
+  width: 15%;
+}
+
+.submitForm input:nth-last-of-type(2) {
+  width: 15%;
+}
+
+.submitForm button {
+  background: dodgerblue;
+  border-radius: 6px;
+  color: white;
+  font-size: 4vw;
 }
 
 .hotelComponent {
@@ -190,7 +206,7 @@ label {
 }
 
 .generateComponent {
-  flex-grow: 0.5;
+  flex-shrink: 1;
   text-align: center;
 }
 
@@ -206,4 +222,8 @@ label {
   display: flex;
   justify-content: center;
   column-gap: 2.75rem;
+}
+
+.lodgingCards {
+  margin-bottom: 15px;
 }

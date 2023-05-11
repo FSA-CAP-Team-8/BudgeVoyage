@@ -25,7 +25,7 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
         <div>
           {airbnb.results.map((result, index) => (
             <div key={`result-${index}`}>
-              <div>
+              <div className="lodgingCards">
                 <img
                   src={result.images[0]}
                   alt="airbnbImages"
