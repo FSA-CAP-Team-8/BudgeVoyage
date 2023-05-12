@@ -204,3 +204,12 @@ nav a {
   margin-left:0%;
 }
 
+
+/* our Team */
+#theteam{
+  display: flex;
+  color: rgb(17, 32, 91);
+  padding-top: 3.5em;
+  padding-left: 1em;
+  font-size: 20px;
+}

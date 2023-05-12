@@ -3,22 +3,34 @@ import React from "react";
 const OurTeam = () => {
   return (
     <div id="theteam" className="theteam">
-      <h1>
-        Spend less time worrying about logistics and more time enjoying your
-        travels.
-      </h1>
-      <div id="about">
+      <h1>Meet the Team</h1>
+      <div id="ourteam">
         <p>
-          Welcome to BudgeVoyage, our innovative travel planning web app! We
-          understand that planning a trip can be stressful, especially when it
-          comes to staying within a budget. That's why we've designed a simple
-          and easy-to-use platform that guides you through a set of questions
-          and populates a set of cards with flights and hotel options that match
-          your budget. You can then choose to like or dislike the cards
-          presented. When satisfied with both BudgeVoyage will create a travel
-          package you can then add to your Bucketlist. Bucketlist is where all
-          your chosen packages are stored.
+          Hello, we are the team behind BudgeVoyage, an innovative application
+          to help you travel within your budget. We all had one thing in common,
+          we love to travel but hate the planning process. We wanted to create
+          an app that worked as a travel advisors and focused on our users
+          budget. Our application allows users to focus on the fun and leave the
+          financial calculations to BudgeVoyage. Take our quiz and enjoy the
+          stress free experience of finding the right travel package fr your
+          financial needs.
         </p>
+        <div className="teamrow">
+          <div className="column">
+            <div className="card">
+              <img src="" alt="veronica"></img>
+              <div class="teamcontainer">
+                <h2>Veronica Cisneros</h2>
+                <p className="title">add role here</p>
+                <p>some text that descries me lorem ipsum ipsum lorem.</p>
+                <p>vcisneroshdz@gmail.com</p>
+                <p>
+                  <button className="btn">contact</button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
