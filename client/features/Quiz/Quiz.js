@@ -145,18 +145,7 @@ const Quiz = () => {
               <button id="nextbtn" type="submit">
                 {isSubmitted ? "Ready for you Voyage" : "Next"}
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  );
-};
-
-export default Quiz;
-
-{
-  /* <>
+              {/* <>
                 <Hotel
                   destination={destination}
                   checkin={checkin}
@@ -169,5 +158,13 @@ export default Quiz;
                   checkout={checkout}
                   adults={adults}
                 />
-              </> */
-}
+              </> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  );
+};
+
+export default Quiz;
