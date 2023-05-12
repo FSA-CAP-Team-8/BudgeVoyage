@@ -9,7 +9,8 @@ const flight = Flights;
 
 const Card = () => {
   const dispatch = useDispatch();
-  const card = useSelector((state) => state.card);
+  const flightcard = useSelector((state) => state.flightcard);
+  const lodgingcard = useSelector((state) => state.lodgingcard);
 
   return (
     <>
