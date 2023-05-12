@@ -2,7 +2,7 @@ const router = require("express").Router();
 const {
   models: { User },
 } = require("../db");
-const Orders = require("../db/models/Orders");
+const Orders = require("../db/models/trip");
 module.exports = router;
 
 router.post("/login", async (req, res, next) => {
