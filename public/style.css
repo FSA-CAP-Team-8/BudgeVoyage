@@ -6,8 +6,8 @@
 
 body {
   margin: 0;
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  background-color: #4fa9de;
+  /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
   font-family:'Montserrat', sans-serif;
   color: rgb(17, 32, 91);;
 }
@@ -140,7 +140,6 @@ nav a {
 }
 
 #background {
-  background-image: url("./photogrid/lug3.png");
   background-size: cover;
   position: relative; 
 	
@@ -174,7 +173,6 @@ nav a {
 
 #quiz {
   background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   color: rgb(17, 32, 91);
   padding-top: 6em;
   padding-left: 1em;
@@ -202,4 +200,7 @@ nav a {
   border-radius: .5em;
   padding: .5em;
   outline: none;
+  margin: 1em;
+  margin-left:0%;
 }
+
