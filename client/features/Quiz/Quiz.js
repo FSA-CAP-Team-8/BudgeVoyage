@@ -1,26 +1,17 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import Airbnb from "../Airbnb/Airbnb";
-import Hotel from "../Hotels/Hotel";
+import { Airbnb } from "../Airbnb/Airbnb";
+import { Hotel } from "../Hotels/Hotel";
 
 const Quiz = () => {
   const [destination, setDestination] = useState("");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [adults, setAdults] = useState(1);
-  const [children, setChildren] = useState(0);
-  const [childAges, setChildAges] = useState([]);
 
-  const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({
-    budget: "",
-    travelFrom: "",
-    travelTo: "",
-  });
-  const [showBudgeCard, setShowBudgeCard] = useState(false);
+  const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -29,18 +20,41 @@ const Quiz = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    setIsSubmitted(true);
+    if (currentQuestion < setOfQuestions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setIsSubmitted(true);
+    }
   };
 
   const setOfQuestions = [
     {
       questionText: "What is your budget?",
-      answerOption: { destination },
+      answer: destination,
     },
     {
       questionText: "Where are you traveling from and to?",
-      answerOption: { answertest: "New York" },
+      answer: [checkin, checkout],
+    },
+    {
+      questionText: "How many adults are you traveling with?",
+      answerOption: () => setDestination,
+    },
+    {
+      questionText: "What airlines do you prefer?",
+      answerOption: () => setDestination,
+    },
+    {
+      questionText: "what days are you booking lodging?",
+      answerOption: () => setDestination,
+    },
+    {
+      questionText: "what is your lodging preference?",
+      answerOption: () => setDestination,
+    },
+    {
+      questionText: "how many rooms or beds do you need?",
+      answerOption: () => setDestination,
     },
   ];
 
@@ -48,27 +62,84 @@ const Quiz = () => {
     <form onSubmit={handleSubmit}>
       <div id="quiz">
         <div className="container">
-          <h1>{setOfQuestions[0].questionText}</h1>
-          <input
-            type="text"
-            name="budget"
-            value={answers.budget}
-            onChange={handleInputChange}
-          />
+          <h1>{setOfQuestions[currentQuestion].questionText}</h1>
+          {currentQuestion === 0 && (
+            <input
+              type="text"
+              name="budget"
+              value={answers.budget}
+              onChange={handleInputChange}
+            />
+          )}
+          {currentQuestion === 1 &&
+            !answers.travelFrom &&
+            !answers.travelTo && (
+              <>
+                <input
+                  type="text"
+                  name="travelFrom"
+                  value={answers.travelFrom}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  name="travelTo"
+                  value={answers.travelTo}
+                  onChange={handleInputChange}
+                />
+              </>
+            )}
+          {currentQuestion === 2 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 3 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 4 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 5 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 6 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
 
-          <h1>{setOfQuestions[1].questionText}</h1>
-          <input
-            type="text"
-            name="travelFrom"
-            value={answers.travelFrom}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="travelTo"
-            value={answers.travelTo}
-            onChange={handleInputChange}
-          />
           <div>
             <div id="submitbtn">
               <button id="nextbtn" type="submit">
@@ -84,25 +155,19 @@ const Quiz = () => {
 
 export default Quiz;
 
-// {
-//   isSubmitted && (
-//     <>
-//       <Hotel
-//         destination={destination}
-//         checkin={checkin}
-//         checkout={checkout}
-//         adults={adults}
-//         children={children}
-//         childAges={childAges}
-//       />
-//       <Airbnb
-//         destination={destination}
-//         checkin={checkin}
-//         checkout={checkout}
-//         adults={adults}
-//         children={children}
-//         childAges={childAges}
-//       />
-//     </>
-//   );
-// }
+{
+  /* <>
+                <Hotel
+                  destination={destination}
+                  checkin={checkin}
+                  checkout={checkout}
+                  adults={adults}
+                />
+                <Airbnb
+                  destination={destination}
+                  checkin={checkin}
+                  checkout={checkout}
+                  adults={adults}
+                />
+              </> */
+}

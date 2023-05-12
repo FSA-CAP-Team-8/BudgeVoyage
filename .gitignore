@@ -1,5 +1,4 @@
 node_modules
-<<<<<<< HEAD
 public/bundle.js
 public/bundle.js.map
 client/secrets.js
@@ -13,9 +12,3 @@ public/bundle.js.LICENSE.txt
 hotelID.json
 hotelPrice.json
 flights.json
-=======
-package-lock.json
-bundle.js
-secrets.js
-bundle.js.map
->>>>>>> origin/newPWA
