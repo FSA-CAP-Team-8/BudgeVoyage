@@ -1,107 +1,169 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import Airbnb from "../Airbnb/Airbnb";
-import Hotel from "../Hotels/Hotel";
+import { Airbnb } from "../Airbnb/Airbnb";
+import { Hotel } from "../Hotels/Hotel";
 
 const Quiz = () => {
-  const dispatch = useDispatch();
-  const quiz = useSelector((state) => state.quiz);
-
   const [destination, setDestination] = useState("");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [adults, setAdults] = useState(1);
-  const [children, setChildren] = useState(0);
-  const [childAges, setChildAges] = useState([]);
+
+  const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handleInputChange = (event) => {
-    setDestination(event.target.value);
-  };
-
-  const handleCheckinChange = (event) => {
-    setCheckin(event.target.value);
-  };
-
-  const handleCheckoutChange = (event) => {
-    setCheckout(event.target.value);
-  };
-
-  const handleAdultsChange = (event) => {
-    setAdults(event.target.value);
-  };
-
-  const handleChildrenChange = (event) => {
-    setChildren(event.target.value);
-  };
-
-  const handleChildAgeChange = (index, event) => {
-    const newChildAges = [...childAges];
-    newChildAges[index] = event.target.value;
-    setChildAges(newChildAges);
+    const { name, value } = event.target;
+    setAnswers({ ...answers, [name]: value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsSubmitted(true);
+    if (currentQuestion < setOfQuestions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setIsSubmitted(true);
+    }
   };
 
   const setOfQuestions = [
     {
       questionText: "What is your budget?",
-      answerOption: { answertest: "New York" },
+      answer: destination,
     },
     {
-      questionText: "Where are you traveling from and to ?",
-      answerOption: { answertest: "New York" },
+      questionText: "Where are you traveling from and to?",
+      answer: [checkin, checkout],
     },
-    // {
-    //   questionText: "How many adults and children are you traveling with?",
-    //   answerOption: { value: children, value: adults },
-    // },
-    // {
-    //   questionText: "what airlines do you prefer?",
-    //   answerOption: { value: destination },
-    // },
-    // {
-    //   questionText: "What days are you staying?",
-    //   answerOption: { value: checkin, value: checkout },
-    // },
-    // {
-    //   questionText: "What is your lodging preference?",
-    //   answerOption: { value: destination },
-    // },
-    // {
-    //   questionText: "How many rooms or bed do you need?",
-    //   answerOption: { value: destination },
-    // },
+    {
+      questionText: "How many adults are you traveling with?",
+      answer: adults,
+    },
+    {
+      questionText: "What airlines do you prefer?",
+      answer: destination,
+    },
+    {
+      questionText: "what days are you booking lodging?",
+      answer: [checkin, checkout],
+    },
+    {
+      questionText: "what is your lodging preference?",
+      answer: destination,
+    },
+    {
+      questionText: "how many rooms or beds do you need?",
+      answer: destination,
+    },
   ];
 
   return (
-    <div id="quiz">
-      <div className="container">
-        <h1>{setOfQuestions[0]}</h1>
-        <h1>{setOfQuestions[1]}</h1>
-        {/* <h1>{setOfQuestions[2]}</h1>
-        <h1>{setOfQuestions[3]}</h1>
-        <h1>{setOfQuestions[4]}</h1>
-        <h1>{setOfQuestions[5]}</h1> */}
-        <div>
-          <div id="submitbtn">
-            {!setOfQuestions[5] ? (
-              <button id="nextbtn" onClick={() => handleSubmit(quiz)}>
-                next
-              </button>
-            ) : (
-              <button id="quizbtn" onClick={() => handleSubmit(quiz)}>
-                Ready for Your Voyage
-              </button>
+    <form onSubmit={handleSubmit}>
+      <div id="quiz">
+        <div className="container">
+          <h1>{setOfQuestions[currentQuestion].questionText}</h1>
+          {currentQuestion === 0 && (
+            <input
+              type="text"
+              name="budget"
+              value={answers.budget}
+              onChange={handleInputChange}
+            />
+          )}
+          {currentQuestion === 1 &&
+            !answers.travelFrom &&
+            !answers.travelTo && (
+              <>
+                <input
+                  type="text"
+                  name="travelFrom"
+                  value={answers.travelFrom}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  name="travelTo"
+                  value={answers.travelTo}
+                  onChange={handleInputChange}
+                />
+              </>
             )}
+          {currentQuestion === 2 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 3 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 4 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 5 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+          {currentQuestion === 6 && (
+            <>
+              <input
+                type="text"
+                name="budget"
+                value={answers.budget}
+                onChange={handleInputChange}
+              />
+            </>
+          )}
+
+          <div>
+            <div id="submitbtn">
+              <button id="nextbtn" type="submit">
+                {isSubmitted ? "Ready for you Voyage" : "Next"}
+              </button>
+              {/* <>
+                <Hotel
+                  destination={destination}
+                  checkin={checkin}
+                  checkout={checkout}
+                  adults={adults}
+                />
+                <Airbnb
+                  destination={destination}
+                  checkin={checkin}
+                  checkout={checkout}
+                  adults={adults}
+                />
+              </> */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

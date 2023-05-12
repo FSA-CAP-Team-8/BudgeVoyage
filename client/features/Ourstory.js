@@ -7,7 +7,6 @@ const OurStory = () => {
         <h1>
           Spend less time worrying about logistics and more time enjoying your
           travels.
-          <img className="arrow" src="./photogrid/arrow.png"></img>
         </h1>
         <div id="about">
           <p>

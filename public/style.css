@@ -6,13 +6,14 @@
 
 body {
   margin: 0;
+  background-color: #4fa9de;
+  /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
   background: whitesmoke;
   background-size: cover;
   font-family: "Montserrat", sans-serif;
   color: rgb(17, 32, 91);
   background-color: #0093E9;
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-  font-family:'Montserrat', sans-serif;
 }
 
 .cards {
@@ -138,7 +139,6 @@ nav a {
 }
 
 #background {
-  background-image: url("./photogrid/lug3.png");
   background-size: cover;
   position: relative;
 
@@ -172,7 +172,6 @@ nav a {
 
 #quiz {
   background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   color: rgb(17, 32, 91);
   padding-top: 6em;
   padding-left: 1em;
@@ -267,4 +266,77 @@ label {
   border-radius: .5em;
   padding: .5em;
   outline: none;
+  margin: 1em;
+  margin-left:0%;
 }
+
+
+/* our Team */
+#theteam{
+  display: flex;
+  color: rgb(17, 32, 91);
+  padding-top: 4em;
+  padding-left: 1em;
+  font-size: 22px;
+}
+
+#theteam h1{
+  padding-right: 2em;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* #profilefoto{
+  width: 260px;
+  height: 260px;
+  margin-left: 1em;
+} */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.teamcontainer {
+  padding: 0 16px;
+  background-color: whitesmoke;
+}
+
+.teamcontainer::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.teambtn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.teambtn:hover {
+  background-color: #555;
+}
+
