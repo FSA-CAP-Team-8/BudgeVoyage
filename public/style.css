@@ -12,8 +12,8 @@ body {
   background-size: cover;
   font-family: "Montserrat", sans-serif;
   color: rgb(17, 32, 91);
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
 
 .cards {
@@ -70,18 +70,22 @@ video {
   mix-blend-mode: hard-light;
   padding: 5px 15px;
   text-align: center;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 header {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   background: white;
+  position: fixed;
   width: 100%;
   text-align: center;
   color: black;
   padding: 0.3em;
+  z-index: 1;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 nav {
@@ -159,19 +163,19 @@ nav a {
 
 /* QUIZ PAGE */
 
-.container{
+.container {
   width: 100%;
   max-width: 800px;
   background-color: white;
   border-radius: 5px;
-  padding:10px;
+  padding: 10px;
   box-shadow: 0 0 10px 2px;
-  margin:auto;
+  margin: auto;
   margin-top: 3em;
 }
 
 #quiz {
-  background-color: #0093E9;
+  background-color: #0093e9;
   color: rgb(17, 32, 91);
   padding-top: 6em;
   padding-left: 1em;
@@ -245,34 +249,33 @@ label {
   margin-bottom: 15px;
 }
 
-#quizbtn{
-  background-color: #0093E9;
-  border: 2px solid ;
+#quizbtn {
+  background-color: #0093e9;
+  border: 2px solid;
   border-color: rgb(17, 32, 91);
-  color:white;
+  color: white;
   font-size: 15px;
-  border-radius: .5em;
-  padding: .5em;
+  border-radius: 0.5em;
+  padding: 0.5em;
   margin-right: 2em;
 }
 
-#nextbtn{
-  background-color: #0093E9;
+#nextbtn {
+  background-color: #0093e9;
   border: 2px solid;
   border-color: rgb(17, 32, 91);
-  color:white;
+  color: white;
   font-size: 15px;
   font-weight: 4000;
-  border-radius: .5em;
-  padding: .5em;
+  border-radius: 0.5em;
+  padding: 0.5em;
   outline: none;
   margin: 1em;
-  margin-left:0%;
+  margin-left: 0%;
 }
 
-
 /* our Team */
-#theteam{
+#theteam {
   display: flex;
   color: rgb(17, 32, 91);
   padding-top: 4em;
@@ -280,7 +283,7 @@ label {
   font-size: 22px;
 }
 
-#theteam h1{
+#theteam h1 {
   padding-right: 2em;
 }
 
@@ -290,7 +293,6 @@ label {
   margin-bottom: 16px;
   padding: 0 8px;
 }
-
 
 @media screen and (max-width: 650px) {
   .column {
@@ -314,7 +316,8 @@ label {
   background-color: whitesmoke;
 }
 
-.teamcontainer::after, .row::after {
+.teamcontainer::after,
+.row::after {
   content: "";
   clear: both;
   display: table;
@@ -339,4 +342,3 @@ label {
 .teambtn:hover {
   background-color: #555;
 }
-
