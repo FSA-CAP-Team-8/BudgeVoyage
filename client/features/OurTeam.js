@@ -18,7 +18,7 @@ const OurTeam = () => {
         <div className="teamrow">
           <div className="column">
             <div className="card">
-              <img src="" alt="veronica"></img>
+              <img id="profilefoto" src="" alt="veronica"></img>
               <div class="teamcontainer">
                 <h2>Veronica Cisneros</h2>
                 <p className="title">add role here</p>
