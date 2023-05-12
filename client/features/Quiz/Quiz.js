@@ -38,23 +38,23 @@ const Quiz = () => {
     },
     {
       questionText: "How many adults are you traveling with?",
-      answerOption: () => setDestination,
+      answer: adults,
     },
     {
       questionText: "What airlines do you prefer?",
-      answerOption: () => setDestination,
+      answer: destination,
     },
     {
       questionText: "what days are you booking lodging?",
-      answerOption: () => setDestination,
+      answer: [checkin, checkout],
     },
     {
       questionText: "what is your lodging preference?",
-      answerOption: () => setDestination,
+      answer: destination,
     },
     {
       questionText: "how many rooms or beds do you need?",
-      answerOption: () => setDestination,
+      answer: destination,
     },
   ];
 
