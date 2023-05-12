@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHotelID, fetchHotelPrices } from "./hotelIDSlice";
 
-const hotel = ({
+const Hotel = ({
   destination,
   checkin,
   checkout,
@@ -41,44 +41,43 @@ const hotel = ({
   }, [hotelID, dispatch, checkin, checkout, adults, childAges]);
 
   return (
-    <>
-      <div>
-        <h2>Hotels</h2>
-        {error && <p>Error: {error}</p>}
-        {hotelID && (
-          <div>
-            {hotelID.map((result) => (
-              <div key={result.dest_id}>
-                <div>
-                  <div>Dest_ID: {result.dest_id}</div>{" "}
-                  <div>City_name: {result.city_name}</div>{" "}
-                  <div>region: {result.region}</div>{" "}
-                  <div>cc1: {result.cc1}</div>{" "}
-                  {result.prices && result.prices.results && (
-                    <div>
-                      {result.prices.results.map((priceResult) => (
-                        <div key={priceResult.id}>
-                          {/* <img
-                            src="{priceresult.photoMainUrl}"
-                            alt="main hotel image"
+    <div className="hotelComponent">
+      <h2>Hotel Results</h2>
+      {error && <p>Error: {error}</p>}
+      {hotelID && (
+        <div>
+          {hotelID.map((result) => (
+            <div key={result.dest_id}>
+              <div>
+                {result.prices && result.prices.results && (
+                  <div>
+                    {result.prices.results.map((priceResult) => (
+                      <div key={priceResult.id}>
+                        <div className="lodgingCards">
+                          <img
+                            src={priceResult.photoMainUrl}
+                            alt="hotelImages"
                             style={{ width: "300px", height: "225px" }}
-                          /> */}
-                          <div>Hotel Name: {priceResult.name}</div>
-                          {/* <div>
-                            Hotel Rate: {priceResult.priceBreakdown.grossPrice}
-                          </div> */}
+                          />
+                          <div>{priceResult.name}</div>
+                          <li>
+                            Total Price: $
+                            {priceResult.priceBreakdown.grossPrice.value.toFixed(
+                              0
+                            )}
+                          </li>
                         </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
-export default hotel;
+export default Hotel;
