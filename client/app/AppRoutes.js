@@ -9,6 +9,7 @@ import Hotel from "../features/Hotels/Hotel";
 import Quiz from "../features/Quiz/Quiz";
 import OurTeam from "../features/OurTeam";
 import Generate from "../features/Generate/Generate";
+import AuthForm from "../features/Authform/Auth";
 
 const AppRoutes = () => {
   return (
@@ -21,8 +22,14 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/ourstory" element={<OurStory />} />
         <Route path="/ourteam" element={<OurTeam />} />
-        {/* <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} /> */}
+        <Route
+          path="/login"
+          element={<AuthForm name="login" displayName="Login" />}
+        />
+        <Route
+          path="/signup"
+          element={<AuthForm name="signup" displayName="Sign Up" />}
+        />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/bucketlist" element={<BucketList />} />
         <Route path="/airbnb" element={<Airbnb />} />

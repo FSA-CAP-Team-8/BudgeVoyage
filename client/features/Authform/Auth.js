@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { authenticate } from "./store";
+import { authenticate } from "../../app/store";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -11,7 +11,7 @@ import { authenticate } from "./store";
 
 const AuthForm = ({ name, displayName }) => {
   const loggedInUserID = useSelector((state) => state.auth.me.id);
-  const user = useSelector((state) => state.cart.user);
+  const User = useSelector((state) => state.User);
   const { error } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -22,9 +22,9 @@ const AuthForm = ({ name, displayName }) => {
   const [email, setEmail] = useState("");
   const [formName, setFormName] = useState("");
 
-  const { order } = user;
-  let orderId = null;
-  order ? (orderId = order.id) : null;
+  // const { trip } = User;
+  // let tripId = null;
+  // trip ? (tripId = trip.id) : null;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -39,11 +39,11 @@ const AuthForm = ({ name, displayName }) => {
 
   useEffect(() => {
     loggedInUserID ? dispatch(fetchUserAsync(loggedInUserID)) : null;
-    formName === "signup" ? dispatch(fetchOneOrderAsync(orderId)) : null;
+    formName === "signup" ? dispatch(fetchOneTripAsync(tripId)) : null;
   }, [formName]);
 
   return (
-    <div>
+    <div className="signupForm">
       {
         <form onSubmit={handleSubmit} name={name}>
           <div>

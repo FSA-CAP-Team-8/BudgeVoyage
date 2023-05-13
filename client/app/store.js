@@ -14,3 +14,4 @@ const store = configureStore({
 });
 
 export default store;
+export * from "../features/Authform/authSlice";
