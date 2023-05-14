@@ -1,33 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
-import Hotel from "../Hotels/Hotel";
+// import Hotel from "../Hotels/Hotel";
 import { NavLink } from "react-router-dom";
 
 const Quiz = () => {
   const [destination, setDestination] = useState("");
-  const [checkin, setCheckin] = useState("");
-  const [checkout, setCheckout] = useState("");
+  const [checkinCheckout, setCheckinCheckout] = useState({
+    checkin: "",
+    checkout: "",
+  });
+
   const [adults, setAdults] = useState(1);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    switch (name) {
-      case "destination":
-        setDestination(value);
-        break;
-      case "checkin":
-        setCheckin(value);
-        break;
-      case "checkout":
-        setCheckout(value);
-        break;
-      case "setAdults":
-        setAdults(value);
-        break;
-      default:
-        break;
+    if (name === "checkin" || name === "checkout") {
+      setCheckinCheckout({
+        ...checkinCheckout,
+        [name]: value,
+      });
+    } else {
+      switch (name) {
+        case "destination":
+          setDestination(value);
+          break;
+        case "setAdults":
+          setAdults(value);
+          break;
+        default:
+          break;
+      }
     }
   };
 
@@ -40,10 +44,11 @@ const Quiz = () => {
     },
     {
       questionText: "what days are you booking lodging?",
-      inputType: "text",
-      name: "checkincheckout",
-      value: [checkin],
+      inputType: "date",
+      name: "checkin",
+      value: checkinCheckout.checkin,
     },
+    { inputType: "date", name: "checkout", value: checkinCheckout.checkout },
     {
       questionText: "How many adults are you traveling with?",
       inputType: "text",
@@ -79,27 +84,22 @@ const Quiz = () => {
               next
             </button>
           )}
-          <NavLink to={"/cards"}>
-            {currentQuestion === setOfQuestions.length - 1 && (
-              <button type="submit">ready for your Voyage</button>
-            )}
-            {isSubmitted && (
+
+          {currentQuestion === setOfQuestions.length - 1 && (
+            <button type="submit">ready for your Voyage</button>
+          )}
+          {isSubmitted && (
+            <NavLink to={"/cards"}>
               <>
-                <Hotel
-                  destination={destination}
-                  checkin={checkin}
-                  checkout={checkout}
-                  adults={adults}
-                />
                 <Airbnb
                   destination={destination}
-                  checkin={checkin}
-                  checkout={checkout}
+                  checkin={checkinCheckout.checkin}
+                  checkout={checkinCheckout.checkout}
                   adults={adults}
                 />
               </>
-            )}
-          </NavLink>
+            </NavLink>
+          )}
         </div>
       </div>
     </form>
@@ -107,3 +107,12 @@ const Quiz = () => {
 };
 
 export default Quiz;
+
+{
+  /* <Hotel
+                destination={destination}
+                checkin={checkin}
+                checkout={checkout}
+                adults={adults}
+              /> */
+}

@@ -27,12 +27,12 @@ const Card = () => {
           <div id="lodgingprice">{destination}</div>
         </div>
         <>
-          <Hotel
+          {/* <Hotel
             destination={destination}
             checkin={checkin}
             checkout={checkout}
             adults={adults}
-          />
+          /> */}
           <Airbnb
             destination={destination}
             checkin={checkin}
