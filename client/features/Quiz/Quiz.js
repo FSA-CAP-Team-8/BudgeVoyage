@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Airbnb from "../Airbnb/Airbnb";
 import Hotel from "../Hotels/Hotel";
 import { current } from "@reduxjs/toolkit";
+import { NavLink } from "react-router-dom";
 
 const Quiz = () => {
   const [destination, setDestination] = useState("");
@@ -80,25 +81,27 @@ const Quiz = () => {
               next
             </button>
           )}
-          {currentQuestion === setOfQuestions.length - 1 && (
-            <button type="submit">ready for your Voyage</button>
-          )}
-          {isSubmitted && (
-            <>
-              <Hotel
-                destination={destination}
-                checkin={checkin}
-                checkout={checkout}
-                adults={adults}
-              />
-              <Airbnb
-                destination={destination}
-                checkin={checkin}
-                checkout={checkout}
-                adults={adults}
-              />
-            </>
-          )}
+          <NavLink to={"/trip"}>
+            {currentQuestion === setOfQuestions.length - 1 && (
+              <button type="submit">ready for your Voyage</button>
+            )}
+            {isSubmitted && (
+              <>
+                <Hotel
+                  destination={destination}
+                  checkin={checkin}
+                  checkout={checkout}
+                  adults={adults}
+                />
+                <Airbnb
+                  destination={destination}
+                  checkin={checkin}
+                  checkout={checkout}
+                  adults={adults}
+                />
+              </>
+            )}
+          </NavLink>
         </div>
       </div>
     </form>
