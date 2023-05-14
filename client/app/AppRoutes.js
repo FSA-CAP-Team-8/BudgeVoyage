@@ -8,6 +8,7 @@ import BucketList from "../features/Bucketlist/BucketList";
 import Hotel from "../features/Hotels/Hotel";
 import Quiz from "../features/Quiz/Quiz";
 import OurTeam from "../features/OurTeam";
+import Cards from "../features/Card/Cards";
 import Generate from "../features/Generate/Generate";
 
 const AppRoutes = () => {
@@ -27,6 +28,7 @@ const AppRoutes = () => {
         <Route path="/bucketlist" element={<BucketList />} />
         <Route path="/airbnb" element={<Airbnb />} />
         <Route path="/hotel" element={<Hotel />} />
+        <Route path="/cards" element={<Cards />} />
         <Route
           path="/generate"
           element={<Generate name="generate" displayName="Generate" />}

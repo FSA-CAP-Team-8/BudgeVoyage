@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import Airbnb from "../Airbnb/Airbnb";
 import Hotel from "../Hotels/Hotel";
-import { current } from "@reduxjs/toolkit";
 import { NavLink } from "react-router-dom";
 
 const Quiz = () => {
@@ -81,7 +79,7 @@ const Quiz = () => {
               next
             </button>
           )}
-          <NavLink to={"/trip"}>
+          <NavLink to={"/cards"}>
             {currentQuestion === setOfQuestions.length - 1 && (
               <button type="submit">ready for your Voyage</button>
             )}
