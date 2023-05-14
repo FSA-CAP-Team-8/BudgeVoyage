@@ -69,40 +69,41 @@ const Quiz = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div id="quiz">
-        <div className="container">
-          <h1>{setOfQuestions[currentQuestion].questionText}</h1>
-          <input
-            type={setOfQuestions[currentQuestion].inputType}
-            name={setOfQuestions[currentQuestion].name}
-            value={setOfQuestions[currentQuestion].value}
-            onChange={handleInputChange}
+    <>
+      {!isSubmitted && (
+        <form onSubmit={handleSubmit}>
+          <div id="quiz">
+            <div className="container">
+              <h1>{setOfQuestions[currentQuestion].questionText}</h1>
+              <input
+                type={setOfQuestions[currentQuestion].inputType}
+                name={setOfQuestions[currentQuestion].name}
+                value={setOfQuestions[currentQuestion].value}
+                onChange={handleInputChange}
+              />
+              {currentQuestion < setOfQuestions.length - 1 && (
+                <button type="button" onClick={handleNextQuestion}>
+                  next
+                </button>
+              )}
+              {currentQuestion === setOfQuestions.length - 1 && (
+                <button type="submit">ready for your Voyage</button>
+              )}
+            </div>
+          </div>
+        </form>
+      )}
+      {isSubmitted && (
+        <>
+          <Airbnb
+            destination={destination}
+            checkin={checkinCheckout.checkin}
+            checkout={checkinCheckout.checkout}
+            adults={adults}
           />
-          {currentQuestion < setOfQuestions.length - 1 && (
-            <button type="button" onClick={handleNextQuestion}>
-              next
-            </button>
-          )}
-
-          {currentQuestion === setOfQuestions.length - 1 && (
-            <button type="submit">ready for your Voyage</button>
-          )}
-          {isSubmitted && (
-            <NavLink to={"/cards"}>
-              <>
-                <Airbnb
-                  destination={destination}
-                  checkin={checkinCheckout.checkin}
-                  checkout={checkinCheckout.checkout}
-                  adults={adults}
-                />
-              </>
-            </NavLink>
-          )}
-        </div>
-      </div>
-    </form>
+        </>
+      )}
+    </>
   );
 };
 
