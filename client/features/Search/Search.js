@@ -80,16 +80,16 @@ const Search = () => {
             onChange={handleAdultsChange}
           />
 
-          <label htmlFor="children"># of Children</label>
+          {/* <label htmlFor="children"># of Children</label>
           <input
             type="number"
             id="children"
             value={children}
             onChange={handleChildrenChange}
             placeholder="How many children?"
-          />
+          /> */}
 
-          {children > 0 && (
+          {/* {children > 0 && (
             <>
               {Array.from({ length: children }, (_, index) => (
                 <div key={index}>
@@ -105,7 +105,7 @@ const Search = () => {
                 </div>
               ))}
             </>
-          )}
+          )} */}
 
           <button type="submit">Search</button>
         </form>

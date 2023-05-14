@@ -11,16 +11,21 @@ const Card = () => {
 
   return (
     <>
-      {/* <div id="flightcard">
-        <button />
-        <image id=""></image>
-        <div id="flightprice">${flight.price}</div>
-      </div> */}
-
-      <div id="lodgingcard">
-        <button />
-        {/* <image id=""></image> */}
-        <div id="lodgingprice">${destination}</div>
+      <div className="parentcontainer">
+        <div className="container1">
+          <div id="flightcard">
+            <button />
+            {/* <image id=""></image> */}
+            <div id="flightprice">{destination}</div>
+          </div>
+        </div>
+        <div className="container2">
+          <div id="lodgingcard">
+            <button />
+            {/* <image id=""></image> */}
+          </div>
+          <div id="lodgingprice">{destination}</div>
+        </div>
         <>
           <Hotel
             destination={destination}

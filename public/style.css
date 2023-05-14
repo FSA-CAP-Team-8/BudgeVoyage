@@ -6,18 +6,19 @@
 
 body {
   margin: 0;
+  padding:0;
   background-color: whitesmoke;
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   font-family: "Montserrat", sans-serif;
   color: rgb(17, 32, 91);
 }
 
-.cards {
+/* .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 30px;
-}
+} */
 
 /* Home & Nav */
 .logo {
@@ -78,10 +79,10 @@ header {
   width: 100%;
   text-align: center;
   color:  rgb(17, 32, 91);
-  padding: 0.3em;
+  z-index: 1;
+  margin-top: 0;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  z-index: 1;
 }
 
 nav {
@@ -94,7 +95,7 @@ nav a {
   color: inherit;
   padding: 0 10px;
   padding-top: 0%;
-  margin:1em;
+  margin: 0.5em;
 }
 
 /* our story */
@@ -132,12 +133,6 @@ nav a {
   margin-left: 1em;
 }
 
-.arrow {
-  width: 200px;
-  height: 200px;
-  margin-left: 1em;
-  margin-top: 2em;
-}
 
 /* #background {
   background-size: cover;
@@ -214,7 +209,7 @@ label {
   font-size: 4vw;
 }
 
-.hotelComponent {
+/* .hotelComponent {
   flex-grow: 1;
 }
 
@@ -244,7 +239,7 @@ label {
 
 .lodgingCards {
   margin-bottom: 15px;
-}
+} */
 
 #quizbtn {
   background-color: #0093e9;
@@ -338,4 +333,58 @@ label {
 
 .teambtn:hover {
   background-color: #555;
+}
+
+
+/* cards */
+#lodgingcard{
+  padding-top: 8em;
+}
+
+/* .parentcontainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.container1, .container2{
+  width: 100%;
+  max-width: 350px;
+  max-height: 350px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  margin: auto;
+  margin-top: 12em;
+}
+
+.container1{
+ margin-right:1em;
+ flex:1;
+}
+
+.container2{
+  margin-left:1em;
+  flex:1;
+ }
+ 
+
+ #flightcard,
+#lodgingcard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#flightprice,
+#lodgingprice {
+  flex: 1;
+} */
+
+.searchComponent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6em;
+  margin-top: 0;
 }
