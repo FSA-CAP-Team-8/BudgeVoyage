@@ -41,7 +41,7 @@ export const fetchFlightsListings = createAsyncThunk(
         currency: "USD",
       },
       headers: {
-        "X-RapidAPI-Key": XRAPIDAPIKEY,
+        "X-RapidAPI-Key": XRAPIDAPIKEYFLIGHTS,
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
     };

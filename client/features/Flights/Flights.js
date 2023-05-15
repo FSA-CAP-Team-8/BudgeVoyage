@@ -27,6 +27,8 @@ const Flights = ({
     );
   }, [dispatch, origin, destination, date, adults, countryCode, market]);
 
+  console.log(flights.results);
+
   return (
     <>
       <div>

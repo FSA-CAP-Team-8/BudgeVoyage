@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
-// import Hotel from "../Hotels/Hotel";
 import { NavLink } from "react-router-dom";
 import { fetchFlightsListings } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
@@ -60,7 +59,7 @@ const Quiz = () => {
     {
       questionText: "What days are you traveling?", //forflights
       inputType: "date",
-      name: "dateReturnDate",
+      name: "date",
       value: dateReturnDate.date,
     },
     { inputType: "date", name: "returnDate", value: dateReturnDate.returnDate },
@@ -94,7 +93,15 @@ const Quiz = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(fetchFlightsListings(destination));
+    dispatch(
+      fetchFlightsListings({
+        origin: origin,
+        destination: destination,
+        date: dateReturnDate.date,
+        returnDate: dateReturnDate.returnDate,
+        adults: adults,
+      })
+    );
     setIsSubmitted(true);
   };
 
