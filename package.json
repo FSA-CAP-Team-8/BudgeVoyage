@@ -28,6 +28,7 @@
     "morgan": "^1.10.0",
     "openai": "^3.2.1",
     "pg": "^8.8.0",
+    "psql": "^0.0.1",
     "sequelize": "^6.25.3",
     "workbox-background-sync": "^6.5.4",
     "workbox-broadcast-update": "^6.5.4",
