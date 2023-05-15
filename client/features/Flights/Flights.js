@@ -17,6 +17,7 @@ const Flights = ({
   useEffect(() => {
     dispatch(
       fetchFlightsListings({
+        origin: fetchAirportCode,
         origin: origin,
         destination: destination,
         date: date,
