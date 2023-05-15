@@ -78,7 +78,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background: white;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   text-align: center;
   color: black;

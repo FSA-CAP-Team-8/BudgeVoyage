@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { XRAPIDAPIKEY } from "../../secrets";
+import { XRAPIDAPIKEY } from "../../../client/secrets";
 
 export const fetchFlightsListings = createAsyncThunk(
   "flights/fetch",
