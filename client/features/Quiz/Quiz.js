@@ -132,22 +132,26 @@ const Quiz = () => {
       )}
       {isSubmitted && (
         <>
-          <Airbnb
-            destination={destination}
-            checkin={checkinCheckout.checkin}
-            checkout={checkinCheckout.checkout}
-            adults={adults}
-          />
-
-          <Flights
-            destination={destination}
-            date={dateReturnDate.date}
-            returnDate={dateReturnDate.returnDate}
-            adults={adults}
-            origin={origin}
-            // currency={currency}
-            // countryCode={countryCode}
-          />
+          <div id="lodgingcard">
+            <Airbnb
+              destination={destination}
+              checkin={checkinCheckout.checkin}
+              checkout={checkinCheckout.checkout}
+              adults={adults}
+            />
+          </div>
+          {/* 
+          <div id="lodgingcard">
+            <Flights
+              destination={destination}
+              date={dateReturnDate.date}
+              returnDate={dateReturnDate.returnDate}
+              adults={adults}
+              origin={origin}
+              currency={currency}
+              countryCode={countryCode}
+            />
+          </div> */}
         </>
       )}
     </>
