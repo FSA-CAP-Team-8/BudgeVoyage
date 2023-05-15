@@ -112,8 +112,6 @@ const Search = () => {
         <div className="formResults">
           {isSubmitted && (
             <>
-              <Generate destination={destination} />
-
               <Hotel
                 destination={destination}
                 checkin={checkin}

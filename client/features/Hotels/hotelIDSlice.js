@@ -32,7 +32,7 @@ export const fetchHotelID = createAsyncThunk(
 
 export const fetchHotelPrices = createAsyncThunk(
   "hotel/fetchPrices",
-  async ({ dest_id, checkin, checkout, adults, children, childAges }) => {
+  async ({ dest_id, checkin, checkout, adults }) => {
     const params = {
       order_by: "popularity",
       adults_number: adults,
@@ -45,12 +45,6 @@ export const fetchHotelPrices = createAsyncThunk(
       room_number: "1",
       dest_type: "city",
     };
-
-    if (children > 0) {
-      console.log(childAges);
-      params.children_number = children;
-      params.children_ages = childAges;
-    }
 
     const options = {
       method: "GET",

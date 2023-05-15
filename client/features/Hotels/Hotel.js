@@ -3,14 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHotelID, fetchHotelPrices } from "./hotelIDSlice";
 
-const Hotel = ({
-  destination,
-  checkin,
-  checkout,
-  adults,
-  children,
-  childAges,
-}) => {
+const Hotel = ({ destination, checkin, checkout, adults }) => {
   const dispatch = useDispatch();
   const hotelID = useSelector((state) => state.hotelID.data);
   const error = useSelector((state) => state.hotelID.error);
@@ -32,13 +25,11 @@ const Hotel = ({
             checkin: checkin,
             checkout: checkout,
             adults: adults,
-            children: children,
-            childAges: childAges,
           })
         );
       });
     }
-  }, [hotelID, dispatch, checkin, checkout, adults, childAges]);
+  }, [hotelID, dispatch, checkin, checkout, adults]);
 
   return (
     <div className="hotelComponent">
