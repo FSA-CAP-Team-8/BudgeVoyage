@@ -48,6 +48,19 @@ async function seed() {
       price: 1200,
     });
 
+    // Create some example Trips
+    const trip1 = await Trip.create({
+      id: 1,
+      flightcard_id: [flightCard1.id],
+      lodgingcard_id: [lodgingCard1.id],
+    });
+
+    const trip2 = await Trip.create({
+      id: 2,
+      flightcard_id: [flightCard2.id],
+      lodgingcard_id: [lodgingCard2.id],
+    });
+
     console.log("Database seeding complete!");
   } catch (error) {
     console.error("Error seeding database:", error);
