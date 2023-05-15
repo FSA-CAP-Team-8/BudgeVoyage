@@ -11,7 +11,6 @@ import { authenticate } from "../../app/store";
 
 const AuthForm = ({ name, displayName }) => {
   const loggedInUserID = useSelector((state) => state.auth.me.id);
-  const User = useSelector((state) => state.User);
   const { error } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
