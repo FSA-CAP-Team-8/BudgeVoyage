@@ -29,6 +29,25 @@ async function seed() {
       tolocation: "Paris",
     });
 
+    // Create some example LodgingCards
+    const lodgingCard1 = await LodgingCard.create({
+      address: "123 Main St, Los Angeles, CA",
+      dayIn: new Date(2023, 5, 15),
+      dayOut: new Date(2023, 5, 20),
+      adults: 2,
+      children: 1,
+      price: 800,
+    });
+
+    const lodgingCard2 = await LodgingCard.create({
+      address: "456 Park Ave, New York, NY",
+      dayIn: new Date(2023, 7, 1),
+      dayOut: new Date(2023, 7, 10),
+      adults: 1,
+      children: 0,
+      price: 1200,
+    });
+
     console.log("Database seeding complete!");
   } catch (error) {
     console.error("Error seeding database:", error);
