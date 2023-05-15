@@ -1,6 +1,28 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { XRAPIDAPIKEY } from "../../secrets";
+import { XRAPIDAPIKEYFLIGHTS } from "../../secrets";
+
+export const fetchAirportCode = createAsyncThunk(
+  "flights/fetchAirportCode",
+  async (origin) => {
+    const options = {
+      method: "GET",
+      URL: "https://skyscanner50.p.rapidapi.com/api/v1/searchAirport",
+      params: { query: origin },
+      headers: {
+        "X-RapidAPI-Key": XRAPIDAPIKEYFLIGHTS,
+        "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 
 export const fetchFlightsListings = createAsyncThunk(
   "flights/fetch",

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
+import Flights from "../Flights/Flights";
 // import Hotel from "../Hotels/Hotel";
 import { NavLink } from "react-router-dom";
+import { fetchFlightsListings } from "../Flights/flightsSlice";
 
 const Quiz = () => {
   const [destination, setDestination] = useState("");
@@ -9,8 +11,11 @@ const Quiz = () => {
     checkin: "",
     checkout: "",
   });
-
   const [adults, setAdults] = useState(1);
+  const [dateReturnDate, setDateReturnDate] = useState({
+    date: "",
+    returnDate: "",
+  });
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -37,7 +42,21 @@ const Quiz = () => {
 
   const setOfQuestions = [
     {
-      questionText: "Where are you traveling from and to?",
+      questionText: "Where are you traveling from and to?", //forflights
+      inputType: "text",
+      name: "destination",
+      value: destination,
+    },
+    {
+      questionText: "Wat days are you traveling?", //forflights
+      inputType: "text",
+      name: "dateReturnDate",
+      value: dateReturnDate.date,
+    },
+    { inputType: "date", name: "returnDate", value: dateReturnDate.returnDate },
+
+    {
+      questionText: "Where will you be booking your stay?",
       inputType: "text",
       name: "destination",
       value: destination,
@@ -65,6 +84,7 @@ const Quiz = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatchEvent(fetchFlightsListings(destination));
     setIsSubmitted(true);
   };
 
@@ -101,6 +121,15 @@ const Quiz = () => {
             checkout={checkinCheckout.checkout}
             adults={adults}
           />
+
+          <Flights
+            destination={destination}
+            date={dateReturnDate.date}
+            date={dateReturnDate.returnDate}
+            adults={adults}
+            // currency={currency}
+            // countryCode={countryCode}
+          />
         </>
       )}
     </>
@@ -108,12 +137,3 @@ const Quiz = () => {
 };
 
 export default Quiz;
-
-{
-  /* <Hotel
-                destination={destination}
-                checkin={checkin}
-                checkout={checkout}
-                adults={adults}
-              /> */
-}
