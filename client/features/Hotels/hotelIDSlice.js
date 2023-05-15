@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { XRAPIDAPIKEY } from "etc/secrets/secrets";
+import { XRAPIDAPIKEY } from "/etc/secrets/secrets";
 
 export const fetchHotelID = createAsyncThunk(
   "hotel/fetchID",
