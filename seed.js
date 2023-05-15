@@ -3,6 +3,7 @@ const Sequelize = require("sequelize");
 const FlightCard = require("./server/db/models/flightCard");
 const LodgingCard = require("./server/db/models/lodgingCard");
 const Trip = require("./server/db/models/trip");
+const user = require("./server/db/models/user");
 
 async function seed() {
   try {
@@ -59,6 +60,21 @@ async function seed() {
       id: 2,
       flightcard_id: [flightCard2.id],
       lodgingcard_id: [lodgingCard2.id],
+    });
+
+    // Create some example Users
+    const user1 = await user.create({
+      username: "john_doe",
+      password: "password123",
+      isAdmin: false,
+      email: "john.doe@example.com",
+    });
+
+    const user2 = await user.create({
+      username: "jane_doe",
+      password: "password456",
+      isAdmin: true,
+      email: "jane.doe@example.com",
     });
 
     console.log("Database seeding complete!");
