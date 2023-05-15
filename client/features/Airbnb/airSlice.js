@@ -14,11 +14,11 @@ export const fetchAirbnbListings = createAsyncThunk(
         checkout: checkout,
         adults: adults,
         page: "1",
-        currency: "150",
+        currency: "USD",
       },
       headers: {
-        "X-RapidAPI-Key": "c9cae479e8mshaddca0455a26784p15ee8ejsnb94287591b74",
-        "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
+        "X-RapidAPI-Key": XRAPIDAPIKEY,
+        "X-RapidAPI-Host": "a,irbnb13.p.rapidapi.com",
       },
     };
 
