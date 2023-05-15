@@ -5,7 +5,7 @@ const LodgingCard = require("./server/db/models/lodgingCard");
 const Trip = require("./server/db/models/trip");
 const user = require("./server/db/models/user");
 
-async function seed() {
+const seed = async () => {
   try {
     await db.sync({ force: true });
 
@@ -83,6 +83,6 @@ async function seed() {
   } finally {
     db.close();
   }
-}
+};
 
 seed();
