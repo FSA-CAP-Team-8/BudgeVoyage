@@ -4,9 +4,12 @@ import Flights from "../Flights/Flights";
 // import Hotel from "../Hotels/Hotel";
 import { NavLink } from "react-router-dom";
 import { fetchFlightsListings } from "../Flights/flightsSlice";
+import { useDispatch } from "react-redux";
 
 const Quiz = () => {
+  const dispatch = useDispatch();
   const [destination, setDestination] = useState("");
+  const [origin, setOrigin] = useState("");
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
@@ -26,6 +29,11 @@ const Quiz = () => {
         ...checkinCheckout,
         [name]: value,
       });
+    } else if (name === "date" || name === "returnDate") {
+      setDateReturnDate({
+        ...dateReturnDate,
+        [name]: value,
+      });
     } else {
       switch (name) {
         case "destination":
@@ -34,6 +42,8 @@ const Quiz = () => {
         case "setAdults":
           setAdults(value);
           break;
+        case "origin":
+          setOrigin(value);
         default:
           break;
       }
@@ -44,12 +54,12 @@ const Quiz = () => {
     {
       questionText: "Where are you traveling from and to?", //forflights
       inputType: "text",
-      name: "destination",
-      value: destination,
+      name: "origin",
+      value: origin,
     },
     {
-      questionText: "Wat days are you traveling?", //forflights
-      inputType: "text",
+      questionText: "What days are you traveling?", //forflights
+      inputType: "date",
       name: "dateReturnDate",
       value: dateReturnDate.date,
     },
@@ -84,7 +94,7 @@ const Quiz = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatchEvent(fetchFlightsListings(destination));
+    dispatch(fetchFlightsListings(destination));
     setIsSubmitted(true);
   };
 
@@ -125,8 +135,9 @@ const Quiz = () => {
           <Flights
             destination={destination}
             date={dateReturnDate.date}
-            date={dateReturnDate.returnDate}
+            returnDate={dateReturnDate.returnDate}
             adults={adults}
+            origin={origin}
             // currency={currency}
             // countryCode={countryCode}
           />

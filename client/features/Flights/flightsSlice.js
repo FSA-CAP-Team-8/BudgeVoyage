@@ -31,6 +31,7 @@ export const fetchFlightsListings = createAsyncThunk(
       method: "GET",
       url: "https://skyscanner50.p.rapidapi.com/api/v1/searchFlights",
       params: {
+        origin: fetchAirportCode,
         origin: origin,
         destination: destination,
         date: date,
