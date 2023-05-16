@@ -13,11 +13,11 @@ export const fetchAirbnbListings = createAsyncThunk(
         checkin: checkin,
         checkout: checkout,
         adults: adults,
-        page: "1",
-        currency: "USD",
+        // page: "1",
+        // currency: "USD",
       },
       headers: {
-        "X-RapidAPI-Key": "c9cae479e8mshaddca0455a26784p15ee8ejsnb94287591b74",
+        "X-RapidAPI-Key": "cbceaa818fmsh07841f07daa59a3p1d8481jsn01cbd0fe6103",
         "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
       },
     };
@@ -33,12 +33,12 @@ export const fetchAirbnbListings = createAsyncThunk(
 
 const airSlice = createSlice({
   name: "airbnb",
-  initialState: [{ results: [], currentIndex: 0 }],
+  initialState: [],
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAirbnbListings.fulfilled, (state, action) => {
-      return { ...state, results: [action.payload[0]], currentIndex: 0 };
-      // return action.payload;
+      // return { ...state, results: [action.payload[0]], currentIndex: 0 };
+      return action.payload;
     });
     builder.addCase(fetchAirbnbListings.rejected, (state, action) => {
       return state;

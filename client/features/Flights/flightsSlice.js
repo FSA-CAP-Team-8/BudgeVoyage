@@ -10,7 +10,7 @@ export const fetchAirportCode = createAsyncThunk(
       URL: "https://skyscanner50.p.rapidapi.com/api/v1/searchAirport",
       params: { query: origin },
       headers: {
-        "X-RapidAPI-Key": XRAPIDAPIKEYFLIGHTS,
+        "X-RapidAPI-Key": "c9cae479e8mshaddca0455a26784p15ee8ejsnb94287591b74",
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
     };
@@ -41,7 +41,7 @@ export const fetchFlightsListings = createAsyncThunk(
         currency: "USD",
       },
       headers: {
-        "X-RapidAPI-Key": XRAPIDAPIKEYFLIGHTS,
+        "X-RapidAPI-Key": "c9cae479e8mshaddca0455a26784p15ee8ejsnb94287591b74",
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
     };

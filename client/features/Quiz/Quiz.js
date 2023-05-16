@@ -140,16 +140,14 @@ const Quiz = () => {
               adults={adults}
             />
           </div>
-          {/* 
-          <div id="lodgingcard">
+
+          {/* <div id="flightcard">
             <Flights
               destination={destination}
               date={dateReturnDate.date}
               returnDate={dateReturnDate.returnDate}
               adults={adults}
               origin={origin}
-              currency={currency}
-              countryCode={countryCode}
             />
           </div> */}
         </>
