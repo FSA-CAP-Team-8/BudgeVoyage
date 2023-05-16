@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Search from "../features/Search/Search";
 import Airbnb from "../features/Airbnb/Airbnb";
@@ -10,8 +10,12 @@ import Quiz from "../features/Quiz/Quiz";
 import OurTeam from "../features/OurTeam";
 import Generate from "../features/Generate/Generate";
 import AuthForm from "../features/Authform/Auth";
+import { useDispatch, useSelector } from "react-redux";
 
 const AppRoutes = () => {
+  const user = useSelector((state) => state.auth.me);
+  const dispatch = useDispatch();
+
   return (
     <div id="routes">
       <Routes>

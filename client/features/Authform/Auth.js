@@ -21,10 +21,6 @@ const AuthForm = ({ name, displayName }) => {
   const [email, setEmail] = useState("");
   const [formName, setFormName] = useState("");
 
-  // const { trip } = User;
-  // let tripId = null;
-  // trip ? (tripId = trip.id) : null;
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;

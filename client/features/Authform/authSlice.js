@@ -13,11 +13,12 @@ export const me = createAsyncThunk("auth/me", async () => {
   const token = window.localStorage.getItem(TOKEN);
   try {
     if (token) {
-      const res = await axios.get("/auth/me", {
+      const res = await axios.get("/auth/person", {
         headers: {
           authorization: token,
         },
       });
+      console.log(res.data);
       return res.data;
     } else {
       return {};
@@ -51,6 +52,20 @@ export const authenticate = createAsyncThunk(
     }
   }
 );
+// export const authenticate = createAsyncThunk(
+//   "auth/authenticate",
+//   async ({ username, password }, thunkAPI) => {
+//     try {
+//       const res = await axios.post(`/auth/login`, { username, password });
+//       window.localStorage.setItem(TOKEN, res.data.token);
+//       console.log(thunkAPI);
+//       thunkAPI.dispatch(me());
+//     } catch (authError) {
+//       // return thunkAPI.dispatch(setAuth({ error: authError }));
+//       console.log(authError);
+//     }
+//   }
+// );
 
 /*
   SLICE

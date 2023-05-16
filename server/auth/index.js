@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const {
-  models: { User },
-} = require("../db");
+const { User } = require("../db");
 const Orders = require("../db/models/trip");
 module.exports = router;
 
@@ -28,7 +26,8 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-router.get("/me", async (req, res, next) => {
+router.get("/person", async (req, res, next) => {
+  console.log("inAuthMe");
   try {
     res.send(
       await User.findByToken(req.headers.authorization, {
