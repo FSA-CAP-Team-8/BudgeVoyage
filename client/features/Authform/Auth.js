@@ -32,11 +32,6 @@ const AuthForm = ({ name, displayName }) => {
     navigate("/");
   };
 
-  useEffect(() => {
-    loggedInUserID ? dispatch(fetchUserAsync(loggedInUserID)) : null;
-    formName === "signup" ? dispatch(fetchOneTripAsync(tripId)) : null;
-  }, [formName]);
-
   return (
     <div className="signupForm">
       {
