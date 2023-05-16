@@ -33,11 +33,12 @@ export const fetchAirbnbListings = createAsyncThunk(
 
 const airSlice = createSlice({
   name: "airbnb",
-  initialState: [],
+  initialState: { results: [], currentIndex: 0 },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAirbnbListings.fulfilled, (state, action) => {
-      return action.payload;
+      return { ...state, results: [action.payload[0]], currentIndex: 0 };
+      // return action.payload;
     });
     builder.addCase(fetchAirbnbListings.rejected, (state, action) => {
       return state;

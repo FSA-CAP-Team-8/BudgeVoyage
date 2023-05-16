@@ -351,5 +351,35 @@ label {
   display: flex;
   flex-direction: column;
   padding-top: 6em;
+}
 
+/* quiz carousel */
+.lodgingCardContainer {
+  width: 100%;
+}
+
+.lodgingCard {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.lodgingImage {
+  width: 100%;
+  height: 225px;
+}
+
+.lodgingLink {
+  text-decoration: none;
+  color: black;
+}
+
+.lodgingName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.lodgingPrice {
+  margin-top: 0.5rem;
+  font-size: 1rem;
 }
