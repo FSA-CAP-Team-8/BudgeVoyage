@@ -52,20 +52,6 @@ export const authenticate = createAsyncThunk(
     }
   }
 );
-// export const authenticate = createAsyncThunk(
-//   "auth/authenticate",
-//   async ({ username, password }, thunkAPI) => {
-//     try {
-//       const res = await axios.post(`/auth/login`, { username, password });
-//       window.localStorage.setItem(TOKEN, res.data.token);
-//       console.log(thunkAPI);
-//       thunkAPI.dispatch(me());
-//     } catch (authError) {
-//       // return thunkAPI.dispatch(setAuth({ error: authError }));
-//       console.log(authError);
-//     }
-//   }
-// );
 
 /*
   SLICE
