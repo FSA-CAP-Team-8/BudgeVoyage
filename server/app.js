@@ -14,10 +14,6 @@ app.use(express.json());
 app.use("/api", require("./api"));
 app.use("/auth", require("./auth"));
 
-// app.get("/", (req, res) =>
-//   res.sendFile(path.join(__dirname, "..", "public/index.html"))
-// );
-
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, "..", "public")));
 
