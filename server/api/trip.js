@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const {
-  models: { trip },
-} = require("../db");
+const { trip } = require("../db");
 const User = require("../db/models/User");
 
 // GET /api/trip
