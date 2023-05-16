@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Search from "../features/Search/Search";
 import Airbnb from "../features/Airbnb/Airbnb";
@@ -9,8 +9,13 @@ import Hotel from "../features/Hotels/Hotel";
 import Quiz from "../features/Quiz/Quiz";
 import OurTeam from "../features/OurTeam";
 import Generate from "../features/Generate/Generate";
+import AuthForm from "../features/Authform/Auth";
+import { useDispatch, useSelector } from "react-redux";
 
 const AppRoutes = () => {
+  const user = useSelector((state) => state.auth.me);
+  const dispatch = useDispatch();
+
   return (
     <div id="routes">
       <Routes>
@@ -21,8 +26,14 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/ourstory" element={<OurStory />} />
         <Route path="/ourteam" element={<OurTeam />} />
-        {/* <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} /> */}
+        <Route
+          path="/login"
+          element={<AuthForm name="login" displayName="Login" />}
+        />
+        <Route
+          path="/signup"
+          element={<AuthForm name="signup" displayName="Sign Up" />}
+        />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/bucketlist" element={<BucketList />} />
         <Route path="/airbnb" element={<Airbnb />} />

@@ -342,3 +342,7 @@ label {
 .teambtn:hover {
   background-color: #555;
 }
+
+.signupForm {
+  padding-top: 100px;
+}
