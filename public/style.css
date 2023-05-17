@@ -6,21 +6,11 @@
 
 body {
   margin: 0;
-  background-color: #4fa9de;
+  padding:0;
+  background-color: #0093E9;
   /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
-  background: whitesmoke;
-  background-size: cover;
   font-family: "Montserrat", sans-serif;
   color: rgb(17, 32, 91);
-  background-color: #0093e9;
-  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
 }
 
 /* Home & Nav */
@@ -65,13 +55,26 @@ video {
 .overlay h2 {
   background: none repeat scroll 0 0;
   color: white;
-  font-size: 70px;
+  font-size: 90px;
+  font-weight: 400;
   margin: 2rem 3rem 0;
   mix-blend-mode: hard-light;
   padding: 5px 15px;
   text-align: center;
   text-decoration: none;
 }
+
+.overlay p{
+  background: none repeat scroll 0 0;
+  color: white;
+  font-size: 30px;
+  margin: 2rem 3rem 0;
+  mix-blend-mode: hard-light;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
 
 header {
   display: flex;
@@ -81,9 +84,9 @@ header {
   /* position: fixed; */
   width: 100%;
   text-align: center;
-  color: black;
-  padding: 0.3em;
+  color:  rgb(17, 32, 91);
   z-index: 1;
+  margin-top: -.5em;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
 }
@@ -98,6 +101,11 @@ nav a {
   color: inherit;
   padding: 0 10px;
   padding-top: 0%;
+  margin: 0.5em;
+}
+
+.navlink-hidden {
+  visibility: hidden;
 }
 
 /* our story */
@@ -135,35 +143,60 @@ nav a {
   margin-left: 1em;
 }
 
-.arrow {
-  width: 200px;
-  height: 200px;
-  margin-left: 1em;
-  margin-top: 2em;
-}
 
-#background {
-  background-size: cover;
-  position: relative;
+/* bucketlist */
 
-  /* Preserve aspet ratio */
-  min-width: 100%;
-  min-height: 100%;
-}
-
-/* bucketkist */
-
-.bucketlist {
-  display: flex;
+#bucketlist {
   color: rgb(17, 32, 91);
-  padding-top: 3.5em;
+  padding-top: 6em;
   padding-left: 1em;
   font-size: 20px;
+}
+
+.bucketcontainer{
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  margin: auto;
+  padding-top: 1em;
+}
+
+.bucketcontainer h2{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
 }
 
 /* QUIZ PAGE */
 
 .container {
+  width: 100%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px 2px;
+  margin: auto;
+  margin-top: 3em;
+}
+
+.container h1{
+  display:flex;
+  justify-content: center;
+}
+
+
+#quiz {
+  color: rgb(17, 32, 91);
+  padding-top: 6em;
+  padding-left: 1em;
+  font-size: 15px;
+}
+
+/* #cardscontainer{
   width: 100%;
   max-width: 800px;
   background-color: white;
@@ -172,15 +205,7 @@ nav a {
   box-shadow: 0 0 10px 2px;
   margin: auto;
   margin-top: 3em;
-}
-
-#quiz {
-  background-color: #0093e9;
-  color: rgb(17, 32, 91);
-  padding-top: 6em;
-  padding-left: 1em;
-  font-size: 15px;
-}
+} */
 
 #routes {
   height: 100vh;
@@ -217,38 +242,6 @@ label {
   font-size: 4vw;
 }
 
-.hotelComponent {
-  flex-grow: 1;
-}
-
-.searchComponent {
-  display: flex;
-  flex-direction: column;
-}
-
-.generateComponent {
-  flex-shrink: 1;
-  text-align: center;
-}
-
-.generateComponent li {
-  list-style: none;
-}
-
-.airbnbComponent {
-  flex-grow: 1;
-}
-
-.formResults {
-  display: flex;
-  justify-content: center;
-  column-gap: 2.75rem;
-}
-
-.lodgingCards {
-  margin-bottom: 15px;
-}
-
 #quizbtn {
   background-color: #0093e9;
   border: 2px solid;
@@ -256,8 +249,8 @@ label {
   color: white;
   font-size: 15px;
   border-radius: 0.5em;
-  padding: 0.5em;
-  margin-right: 2em;
+  padding: .5em;
+  margin-left: 2em;
 }
 
 #nextbtn {
@@ -266,12 +259,11 @@ label {
   border-color: rgb(17, 32, 91);
   color: white;
   font-size: 15px;
-  font-weight: 4000;
   border-radius: 0.5em;
-  padding: 0.5em;
+  padding: .5em;
   outline: none;
-  margin: 1em;
-  margin-left: 0%;
+  margin: .5em;
+  margin-left: 2em;
 }
 
 /* our Team */
@@ -301,11 +293,11 @@ label {
   }
 }
 
-/* #profilefoto{
+#profilefoto{
   width: 260px;
   height: 260px;
   margin-left: 1em;
-} */
+}
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -342,3 +334,24 @@ label {
 .teambtn:hover {
   background-color: #555;
 }
+
+
+/* cards */
+#lodgingcard{
+  padding-top: 8em;
+}
+
+#airbnbcard{
+  padding-top: 8em;
+  display:flex;
+  margin:auto;
+  justify-content: center;
+}
+.searchComponent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6em;
+}
+
+/* quiz carousel */
+

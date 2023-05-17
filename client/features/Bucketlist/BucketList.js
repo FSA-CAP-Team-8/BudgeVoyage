@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 
 const bucketlist = () => {
   return (
-    <div id="bucketlist" className="bucketlist">
-      <h2>
-        fights<br></br>
-        lodging<br></br>
-        total cost: 875$
-      </h2>
+    <div id="bucketlist">
+      <div className="bucketcontainer">
+        <h2>fights</h2>
+        <h2>lodging</h2>
+        <h2>total cost: 875$</h2>
+      </div>
     </div>
   );
 };

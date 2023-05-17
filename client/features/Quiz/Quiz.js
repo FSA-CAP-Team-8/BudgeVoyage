@@ -1,169 +1,163 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Airbnb } from "../Airbnb/Airbnb";
-import { Hotel } from "../Hotels/Hotel";
+import Airbnb from "../Airbnb/Airbnb";
+import Flights from "../Flights/Flights";
+import { NavLink } from "react-router-dom";
+import { fetchFlightsListings } from "../Flights/flightsSlice";
+import { useDispatch } from "react-redux";
 
 const Quiz = () => {
+  const dispatch = useDispatch();
   const [destination, setDestination] = useState("");
-  const [checkin, setCheckin] = useState("");
-  const [checkout, setCheckout] = useState("");
+  const [origin, setOrigin] = useState("");
+  const [checkinCheckout, setCheckinCheckout] = useState({
+    checkin: "",
+    checkout: "",
+  });
   const [adults, setAdults] = useState(1);
-
-  const [answers, setAnswers] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [dateReturnDate, setDateReturnDate] = useState({
+    date: "",
+    returnDate: "",
+  });
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setAnswers({ ...answers, [name]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (currentQuestion < setOfQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (name === "checkin" || name === "checkout") {
+      setCheckinCheckout({
+        ...checkinCheckout,
+        [name]: value,
+      });
+    } else if (name === "date" || name === "returnDate") {
+      setDateReturnDate({
+        ...dateReturnDate,
+        [name]: value,
+      });
     } else {
-      setIsSubmitted(true);
+      switch (name) {
+        case "destination":
+          setDestination(value);
+          break;
+        case "setAdults":
+          setAdults(value);
+          break;
+        case "origin":
+          setOrigin(value);
+        default:
+          break;
+      }
     }
   };
 
   const setOfQuestions = [
     {
-      questionText: "What is your budget?",
-      answer: destination,
+      questionText: "Where are you traveling to?", //forflights
+      inputType: "text",
+      name: "origin",
+      value: origin,
     },
     {
-      questionText: "Where are you traveling from and to?",
-      answer: [checkin, checkout],
+      questionText: "What days are you traveling?", //forflights
+      inputType: "date",
+      name: "date",
+      value: dateReturnDate.date,
     },
+    { inputType: "date", name: "returnDate", value: dateReturnDate.returnDate },
+
     {
-      questionText: "How many adults are you traveling with?",
-      answer: adults,
-    },
-    {
-      questionText: "What airlines do you prefer?",
-      answer: destination,
+      questionText: "Where will you be booking your stay?",
+      inputType: "text",
+      name: "destination",
+      value: destination,
     },
     {
       questionText: "what days are you booking lodging?",
-      answer: [checkin, checkout],
+      inputType: "date",
+      name: "checkin",
+      value: checkinCheckout.checkin,
     },
+    { inputType: "date", name: "checkout", value: checkinCheckout.checkout },
     {
-      questionText: "what is your lodging preference?",
-      answer: destination,
-    },
-    {
-      questionText: "how many rooms or beds do you need?",
-      answer: destination,
+      questionText: "How many adults are you traveling with?",
+      inputType: "text",
+      name: "adults",
+      value: adults,
     },
   ];
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <div id="quiz">
-        <div className="container">
-          <h1>{setOfQuestions[currentQuestion].questionText}</h1>
-          {currentQuestion === 0 && (
-            <input
-              type="text"
-              name="budget"
-              value={answers.budget}
-              onChange={handleInputChange}
-            />
-          )}
-          {currentQuestion === 1 &&
-            !answers.travelFrom &&
-            !answers.travelTo && (
-              <>
-                <input
-                  type="text"
-                  name="travelFrom"
-                  value={answers.travelFrom}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="travelTo"
-                  value={answers.travelTo}
-                  onChange={handleInputChange}
-                />
-              </>
-            )}
-          {currentQuestion === 2 && (
-            <>
-              <input
-                type="text"
-                name="budget"
-                value={answers.budget}
-                onChange={handleInputChange}
-              />
-            </>
-          )}
-          {currentQuestion === 3 && (
-            <>
-              <input
-                type="text"
-                name="budget"
-                value={answers.budget}
-                onChange={handleInputChange}
-              />
-            </>
-          )}
-          {currentQuestion === 4 && (
-            <>
-              <input
-                type="text"
-                name="budget"
-                value={answers.budget}
-                onChange={handleInputChange}
-              />
-            </>
-          )}
-          {currentQuestion === 5 && (
-            <>
-              <input
-                type="text"
-                name="budget"
-                value={answers.budget}
-                onChange={handleInputChange}
-              />
-            </>
-          )}
-          {currentQuestion === 6 && (
-            <>
-              <input
-                type="text"
-                name="budget"
-                value={answers.budget}
-                onChange={handleInputChange}
-              />
-            </>
-          )}
+  const handleNextQuestion = () => {
+    if (currentQuestion < setOfQuestions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  };
 
-          <div>
-            <div id="submitbtn">
-              <button id="nextbtn" type="submit">
-                {isSubmitted ? "Ready for you Voyage" : "Next"}
-              </button>
-              {/* <>
-                <Hotel
-                  destination={destination}
-                  checkin={checkin}
-                  checkout={checkout}
-                  adults={adults}
-                />
-                <Airbnb
-                  destination={destination}
-                  checkin={checkin}
-                  checkout={checkout}
-                  adults={adults}
-                />
-              </> */}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(
+      fetchFlightsListings({
+        origin: origin,
+        destination: destination,
+        date: dateReturnDate.date,
+        returnDate: dateReturnDate.returnDate,
+        adults: adults,
+      })
+    );
+    setIsSubmitted(true);
+  };
+
+  return (
+    <>
+      {!isSubmitted && (
+        <form onSubmit={handleSubmit}>
+          <div id="quiz">
+            <div className="container">
+              <h1>{setOfQuestions[currentQuestion].questionText}</h1>
+              <input
+                id="input"
+                type={setOfQuestions[currentQuestion].inputType}
+                name={setOfQuestions[currentQuestion].name}
+                value={setOfQuestions[currentQuestion].value}
+                onChange={handleInputChange}
+              />
+              {currentQuestion < setOfQuestions.length - 1 && (
+                <button id="nextbtn" type="button" onClick={handleNextQuestion}>
+                  next
+                </button>
+              )}
+              {currentQuestion === setOfQuestions.length - 1 && (
+                <button id="quizbtn" type="submit">
+                  ready for your Voyage
+                </button>
+              )}
             </div>
           </div>
-        </div>
-      </div>
-    </form>
+        </form>
+      )}
+      {isSubmitted && (
+        <>
+          <div id="cardscontainer">
+            <div id="lodgingcard">
+              <Airbnb
+                destination={destination}
+                checkin={checkinCheckout.checkin}
+                checkout={checkinCheckout.checkout}
+                adults={adults}
+              />
+            </div>
+
+            <div id="flightcard">
+              <Flights
+                destination={destination}
+                date={dateReturnDate.date}
+                returnDate={dateReturnDate.returnDate}
+                adults={adults}
+                origin={origin}
+              />
+            </div>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
