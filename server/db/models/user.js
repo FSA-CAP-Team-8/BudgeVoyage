@@ -2,6 +2,7 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const BucketList = require("./bucketlist");
 
 const SALT_ROUNDS = 5;
 
@@ -22,8 +23,6 @@ const User = db.define("users", {
     unique: true,
   },
 });
-
-module.exports = User;
 
 /**
  * instanceMethods
@@ -76,6 +75,14 @@ const hashPassword = async (user) => {
   }
 };
 
+const assignBucketlistToUser = async (user) => {
+  const newBucketList = await BucketList.create(); // Create a new bucketList
+  await user.setBucketList(newBucketList); // Associate the bucketList with the user
+};
+
+User.afterCreate(assignBucketlistToUser);
 User.beforeCreate(hashPassword);
 User.beforeUpdate(hashPassword);
 User.beforeBulkCreate((users) => Promise.all(users.map(hashPassword)));
+
+module.exports = User;
