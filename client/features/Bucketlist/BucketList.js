@@ -24,6 +24,10 @@ const bucketlist = () => {
             <div className="FlightCardDates">June 10 - June 12</div>
             <div className="FlightCardPriceTotal">$458 total</div>
           </span>
+          <span className="TripTotal" height="20px" width="40px">
+            $958 Voyage Total
+          </span>
+          <button type="remove">Remove This Voyage</button>
         </div>
       </div>
     </div>
