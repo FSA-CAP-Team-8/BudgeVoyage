@@ -6,8 +6,8 @@
 
 body {
   margin: 0;
-  padding:0;
-  background-color: #0093E9;
+  padding: 0;
+  background-color: #0093e9;
   /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
   font-family: "Montserrat", sans-serif;
   color: rgb(17, 32, 91);
@@ -64,7 +64,7 @@ video {
   text-decoration: none;
 }
 
-.overlay p{
+.overlay p {
   background: none repeat scroll 0 0;
   color: white;
   font-size: 30px;
@@ -75,7 +75,6 @@ video {
   text-decoration: none;
 }
 
-
 header {
   display: flex;
   align-items: center;
@@ -84,9 +83,9 @@ header {
   position: fixed;
   width: 100%;
   text-align: center;
-  color:  rgb(17, 32, 91);
+  color: rgb(17, 32, 91);
   z-index: 1;
-  margin-top: -.5em;
+  margin-top: -0.5em;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
 }
@@ -143,7 +142,6 @@ nav a {
   margin-left: 1em;
 }
 
-
 /* bucketlist */
 
 #bucketlist {
@@ -153,7 +151,7 @@ nav a {
   font-size: 20px;
 }
 
-.bucketcontainer{
+.bucketcontainer {
   width: 100%;
   max-width: 800px;
   background-color: white;
@@ -164,9 +162,9 @@ nav a {
   padding-top: 1em;
 }
 
-.bucketcontainer h2{
+.bucketcontainer h2 {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
@@ -184,11 +182,10 @@ nav a {
   margin-top: 3em;
 }
 
-.container h1{
-  display:flex;
+.container h1 {
+  display: flex;
   justify-content: center;
 }
-
 
 #quiz {
   color: rgb(17, 32, 91);
@@ -250,7 +247,7 @@ label {
   color: white;
   font-size: 15px;
   border-radius: 0.5em;
-  padding: .5em;
+  padding: 0.5em;
   margin-left: 2em;
 }
 
@@ -261,9 +258,9 @@ label {
   color: white;
   font-size: 15px;
   border-radius: 0.5em;
-  padding: .5em;
+  padding: 0.5em;
   outline: none;
-  margin: .5em;
+  margin: 0.5em;
   margin-left: 2em;
 }
 
@@ -294,7 +291,7 @@ label {
   }
 }
 
-#profilefoto{
+#profilefoto {
   width: 260px;
   height: 260px;
   margin-left: 1em;
@@ -336,16 +333,17 @@ label {
   background-color: #555;
 }
 
-
 /* cards */
+#lodgingcard {
+  padding-top: 8em;
 #lodgingcard {
   padding-top: 2em;
 }
 
-#airbnbcard{
+#airbnbcard {
   padding-top: 8em;
-  display:flex;
-  margin:auto;
+  display: flex;
+  margin: auto;
   justify-content: center;
 }
 
@@ -459,3 +457,17 @@ label {
   margin-left: 2em;
 }
 
+.Tripcontainer {
+  display: grid;
+  height: 350px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px;
+}
+.LodgingCardImage {
+  width: 260px;
+  height: 260px;
+  margin-left: 1em;
+  margin-right: 1em;
+  display: flex;
+  justify-content: center;
+}
