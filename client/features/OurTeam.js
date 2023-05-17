@@ -9,7 +9,7 @@ const OurTeam = () => {
           Hello, we are the team behind BudgeVoyage, an innovative application
           to help you travel within your budget. We all had one thing in common,
           we love to travel, but hate the planning process. We wanted to create
-          an app that worked as a travel advisors and focused on our users
+          an WebApp that worked as a travel advisor and focused on our users
           budget. Our application allows users to focus on the fun and leave the
           financial calculations to BudgeVoyage. Take our quiz and enjoy the
           stress free experience of finding the right travel package for your
@@ -21,7 +21,7 @@ const OurTeam = () => {
               <img id="profilefoto" src="" alt="veronica"></img>
               <div class="teamcontainer">
                 <h2>Veronica Cisneros</h2>
-                <p className="title">add role here</p>
+                <p className="title">Fullstack Developer</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>
                 <p>vcisneroshdz@gmail.com</p>
                 <p>
@@ -40,7 +40,7 @@ const OurTeam = () => {
                 <h2>Luis Samboy</h2>
                 <p className="title">add role here</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>
-                <p>vcisneroshdz@gmail.com</p>
+                <p></p>
                 <p>
                   <button className="teambtn">contact</button>
                 </p>
@@ -57,7 +57,7 @@ const OurTeam = () => {
                 <h2>Jesiah Roe</h2>
                 <p className="title">add role here</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>
-                <p>vcisneroshdz@gmail.com</p>
+                <p></p>
                 <p>
                   <button className="teambtn">contact</button>
                 </p>
@@ -74,7 +74,7 @@ const OurTeam = () => {
                 <h2>Jackie Chung</h2>
                 <p className="title">add role here</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>
-                <p>vcisneroshdz@gmail.com</p>
+                <p></p>
                 <p>
                   <button className="teambtn">contact</button>
                 </p>

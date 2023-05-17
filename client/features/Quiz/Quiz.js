@@ -51,7 +51,7 @@ const Quiz = () => {
 
   const setOfQuestions = [
     {
-      questionText: "Where are you traveling from and to?", //forflights
+      questionText: "Where are you traveling to?", //forflights
       inputType: "text",
       name: "origin",
       value: origin,
@@ -113,18 +113,21 @@ const Quiz = () => {
             <div className="container">
               <h1>{setOfQuestions[currentQuestion].questionText}</h1>
               <input
+                id="input"
                 type={setOfQuestions[currentQuestion].inputType}
                 name={setOfQuestions[currentQuestion].name}
                 value={setOfQuestions[currentQuestion].value}
                 onChange={handleInputChange}
               />
               {currentQuestion < setOfQuestions.length - 1 && (
-                <button type="button" onClick={handleNextQuestion}>
+                <button id="nextbtn" type="button" onClick={handleNextQuestion}>
                   next
                 </button>
               )}
               {currentQuestion === setOfQuestions.length - 1 && (
-                <button type="submit">ready for your Voyage</button>
+                <button id="quizbtn" type="submit">
+                  ready for your Voyage
+                </button>
               )}
             </div>
           </div>
@@ -132,24 +135,26 @@ const Quiz = () => {
       )}
       {isSubmitted && (
         <>
-          <div id="lodgingcard">
-            <Airbnb
-              destination={destination}
-              checkin={checkinCheckout.checkin}
-              checkout={checkinCheckout.checkout}
-              adults={adults}
-            />
-          </div>
+          <div id="cardscontainer">
+            <div id="lodgingcard">
+              <Airbnb
+                destination={destination}
+                checkin={checkinCheckout.checkin}
+                checkout={checkinCheckout.checkout}
+                adults={adults}
+              />
+            </div>
 
-          {/* <div id="flightcard">
-            <Flights
-              destination={destination}
-              date={dateReturnDate.date}
-              returnDate={dateReturnDate.returnDate}
-              adults={adults}
-              origin={origin}
-            />
-          </div> */}
+            <div id="flightcard">
+              <Flights
+                destination={destination}
+                date={dateReturnDate.date}
+                returnDate={dateReturnDate.returnDate}
+                adults={adults}
+                origin={origin}
+              />
+            </div>
+          </div>
         </>
       )}
     </>

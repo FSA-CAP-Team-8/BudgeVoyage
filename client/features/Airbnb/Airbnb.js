@@ -70,6 +70,8 @@
 //call our card component and pass the current
 //cardcomponent(current)
 
+//trying a carousel methid
+
 // import React from "react";
 // import { useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";

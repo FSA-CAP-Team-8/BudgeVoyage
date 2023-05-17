@@ -17,14 +17,14 @@ export const fetchAirbnbListings = createAsyncThunk(
         // currency: "USD",
       },
       headers: {
-        "X-RapidAPI-Key": XRAPIDAPIKEYAIR,
+        "X-RapidAPI-Key": "cbceaa818fmsh07841f07daa59a3p1d8481jsn01cbd0fe6103",
         "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
       },
     };
 
     try {
       const { data } = await axios.request(options);
-      return data;
+      return data[0];
     } catch (err) {
       throw new Error("Failed to fetch Airbnb listings");
     }
@@ -34,14 +34,16 @@ export const fetchAirbnbListings = createAsyncThunk(
 const airSlice = createSlice({
   name: "airbnb",
   initialState: [],
+  // { result: null, currentIndex: 0 }
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAirbnbListings.fulfilled, (state, action) => {
-      // return { ...state, results: [action.payload[0]], currentIndex: 0 };
+      // return { ...state, result: action.payload };
       return action.payload;
     });
     builder.addCase(fetchAirbnbListings.rejected, (state, action) => {
       return state;
+      // return { ...state, result: null };
     });
   },
 });
