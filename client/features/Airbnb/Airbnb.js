@@ -139,7 +139,6 @@
 // export default Airbnb;
 
 //mapping that works
-
 import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -160,6 +159,10 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
     );
   }, [dispatch, destination, checkin, checkout, adults]);
 
+  const handleAddBucketList = (result) => {
+    dispatch(handleAddBucketList(result));
+  };
+
   return (
     <div className="airbnbComponent">
       <h2>Airbnb</h2>
@@ -178,10 +181,12 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
                   <div>{result.name}</div>
                 </a>
-                <li>Total Price: ${result.price.total}</li>{" "}
+                <p>Total Price: ${result.price.total}</p>{" "}
+                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
+                  add to BucketList
+                </button>
               </div>
             </div>
           ))}
@@ -192,6 +197,24 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
 };
 
 export default Airbnb;
+
+// kwames work
+//   let data = [];
+//   if (airbnb.results) {
+//     data = airbnb.results[0];
+//     console.log("airdata", data);
+//     return (
+//       <div className="airbnbComponent">
+//         <h2>Airbnb</h2>
+//         <div>
+//           <Results data={data} />
+//         </div>
+//       </div>
+//     );
+//   }
+// };
+
+// export default Airbnb;
 
 //attemting rendering one at a time
 
