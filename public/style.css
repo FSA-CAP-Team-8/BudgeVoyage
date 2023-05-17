@@ -335,8 +335,6 @@ label {
 
 /* cards */
 #lodgingcard {
-  padding-top: 8em;
-#lodgingcard {
   padding-top: 2em;
 }
 
@@ -433,7 +431,8 @@ label {
   padding: 10px;
   box-shadow: 0 0 10px 2px;
   margin:auto;
-  padding-top: 1em;
+  padding-top: 10em;
+
 }
 
 #signupform {
@@ -463,6 +462,7 @@ label {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 100px;
 }
+
 .LodgingCardImage {
   width: 260px;
   height: 260px;
@@ -470,4 +470,17 @@ label {
   margin-right: 1em;
   display: flex;
   justify-content: center;
+}
+
+.remove{
+  background-color: #0093e9;
+  border: 2px solid;
+  border-color: rgb(17, 32, 91);
+  color: white;
+  font-size: 15px;
+  border-radius: .5em;
+  padding: .5em;
+  outline: none;
+  margin: .5em;
+  margin-left: 2em;
 }

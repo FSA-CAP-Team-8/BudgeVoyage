@@ -27,7 +27,9 @@ const bucketlist = () => {
           <span className="TripTotal" height="20px" width="40px">
             $958 Voyage Total
           </span>
-          <button type="remove">Remove This Voyage</button>
+          <button className="remove" width="10px" type="remove">
+            Remove This Voyage
+          </button>
         </div>
       </div>
     </div>
