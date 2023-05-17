@@ -139,7 +139,6 @@
 // export default Airbnb;
 
 //mapping that works
-
 import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -160,6 +159,10 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
     );
   }, [dispatch, destination, checkin, checkout, adults]);
 
+  const handleAddBucketList = (result) => {
+    dispatch(handleAddBucketList(result));
+  };
+
   return (
     <div className="airbnbComponent">
       <h2>Airbnb</h2>
@@ -173,12 +176,14 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                   alt="airbnbImages"
                   style={{ width: "300px", height: "225px" }}
                 />
+                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
+                  add to BucketList
+                </button>
                 <a
                   href={result.deeplink}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
                   <div>{result.name}</div>
                 </a>
                 <li>Total Price: ${result.price.total}</li>{" "}

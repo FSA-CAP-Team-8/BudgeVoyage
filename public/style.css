@@ -170,6 +170,17 @@ nav a {
   gap: 10px;
 }
 
+#bktbtn {
+  background-color: #0093e9;
+  border: 2px solid;
+  border-color: rgb(17, 32, 91);
+  color: white;
+  font-size: 15px;
+  border-radius: 0.5em;
+  padding: .5em;
+  margin-left: 2em;
+}
+
 /* QUIZ PAGE */
 
 .container {
