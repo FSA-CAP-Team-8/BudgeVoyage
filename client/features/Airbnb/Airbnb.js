@@ -176,9 +176,6 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                   alt="airbnbImages"
                   style={{ width: "300px", height: "225px" }}
                 />
-                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
-                  add to BucketList
-                </button>
                 <a
                   href={result.deeplink}
                   target="_blank"
@@ -186,7 +183,10 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                 >
                   <div>{result.name}</div>
                 </a>
-                <li>Total Price: ${result.price.total}</li>{" "}
+                <p>Total Price: ${result.price.total}</p>{" "}
+                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
+                  add to BucketList
+                </button>
               </div>
             </div>
           ))}
