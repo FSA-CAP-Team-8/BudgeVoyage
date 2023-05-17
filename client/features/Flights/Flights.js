@@ -1,15 +1,15 @@
 import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFlightsListings } from "./flightsSlice";
+import { fetchFlightsListings, fetchAirportCode } from "./flightsSlice";
 
 const Flights = ({
   origin,
   destination,
   date,
   adults,
-  countryCode,
-  market,
+  // countryCode,
+  returnDate,
 }) => {
   const dispatch = useDispatch();
   const flights = useSelector((state) => state.flights);
@@ -17,15 +17,16 @@ const Flights = ({
   useEffect(() => {
     dispatch(
       fetchFlightsListings({
+        origin: fetchAirportCode,
         origin: origin,
         destination: destination,
         date: date,
+        returnDate: returnDate,
         adults: adults,
-        countryCode: countryCode,
-        market: market,
+        // countryCode: countryCode,
       })
     );
-  }, [dispatch, origin, destination, date, adults, countryCode, market]);
+  }, [dispatch, origin, destination, date, returnDate, adults]);
 
   return (
     <>
@@ -35,25 +36,8 @@ const Flights = ({
           <div>
             {flights.results.map((result, index) => (
               <div key={`result-${index}`}>
-                <div>
-                  <img
-                    src={result.images[0]}
-                    alt="First Flight image"
-                    style={{ width: "300px", height: "225px" }}
-                  />
-                  <a
-                    href={result.deeplink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {" "}
-                    <div>{result.name}</div>
-                  </a>
-                  {/* <li>Bedrooms: {result.bedrooms}</li>{" "}
-                  <li>Bathrooms: {result.bathrooms}</li>{" "}
-                  <li>Rate: ${result.price.rate} nightly</li>{" "}
-                  <li>Amenities: {result.previewAmenities.join(", ")}</li>{" "} */}
-                </div>
+                <div>{result.name}</div>
+                <div>{result.amount}</div>
               </div>
             ))}
           </div>

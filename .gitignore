@@ -6,6 +6,7 @@ client/secrets.js
 bundle.js
 bundle.js.map
 public/bundle.js.LICENSE.txt
+.env.local
 
 #json files
 hotel.json
