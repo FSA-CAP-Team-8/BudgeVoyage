@@ -19,7 +19,7 @@ const OurTeam = () => {
           <div className="column">
             <div className="card">
               <img id="profilefoto" src="" alt="veronica"></img>
-              <div class="teamcontainer">
+              <div className="teamcontainer">
                 <h2>Veronica Cisneros</h2>
                 <p className="title">Fullstack Developer</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>
@@ -36,7 +36,7 @@ const OurTeam = () => {
           <div className="column">
             <div className="card">
               <img src="" alt="Luis"></img>
-              <div class="teamcontainer">
+              <div className="teamcontainer">
                 <h2>Luis Samboy</h2>
                 <p className="title">add role here</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>
@@ -53,7 +53,7 @@ const OurTeam = () => {
           <div className="column">
             <div className="card">
               <img src="" alt="Jesia"></img>
-              <div class="teamcontainer">
+              <div className="teamcontainer">
                 <h2>Jesiah Roe</h2>
                 <p className="title">add role here</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>
@@ -70,7 +70,7 @@ const OurTeam = () => {
           <div className="column">
             <div className="card">
               <img src="" alt="Jackie"></img>
-              <div class="teamcontainer">
+              <div className="teamcontainer">
                 <h2>Jackie Chung</h2>
                 <p className="title">add role here</p>
                 <p>some text that descries me lorem ipsum ipsum lorem.</p>

@@ -11,6 +11,7 @@ import OurTeam from "../features/OurTeam";
 import Generate from "../features/Generate/Generate";
 import AuthForm from "../features/Authform/Auth";
 import { useDispatch, useSelector } from "react-redux";
+import Results from "../features/Airbnb/results";
 
 const AppRoutes = () => {
   const user = useSelector((state) => state.auth.me);
@@ -38,6 +39,7 @@ const AppRoutes = () => {
         <Route path="/bucketlist" element={<BucketList />} />
         <Route path="/airbnb" element={<Airbnb />} />
         <Route path="/hotel" element={<Hotel />} />
+        {/* <Route path="/results" element={<Results />} /> */}
         <Route
           path="/generate"
           element={<Generate name="generate" displayName="Generate" />}

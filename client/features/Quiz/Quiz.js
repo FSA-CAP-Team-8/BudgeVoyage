@@ -93,15 +93,15 @@ const Quiz = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(
-      fetchFlightsListings({
-        origin: origin,
-        destination: destination,
-        date: dateReturnDate.date,
-        returnDate: dateReturnDate.returnDate,
-        adults: adults,
-      })
-    );
+    // dispatch(
+    //   fetchFlightsListings({
+    //     origin: origin,
+    //     destination: destination,
+    //     date: dateReturnDate.date,
+    //     returnDate: dateReturnDate.returnDate,
+    //     adults: adults,
+    //   })
+    // );
     setIsSubmitted(true);
   };
 
@@ -145,7 +145,7 @@ const Quiz = () => {
               />
             </div>
 
-            <div id="flightcard">
+            {/* <div id="flightcard">
               <Flights
                 destination={destination}
                 date={dateReturnDate.date}
@@ -153,7 +153,7 @@ const Quiz = () => {
                 adults={adults}
                 origin={origin}
               />
-            </div>
+            </div> */}
           </div>
         </>
       )}

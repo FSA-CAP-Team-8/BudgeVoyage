@@ -45,7 +45,7 @@ export const fetchFlightsListings = createAsyncThunk(
         "X-RapidAPI-Key": XRAPIDAPIKEYFLIGHTS,
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
-      timeout: 500,
+      // timeout: 500,
     };
 
     try {
