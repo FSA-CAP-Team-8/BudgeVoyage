@@ -17,14 +17,14 @@ export const fetchAirbnbListings = createAsyncThunk(
         // currency: "USD",
       },
       headers: {
-        "X-RapidAPI-Key": XRAPIDAPIKEYAIR,
+        "X-RapidAPI-Key": "cbceaa818fmsh07841f07daa59a3p1d8481jsn01cbd0fe6103",
         "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
       },
     };
 
     try {
       const { data } = await axios.request(options);
-      return data[0];
+      return data;
     } catch (err) {
       throw new Error("Failed to fetch Airbnb listings");
     }

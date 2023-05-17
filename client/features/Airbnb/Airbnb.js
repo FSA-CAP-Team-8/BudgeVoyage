@@ -193,6 +193,24 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
 
 export default Airbnb;
 
+// kwames work
+//   let data = [];
+//   if (airbnb.results) {
+//     data = airbnb.results[0];
+//     console.log("airdata", data);
+//     return (
+//       <div className="airbnbComponent">
+//         <h2>Airbnb</h2>
+//         <div>
+//           <Results data={data} />
+//         </div>
+//       </div>
+//     );
+//   }
+// };
+
+// export default Airbnb;
+
 //attemting rendering one at a time
 
 // import React, { useState } from "react";

@@ -220,7 +220,7 @@ nav a {
   align-items: center;
 }
 
-.submitForm input,
+/* .submitForm input,
 label {
   height: 2rem;
   font-size: 1.3rem;
@@ -233,7 +233,7 @@ label {
 
 .submitForm input:nth-last-of-type(2) {
   width: 15%;
-}
+} */
 
 .submitForm button {
   background: dodgerblue;
@@ -354,4 +354,66 @@ label {
 }
 
 /* quiz carousel */
+/* .lodgingCardContainer {
+  width: 100%;
+}
+
+.lodgingCard {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.lodgingImage {
+  width: 100%;
+  height: 225px;
+}
+
+.lodgingLink {
+  text-decoration: none;
+  color: black;
+}
+
+.lodgingName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.lodgingPrice {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+} */
+
+
+.signupcontainer {
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  margin:auto;
+  padding-top: 1em;
+}
+
+#signupform {
+  color: rgb(17, 32, 91);
+  padding-left: 1em;
+  font-size: 20px;
+  padding-top: 10em;
+  margin-top:5em;
+}
+
+#signbtn{
+  background-color: #0093e9;
+  border: 2px solid;
+  border-color: rgb(17, 32, 91);
+  color: white;
+  font-size: 15px;
+  border-radius: 0.5em;
+  padding: .5em;
+  outline: none;
+  margin: .5em;
+  margin-left: 2em;
+}
 
