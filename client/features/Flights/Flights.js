@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFlightsListings, fetchAirportCode } from "./flightsSlice";
+import { fetchFlightsListings } from "./flightsSlice";
 
 const Flights = ({
   origin,
@@ -17,7 +17,6 @@ const Flights = ({
   useEffect(() => {
     dispatch(
       fetchFlightsListings({
-        origin: fetchAirportCode,
         origin: origin,
         destination: destination,
         date: date,

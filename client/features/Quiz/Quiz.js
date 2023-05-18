@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
 import { NavLink } from "react-router-dom";
-import { fetchFlightsListings } from "../Flights/flightsSlice";
+import {
+  fetchDestinationCode,
+  fetchFlightsListings,
+  fetchOriginCode,
+} from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
 
 const Quiz = () => {
   const dispatch = useDispatch();
   const [destination, setDestination] = useState("");
   const [origin, setOrigin] = useState("");
+  console.log("origin", origin, "destination", destination);
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
@@ -51,10 +56,16 @@ const Quiz = () => {
 
   const setOfQuestions = [
     {
-      questionText: "Where are you traveling to?", //forflights
+      questionText: "Where are you traveling from?", //forflights
       inputType: "text",
       name: "origin",
       value: origin,
+    },
+    {
+      questionText: "Where are you traveling to?", //forflights
+      inputType: "text",
+      name: "destination",
+      value: destination,
     },
     {
       questionText: "What days are you traveling?", //forflights
@@ -93,15 +104,23 @@ const Quiz = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // dispatch(
-    //   fetchFlightsListings({
-    //     origin: origin,
-    //     destination: destination,
-    //     date: dateReturnDate.date,
-    //     returnDate: dateReturnDate.returnDate,
-    //     adults: adults,
-    //   })
-    // );
+    //   dispatch(
+    //     fetchOriginCode
+    //     ({
+    //       origin: origin,
+    // })
+    //     dispatch(
+    //       fetchDestinationCode
+    //       )
+    dispatch(
+      fetchFlightsListings({
+        origin: origin,
+        destination: destination,
+        date: dateReturnDate.date,
+        returnDate: dateReturnDate.returnDate,
+        adults: adults,
+      })
+    );
     setIsSubmitted(true);
   };
 
@@ -145,15 +164,15 @@ const Quiz = () => {
               />
             </div>
 
-            {/* <div id="flightcard">
+            <div id="flightcard">
               <Flights
+                origin={origin}
                 destination={destination}
                 date={dateReturnDate.date}
                 returnDate={dateReturnDate.returnDate}
                 adults={adults}
-                origin={origin}
               />
-            </div> */}
+            </div>
           </div>
         </>
       )}

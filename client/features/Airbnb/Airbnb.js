@@ -164,34 +164,40 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
   };
 
   return (
-    <div className="airbnbComponent">
-      <h2>Airbnb</h2>
-      {airbnb.results && (
-        <div>
-          {airbnb.results.map((result, index) => (
-            <div key={`result-${index}`}>
-              <div className="lodgingCards">
-                <img
-                  src={result.images[0]}
-                  alt="airbnbImages"
-                  style={{ width: "300px", height: "225px" }}
-                />
-                <a
-                  href={result.deeplink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div>{result.name}</div>
-                </a>
-                <p>Total Price: ${result.price.total}</p>{" "}
-                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
-                  add to BucketList
-                </button>
+    <div id="airbnbComponent">
+      <div className="aircard">
+        <h2>Airbnb</h2>
+        {airbnb.results && (
+          <div>
+            {airbnb.results.map((result, index) => (
+              <div key={`result-${index}`}>
+                <div className="lodgingCards">
+                  <img
+                    src={result.images[0]}
+                    alt="airbnbImages"
+                    style={{ width: "300px", height: "225px" }}
+                  />
+                  <a
+                    href={result.deeplink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div>{result.name}</div>
+                  </a>
+                  <p>Total Price: ${result.price.total}</p>{" "}
+                  <button
+                    id="bktbtn"
+                    type="button"
+                    onClick={handleAddBucketList}
+                  >
+                    add to BucketList
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

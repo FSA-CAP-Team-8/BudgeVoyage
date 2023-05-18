@@ -353,7 +353,7 @@ label {
 
 /* airbnb */
 
-.airbnbComponent {
+#airbnbComponent {
   width: 100%;
   max-width: 800px;
   border-radius: 5px;
@@ -431,16 +431,13 @@ label {
   padding: 10px;
   box-shadow: 0 0 10px 2px;
   margin:auto;
-  padding-top: 10em;
-
 }
 
-#signupform {
+#signupForm {
   color: rgb(17, 32, 91);
   padding-left: 1em;
   font-size: 20px;
   padding-top: 10em;
-  margin-top:5em;
 }
 
 #signbtn{
@@ -472,15 +469,14 @@ label {
   justify-content: center;
 }
 
-.remove{
+#remove{
   background-color: #0093e9;
   border: 2px solid;
   border-color: rgb(17, 32, 91);
   color: white;
   font-size: 15px;
-  border-radius: .5em;
-  padding: .5em;
-  outline: none;
-  margin: .5em;
-  margin-left: 2em;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-left: 8em;
+  margin-top: 14em;
 }
