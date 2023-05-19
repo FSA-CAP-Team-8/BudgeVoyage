@@ -139,15 +139,14 @@
 // export default Airbnb;
 
 //mapping that works
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
+import bucketlist from "../Bucketlist/BucketList";
 
 const Airbnb = ({ destination, checkin, checkout, adults }) => {
   const dispatch = useDispatch();
   const airbnb = useSelector((state) => state.airbnb);
-
   useEffect(() => {
     dispatch(
       fetchAirbnbListings({
@@ -159,8 +158,13 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
     );
   }, [dispatch, destination, checkin, checkout, adults]);
 
-  const handleAddBucketList = (result) => {
-    dispatch(handleAddBucketList(result));
+  // Add like functionality
+  const [likes, setLikes] = useState([]);
+
+  const handleLike = (index) => {
+    const newLikes = [...likes];
+    newLikes[index] = !newLikes[index];
+    setLikes(newLikes);
   };
 
   return (
@@ -183,9 +187,23 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                 >
                   <div>{result.name}</div>
                 </a>
-                <p>Total Price: ${result.price.total}</p>{" "}
-                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
-                  add to BucketList
+                <p>Total Price: ${result.price.total}</p>
+                <button onClick={() => handleLike(index)}>
+                  {likes[index] ? (
+                    <img
+                      src="heart(1).png"
+                      alt="Liked"
+                      height="20px"
+                      width="20px"
+                    />
+                  ) : (
+                    <img
+                      src="heart.png"
+                      alt="Unlike"
+                      height="20px"
+                      width="20px"
+                    />
+                  )}
                 </button>
               </div>
             </div>
