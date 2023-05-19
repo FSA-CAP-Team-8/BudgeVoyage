@@ -180,14 +180,6 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                   alt="airbnbImages"
                   style={{ width: "300px", height: "225px" }}
                 />
-                <a
-                  href={result.deeplink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div>{result.name}</div>
-                </a>
-                <p>Total Price: ${result.price.total}</p>
                 <button onClick={() => handleLike(index)}>
                   {likes[index] ? (
                     <img
@@ -205,6 +197,14 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                     />
                   )}
                 </button>
+                <a
+                  href={result.deeplink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div>{result.name}</div>
+                </a>
+                <p>Total Price: ${result.price.total}</p>
               </div>
             </div>
           ))}
