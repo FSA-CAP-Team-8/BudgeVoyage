@@ -14,20 +14,30 @@ const seed = async () => {
       price: 500,
       adults: 2,
       children: 1,
-      arrival: new Date(2023, 5, 15, 10, 30, 0),
-      departure: new Date(2023, 5, 20, 12, 0, 0),
-      fromlocation: "Los Angeles",
-      tolocation: "New York",
+      returnDate: new Date(2023, 5, 15, 10, 30, 0),
+      date: new Date(2023, 5, 20, 12, 0, 0),
+      origin: "Los Angeles",
+      destination: "New York",
     });
 
     const flightCard2 = await FlightCard.create({
       price: 350,
       adults: 1,
       children: 0,
-      arrival: new Date(2023, 7, 1, 9, 0, 0),
-      departure: new Date(2023, 7, 10, 11, 30, 0),
-      fromlocation: "San Francisco",
-      tolocation: "Paris",
+      returnDate: new Date(2023, 7, 1, 9, 0, 0),
+      date: new Date(2023, 7, 10, 11, 30, 0),
+      origin: "San Francisco",
+      destination: "Paris",
+    });
+
+    const flightCard3 = await FlightCard.create({
+      price: 400,
+      adults: 1,
+      children: 0,
+      returnDate: new Date(2023, 7, 1, 9, 0, 0),
+      date: new Date(2023, 7, 10, 11, 30, 0),
+      origin: "San Francisco",
+      destination: "Paris",
     });
 
     // Create some example LodgingCards

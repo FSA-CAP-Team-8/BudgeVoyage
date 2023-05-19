@@ -11,7 +11,7 @@ import OurTeam from "../features/OurTeam";
 import Generate from "../features/Generate/Generate";
 import AuthForm from "../features/Authform/Auth";
 import { useDispatch, useSelector } from "react-redux";
-import Results from "../features/Airbnb/results";
+// import Results from "../features/Airbnb/results";
 
 const AppRoutes = () => {
   const user = useSelector((state) => state.auth.me);
