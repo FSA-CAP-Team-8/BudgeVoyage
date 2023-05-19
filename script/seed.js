@@ -18,6 +18,7 @@ const seed = async () => {
       date: new Date(2023, 5, 20, 12, 0, 0),
       origin: "Los Angeles",
       destination: "New York",
+      isLiked: false,
     });
 
     const flightCard2 = await FlightCard.create({
@@ -28,36 +29,77 @@ const seed = async () => {
       date: new Date(2023, 7, 10, 11, 30, 0),
       origin: "San Francisco",
       destination: "Paris",
+      isLiked: false,
     });
 
     const flightCard3 = await FlightCard.create({
-      price: 400,
+      price: 700,
       adults: 2,
-      children: 0,
-      returnDate: new Date(2023, 8, 11, 9, 0, 0),
+      children: 2,
+      returnDate: new Date(2023, 8, 11, 4, 0, 0),
       date: new Date(2023, 8, 14, 12, 30, 0),
       origin: "Alanta",
       destination: "Detroit",
     });
 
     const flightCard4 = await FlightCard.create({
-      price: 400,
-      adults: 1,
+      price: 450,
+      adults: 2,
       children: 0,
-      returnDate: new Date(2023, 9, 14, 9, 0, 0),
+      returnDate: new Date(2023, 9, 14, 8, 0, 0),
       date: new Date(2023, 9, 18, 11, 30, 0),
       origin: "Las Vegas",
       destination: "Maryland",
     });
 
     const flightCard5 = await FlightCard.create({
-      price: 400,
-      adults: 1,
+      price: 600,
+      adults: 3,
       children: 0,
       returnDate: new Date(2023, 10, 2, 10, 0, 0),
       date: new Date(2023, 10, 4, 11, 30, 0),
-      origin: "Chicago",
-      destination: "Dallas",
+      origin: "Washington D.C",
+      destination: "Baltimore",
+    });
+
+    const flightCard6 = await FlightCard.create({
+      price: 800,
+      adults: 4,
+      children: 2,
+      returnDate: new Date(2023, 11, 4, 11, 0, 0),
+      date: new Date(2023, 11, 7, 8, 30, 0),
+      origin: "St. Louis",
+      destination: "Boise",
+    });
+
+    const flightCard7 = await FlightCard.create({
+      price: 1000,
+      adults: 4,
+      children: 3,
+      returnDate: new Date(2023, 12, 23, 12, 0, 0),
+      date: new Date(2023, 12, 28, 9, 30, 0),
+      origin: "Seattle",
+      destination: "Portland",
+    });
+
+    const flightCard8 = await FlightCard.create({
+      price: 900,
+      adults: 5,
+      children: 0,
+      returnDate: new Date(2024, 1, 7, 2, 0, 0),
+      date: new Date(2024, 1, 15, 6, 30, 0),
+      origin: "Oklahoma City",
+      destination: "Austin",
+    });
+
+    // Create some example LodgingCards
+    const lodgingCard1 = await LodgingCard.create({
+      address: "123 Main St, Los Angeles, CA",
+      dayIn: new Date(2023, 5, 15),
+      dayOut: new Date(2023, 5, 20),
+      adults: 2,
+      children: 1,
+      price: 800,
     });
 
     const lodgingCard2 = await LodgingCard.create({
