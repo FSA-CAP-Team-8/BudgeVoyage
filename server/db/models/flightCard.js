@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const flightCard = db.define("flightcard", {
+const FlightCard = db.define("flightcard", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -16,18 +16,18 @@ const flightCard = db.define("flightcard", {
   children: {
     type: Sequelize.INTEGER,
   },
-  arrival: {
+  returnDate: {
     type: Sequelize.DATE,
   },
-  departure: {
+  date: {
     type: Sequelize.DATE,
   },
-  fromlocation: {
+  origin: {
     type: Sequelize.STRING,
   },
-  tolocation: {
+  destination: {
     type: Sequelize.STRING,
   },
 });
 
-module.exports = flightCard;
+module.exports = FlightCard;

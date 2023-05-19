@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+router.use("/flights", require("./flights"));
+
 router.use("/generate", require("./generate"));
 
 router.use((req, res, next) => {
