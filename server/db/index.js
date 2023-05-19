@@ -4,21 +4,25 @@ const User = require("./models/user");
 const flightCard = require("./models/flightCard");
 const lodgingcard = require("./models/lodgingCard");
 const trip = require("./models/trip");
-const bucketList = require("./models/bucketlist");
+const BucketList = require("./models/bucketlist");
 
 //associations could go here!
-User.hasOne.bucketlist;
+// User.hasOne.BucketList;
+User.hasOne(BucketList);
 User.hasOne.flightCard;
 User.hasOne.lodgingcard;
 trip.hasOne.lodgingcard;
 trip.hasOne.flightCard;
-bucketList.hasMany.trip;
+BucketList.hasMany.trip;
+BucketList.belongsTo(User);
 
 module.exports = {
   db,
-  User,
-  bucketList,
-  flightCard,
-  lodgingcard,
-  trip,
+  models: {
+    User,
+    BucketList,
+    flightCard,
+    lodgingcard,
+    trip,
+  },
 };
