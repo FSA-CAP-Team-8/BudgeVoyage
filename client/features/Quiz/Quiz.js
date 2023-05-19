@@ -4,6 +4,7 @@ import Flights from "../Flights/Flights";
 import { NavLink } from "react-router-dom";
 import { fetchFlightsListings } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
+import bucketlist from "../Bucketlist/BucketList";
 
 const Quiz = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,6 @@ const Quiz = () => {
   });
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === "checkin" || name === "checkout") {
