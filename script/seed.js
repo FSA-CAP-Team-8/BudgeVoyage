@@ -32,22 +32,32 @@ const seed = async () => {
 
     const flightCard3 = await FlightCard.create({
       price: 400,
-      adults: 1,
+      adults: 2,
       children: 0,
-      returnDate: new Date(2023, 7, 1, 9, 0, 0),
-      date: new Date(2023, 7, 10, 11, 30, 0),
-      origin: "San Francisco",
-      destination: "Paris",
+      returnDate: new Date(2023, 8, 11, 9, 0, 0),
+      date: new Date(2023, 8, 14, 12, 30, 0),
+      origin: "Alanta",
+      destination: "Detroit",
     });
 
-    // Create some example LodgingCards
-    const lodgingCard1 = await LodgingCard.create({
-      address: "123 Main St, Los Angeles, CA",
-      dayIn: new Date(2023, 5, 15),
-      dayOut: new Date(2023, 5, 20),
-      adults: 2,
-      children: 1,
-      price: 800,
+    const flightCard4 = await FlightCard.create({
+      price: 400,
+      adults: 1,
+      children: 0,
+      returnDate: new Date(2023, 9, 14, 9, 0, 0),
+      date: new Date(2023, 9, 18, 11, 30, 0),
+      origin: "Las Vegas",
+      destination: "Maryland",
+    });
+
+    const flightCard5 = await FlightCard.create({
+      price: 400,
+      adults: 1,
+      children: 0,
+      returnDate: new Date(2023, 10, 2, 10, 0, 0),
+      date: new Date(2023, 10, 4, 11, 30, 0),
+      origin: "Chicago",
+      destination: "Dallas",
     });
 
     const lodgingCard2 = await LodgingCard.create({
