@@ -40,6 +40,7 @@ const seed = async () => {
       date: new Date(2023, 8, 14, 12, 30, 0),
       origin: "Alanta",
       destination: "Detroit",
+      isLiked: false,
     });
 
     const flightCard4 = await FlightCard.create({
@@ -50,6 +51,7 @@ const seed = async () => {
       date: new Date(2023, 9, 18, 11, 30, 0),
       origin: "Las Vegas",
       destination: "Maryland",
+      isLiked: false,
     });
 
     const flightCard5 = await FlightCard.create({
@@ -60,6 +62,7 @@ const seed = async () => {
       date: new Date(2023, 10, 4, 11, 30, 0),
       origin: "Washington D.C",
       destination: "Baltimore",
+      isLiked: false,
     });
 
     const flightCard6 = await FlightCard.create({
@@ -70,6 +73,7 @@ const seed = async () => {
       date: new Date(2023, 11, 7, 8, 30, 0),
       origin: "St. Louis",
       destination: "Boise",
+      isLiked: false,
     });
 
     const flightCard7 = await FlightCard.create({
@@ -80,6 +84,7 @@ const seed = async () => {
       date: new Date(2023, 12, 28, 9, 30, 0),
       origin: "Seattle",
       destination: "Portland",
+      isLiked: false,
     });
 
     const flightCard8 = await FlightCard.create({
@@ -90,6 +95,29 @@ const seed = async () => {
       date: new Date(2024, 1, 15, 6, 30, 0),
       origin: "Oklahoma City",
       destination: "Austin",
+      isLiked: false,
+    });
+
+    const flightCard9 = await FlightCard.create({
+      price: 800,
+      adults: 2,
+      children: 0,
+      returnDate: new Date(2024, 1, 18, 3, 0, 0),
+      date: new Date(2024, 1, 28, 7, 30, 0),
+      origin: "Knoxville",
+      destination: "Santa Barbara",
+      isLiked: false,
+    });
+
+    const flightCard10 = await FlightCard.create({
+      price: 800,
+      adults: 3,
+      children: 1,
+      returnDate: new Date(2023, 10, 2, 5, 0, 0),
+      date: new Date(2023, 10, 4, 11, 30, 0),
+      origin: "Philadelphia",
+      destination: "Memphis",
+      isLiked: false,
     });
 
     // Create some example LodgingCards
