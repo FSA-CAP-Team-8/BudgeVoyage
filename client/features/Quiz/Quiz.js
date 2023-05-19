@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
 import { NavLink } from "react-router-dom";
-import {
-  fetchDestinationCode,
-  fetchFlightsListings,
-  fetchOriginCode,
-} from "../Flights/flightsSlice";
+import { fetchFlightsListings } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
 
 const Quiz = () => {
@@ -102,16 +98,11 @@ const Quiz = () => {
     }
   };
 
+  console.log("Origin:", origin);
+  console.log("Destination:", destination);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    //   dispatch(
-    //     fetchOriginCode
-    //     ({
-    //       origin: origin,
-    // })
-    //     dispatch(
-    //       fetchDestinationCode
-    //       )
     dispatch(
       fetchFlightsListings({
         origin: origin,
