@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
-import { NavLink } from "react-router-dom";
 import { fetchFlightsListings } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
 
@@ -9,7 +8,8 @@ const Quiz = () => {
   const dispatch = useDispatch();
   const [destination, setDestination] = useState("");
   const [origin, setOrigin] = useState("");
-  console.log("origin", origin, "destination", destination);
+  const [price, setPrice] = useState();
+  // const [children, setChildren] = useState(1);
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
@@ -42,6 +42,9 @@ const Quiz = () => {
         case "setAdults":
           setAdults(value);
           break;
+        case "price":
+          setPrice(value);
+          break;
         case "origin":
           setOrigin(value);
         default:
@@ -51,6 +54,12 @@ const Quiz = () => {
   };
 
   const setOfQuestions = [
+    {
+      questionText: "Whats your travel budget?", //forflights
+      inputType: "number",
+      name: "price",
+      value: price,
+    },
     {
       questionText: "Where are you traveling from?", //forflights
       inputType: "text",
@@ -70,7 +79,6 @@ const Quiz = () => {
       value: dateReturnDate.date,
     },
     { inputType: "date", name: "returnDate", value: dateReturnDate.returnDate },
-
     {
       questionText: "Where will you be booking your stay?",
       inputType: "text",
@@ -90,6 +98,12 @@ const Quiz = () => {
       name: "adults",
       value: adults,
     },
+    // {
+    //   questionText: "How many children are you traveling with?",
+    //   inputType: "text",
+    //   name: "children",
+    //   value: children,
+    // },
   ];
 
   const handleNextQuestion = () => {
@@ -152,6 +166,8 @@ const Quiz = () => {
                 checkin={checkinCheckout.checkin}
                 checkout={checkinCheckout.checkout}
                 adults={adults}
+                // children={children}
+                price={price}
               />
             </div>
 

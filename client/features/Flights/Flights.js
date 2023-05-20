@@ -7,9 +7,8 @@ const Flights = ({
   origin,
   destination,
   date,
-  adults,
-  // countryCode,
   returnDate,
+  adults, // countryCode,
 }) => {
   const dispatch = useDispatch();
   const flights = useSelector((state) => state.flights);
