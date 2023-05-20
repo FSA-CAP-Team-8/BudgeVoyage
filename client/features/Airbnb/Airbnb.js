@@ -158,13 +158,19 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
     );
   }, [dispatch, destination, checkin, checkout, adults]);
 
-  // Add like functionality
   const [likes, setLikes] = useState([]);
 
   const handleLike = (index) => {
     const newLikes = [...likes];
     newLikes[index] = !newLikes[index];
     setLikes(newLikes);
+    if (newLikes[index]) {
+      const likedItem = airbnb.results[index];
+      bucketlist.addItem(likedItem); // Call the appropriate method in the BucketList component to append the liked item
+    } else {
+      const unlikedItem = airbnb.results[index];
+      bucketlist.removeItem(unlikedItem);
+    }
   };
 
   return (
@@ -180,23 +186,6 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                   alt="airbnbImages"
                   style={{ width: "300px", height: "225px" }}
                 />
-                <button onClick={() => handleLike(index)}>
-                  {likes[index] ? (
-                    <img
-                      src="heart(1).png"
-                      alt="Liked"
-                      height="20px"
-                      width="20px"
-                    />
-                  ) : (
-                    <img
-                      src="heart.png"
-                      alt="Unlike"
-                      height="20px"
-                      width="20px"
-                    />
-                  )}
-                </button>
                 <a
                   href={result.deeplink}
                   target="_blank"
@@ -205,6 +194,13 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
                   <div>{result.name}</div>
                 </a>
                 <p>Total Price: ${result.price.total}</p>
+                <button onClick={() => handleLike(index)}>
+                  {likes[index] ? (
+                    <img src="heart(1).png" alt="Liked" />
+                  ) : (
+                    <img src="heart.png" alt="Unlike" />
+                  )}
+                </button>
               </div>
             </div>
           ))}
