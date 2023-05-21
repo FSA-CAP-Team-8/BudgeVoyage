@@ -5,7 +5,7 @@ export const fetchFlightCardAsync = createAsyncThunk(
   "All flights",
   async () => {
     try {
-      const { data } = await axios.get(`/api/flightcard`);
+      const { data } = await axios.get(`/api/flights`);
       return data;
     } catch (err) {
       console.log(err);
@@ -27,4 +27,4 @@ export const selectFlightSlice = (state) => {
   return state.flights;
 };
 
-export default flightSlice;
+export default flightSlice.reducer;

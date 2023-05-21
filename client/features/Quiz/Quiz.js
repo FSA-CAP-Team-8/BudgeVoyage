@@ -111,6 +111,7 @@ const Quiz = () => {
   console.log("Destination:", destination);
   const handleSubmit = (event) => {
     event.preventDefault();
+
     dispatch(
       fetchFlightCardAsync({
         origin: origin,
@@ -125,7 +126,11 @@ const Quiz = () => {
   return (
     <>
       {!isSubmitted && (
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <div id="quiz">
             <div className="container">
               <h1>{setOfQuestions[currentQuestion].questionText}</h1>
@@ -142,7 +147,7 @@ const Quiz = () => {
                 </button>
               )}
               {currentQuestion === setOfQuestions.length - 1 && (
-                <button id="quizbtn" type="submit">
+                <button onClick={handleSubmit} id="quizbtn" type="submit">
                   ready for your Voyage
                 </button>
               )}
