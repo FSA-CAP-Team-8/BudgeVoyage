@@ -1,10 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 
-const BucketList = () => {
+export const BucketList = () => {
   const [likedItems, setLikedItems] = useState([]);
 
   const addItem = (item) => {
     setLikedItems((prevItems) => [...prevItems, item]);
+  };
+
+  const removeItem = (item) => {
+    setLikedItems((prevItems) =>
+      prevItems.filter((prevItem) => prevItem !== item)
+    );
   };
 
   return (
