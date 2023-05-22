@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
-import { fetchFlightsListings } from "../Flights/flightsSlice";
+import { fetchDestinationCode, fetchOriginCode } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
 
 const Quiz = () => {
@@ -9,11 +9,11 @@ const Quiz = () => {
   const [destination, setDestination] = useState("");
   const [origin, setOrigin] = useState("");
   const [price, setPrice] = useState();
+  const [adults, setAdults] = useState();
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
   });
-  const [adults, setAdults] = useState(1);
   const [dateReturnDate, setDateReturnDate] = useState({
     date: "",
     returnDate: "",
@@ -38,20 +38,21 @@ const Quiz = () => {
         case "destination":
           setDestination(value);
           break;
-        case "setAdults":
+        case "adults":
           setAdults(value);
+          break;
+        case "origin":
+          setOrigin(value);
           break;
         case "price":
           const filteredPrice = value.replace(/[^0-9.]/g, "");
           const parsedPrice = parseFloat(filteredPrice);
           if (!isNaN(parsedPrice)) {
-            setAdults(parsedPrice);
+            setPrice(parsedPrice);
           } else {
             setPrice(undefined);
           }
           break;
-        case "origin":
-          setOrigin(value);
         default:
           break;
       }
@@ -64,51 +65,62 @@ const Quiz = () => {
       inputType: "number",
       name: "price",
       value: price,
+      hasNext: "true",
+      currency: "$",
     },
     {
       questionText: "Where are you traveling from?", //forflights
       inputType: "text",
       name: "origin",
       value: origin,
+      hasNext: "true",
     },
     {
       questionText: "Where are you traveling to?", //forflights
       inputType: "text",
       name: "destination",
       value: destination,
+      hasNext: "true",
     },
     {
       questionText: "What days are you traveling?", //forflights
       inputType: "date",
       name: "date",
       value: dateReturnDate.date,
+      hasNext: "false",
     },
-    { inputType: "date", name: "returnDate", value: dateReturnDate.returnDate },
+    {
+      inputType: "date",
+      name: "returnDate",
+      value: dateReturnDate.returnDate,
+      hasNext: "true",
+    },
     {
       questionText: "Where will you be booking your stay?",
       inputType: "text",
       name: "destination",
       value: destination,
+      hasNext: "true",
     },
     {
       questionText: "what days are you booking lodging?",
       inputType: "date",
       name: "checkin",
       value: checkinCheckout.checkin,
+      hasNext: "false",
     },
-    { inputType: "date", name: "checkout", value: checkinCheckout.checkout },
+    {
+      inputType: "date",
+      name: "checkout",
+      value: checkinCheckout.checkout,
+      hasNext: "true",
+    },
     {
       questionText: "How many adults are you traveling with?",
       inputType: "text",
       name: "adults",
       value: adults,
     },
-    // {
-    //   questionText: "How many children are you traveling with?",
-    //   inputType: "text",
-    //   name: "children",
-    //   value: children,
-    // },
   ];
 
   const handleNextQuestion = () => {
@@ -117,21 +129,16 @@ const Quiz = () => {
     }
   };
 
-  console.log("Origin:", origin);
-  console.log("Destination:", destination);
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(
-      fetchFlightsListings({
-        origin: origin,
-        destination: destination,
-        date: dateReturnDate.date,
-        returnDate: dateReturnDate.returnDate,
-        adults: adults,
-      })
-    );
-    setIsSubmitted(true);
+    try {
+      await dispatch(fetchOriginCode({ origin: origin }));
+      await dispatch(fetchDestinationCode({ destination: destination }));
+      setIsSubmitted(true);
+    } catch (error) {
+      // Handle any errors that occur during the API requests
+      console.error("Error fetching origin and destination codes:", error);
+    }
   };
 
   return (
@@ -148,11 +155,16 @@ const Quiz = () => {
                 value={setOfQuestions[currentQuestion].value}
                 onChange={handleInputChange}
               />
-              {currentQuestion < setOfQuestions.length - 1 && (
-                <button id="nextbtn" type="button" onClick={handleNextQuestion}>
-                  next
-                </button>
-              )}
+              {currentQuestion < setOfQuestions.length - 1 &&
+                setOfQuestions[currentQuestion].hasNext && (
+                  <button
+                    id="nextbtn"
+                    type="button"
+                    onClick={handleNextQuestion}
+                  >
+                    next
+                  </button>
+                )}
               {currentQuestion === setOfQuestions.length - 1 && (
                 <button id="quizbtn" type="submit">
                   ready for your Voyage
@@ -182,6 +194,7 @@ const Quiz = () => {
                 date={dateReturnDate.date}
                 returnDate={dateReturnDate.returnDate}
                 adults={adults}
+                price={price}
               />
             </div>
           </div>

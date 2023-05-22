@@ -27,7 +27,6 @@ export const fetchOriginCode = createAsyncThunk(
 export const fetchDestinationCode = createAsyncThunk(
   "flights/fetchDestinationCode",
   async ({ destination }) => {
-    console.log("destination", destination);
     const options = {
       method: "GET",
       url: "https://skyscanner50.p.rapidapi.com/api/v1/searchAirport",
@@ -50,24 +49,21 @@ export const fetchDestinationCode = createAsyncThunk(
 export const fetchFlightsListings = createAsyncThunk(
   "flights/fetch",
   async ({ origin, destination, date, returnDate, adults }) => {
-    const { data } = await fetchOriginCode({ origin });
-    const { data: somethingElse } = await fetchDestinationCode({ destination });
-
     const options = {
       method: "GET",
       url: "https://skyscanner50.p.rapidapi.com/api/v1/searchFlights",
       params: {
-        origin: data,
-        destination: somethingElse,
+        origin: origin,
+        destination: destination,
         date: date,
         adults: adults,
         returnDate: returnDate,
+        price: price,
       },
       headers: {
-        "X-RapidAPI-Key": Key,
+        "X-RapidAPI-Key": key,
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
-      // timeout: 500,
     };
     try {
       const { data } = await axios.request(options);

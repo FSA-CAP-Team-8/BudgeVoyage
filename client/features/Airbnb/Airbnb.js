@@ -157,7 +157,7 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
         adults: adults,
       })
     );
-  }, [dispatch, destination, checkin, checkout, adults, price, budget]);
+  }, [dispatch, destination, checkin, checkout, adults, price]);
 
   const handleAddBucketList = (result) => {
     dispatch(handleAddBucketList(result));
