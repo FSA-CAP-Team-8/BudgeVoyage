@@ -139,15 +139,14 @@
 // export default Airbnb;
 
 //mapping that works
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
+import bucketlist from "../Bucketlist/BucketList";
 
 const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
   const dispatch = useDispatch();
   const airbnb = useSelector((state) => state.airbnb);
-
   useEffect(() => {
     dispatch(
       fetchAirbnbListings({
@@ -159,8 +158,19 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
     );
   }, [dispatch, destination, checkin, checkout, adults, price]);
 
-  const handleAddBucketList = (result) => {
-    dispatch(handleAddBucketList(result));
+  const [likes, setLikes] = useState([]);
+
+  const handleLike = (index) => {
+    const newLikes = [...likes];
+    newLikes[index] = !newLikes[index];
+    setLikes(newLikes);
+    if (newLikes[index]) {
+      const likedItem = airbnb.results[index];
+      bucketlist.addItem(likedItem); // Call the appropriate method in the BucketList component to append the liked item
+    } else {
+      const unlikedItem = airbnb.results[index];
+      bucketlist.removeItem(unlikedItem);
+    }
   };
 
   return (
@@ -184,9 +194,13 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
                 >
                   <div>{result.name}</div>
                 </a>
-                <p>Total Price: ${result.price.total}</p>{" "}
-                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
-                  add to BucketList
+                <p>Total Price: ${result.price.total}</p>
+                <button onClick={() => handleLike(index)}>
+                  {likes[index] ? (
+                    <img src="heart(1).png" alt="Liked" />
+                  ) : (
+                    <img src="heart.png" alt="Unlike" />
+                  )}
                 </button>
               </div>
             </div>
