@@ -23,13 +23,15 @@ const Flights = ({ origin, destination, date, returnDate, adults }) => {
     <div id="flightcard">
       <div className="flightComponent">
         <h2>Flights</h2>
-        {flights.results && (
+        {flights.data && (
           <div>
-            {flights.results.map((result, index) => (
+            {flights.data.map((item, index) => (
               <div key={`result-${index}`}>
                 <div className="flighCards">
-                  <div>{result.name}</div>
-                  <div>{result.price}</div>
+                  <div>Carrier Name: {item.legs[0].carriers[0].name}</div>
+                  <div>Price: {item.price.amount}</div>
+                  <div>Arrival: {item.legs[0].arrival}</div>
+                  <div>Departure: {item.legs[0].departure}</div>
                 </div>
               </div>
             ))}
@@ -41,3 +43,24 @@ const Flights = ({ origin, destination, date, returnDate, adults }) => {
 };
 
 export default Flights;
+
+// const data = payload.data;
+
+// data.map((item, index) => {
+//   // Access the properties of each item and perform your desired operations
+//   const id = item.id;
+//   const ecoContenderDelta = item.eco_contender_delta;
+//   const legs = item.legs;
+
+//   // ... do something with the data
+
+//   // Remember to return a value if you want to create a new array based on the mapping
+//   return (
+//     // JSX or any other output you desire
+//     <div key={index}>
+//       <p>ID: {id}</p>
+//       <p>Eco Contender Delta: {ecoContenderDelta}</p>
+//       {/* Render other properties as needed */}
+//     </div>
+//   );
+// });
