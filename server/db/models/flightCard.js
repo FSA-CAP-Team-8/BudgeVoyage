@@ -28,6 +28,9 @@ const FlightCard = db.define("flightcard", {
   destination: {
     type: Sequelize.STRING,
   },
+  image: {
+    type: Sequelize.STRING,
+  },
 });
 
 module.exports = FlightCard;

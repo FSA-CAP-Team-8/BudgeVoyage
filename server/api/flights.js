@@ -12,6 +12,7 @@ router.get("/", async (req, res, next) => {
         "date",
         "returnDate",
         "adults",
+        "image",
       ],
     });
 

@@ -31,6 +31,7 @@ const Flights = ({ origin, destination, date, returnDate, adults }) => {
                 {flight.origin} &#8594; {flight.destination}
               </div>
               <div>{flight.price}</div>
+              <img class="airline-logo" src={flight.image}></img>
             </div>
           ))}
         </div>

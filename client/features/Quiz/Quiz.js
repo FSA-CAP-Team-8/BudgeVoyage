@@ -170,11 +170,11 @@ const Quiz = () => {
             </div>
             <div id="flightcard">
               <Flights
-                origin={origin}
-                destination={destination}
-                date={dateReturnDate.date}
-                returnDate={dateReturnDate.returnDate}
-                adults={adults}
+              // origin={origin}
+              // destination={destination}
+              // date={dateReturnDate.date}
+              // returnDate={dateReturnDate.returnDate}
+              // adults={adults}
               />
             </div>
           </div>

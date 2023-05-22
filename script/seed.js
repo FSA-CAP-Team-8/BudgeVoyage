@@ -18,6 +18,7 @@ const seed = async () => {
       date: new Date(2023, 5, 20, 12, 0, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/american.jpg",
       isLiked: false,
     });
 
@@ -29,6 +30,7 @@ const seed = async () => {
       date: new Date(2023, 7, 10, 11, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/delta.png",
       isLiked: false,
     });
 
@@ -40,6 +42,7 @@ const seed = async () => {
       date: new Date(2023, 8, 14, 12, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/frontier.png",
       isLiked: false,
     });
 
@@ -51,6 +54,7 @@ const seed = async () => {
       date: new Date(2023, 9, 18, 11, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/southwest.jpg",
       isLiked: false,
     });
 
@@ -62,6 +66,7 @@ const seed = async () => {
       date: new Date(2023, 10, 4, 11, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/united.jpg",
       isLiked: false,
     });
 
@@ -73,6 +78,7 @@ const seed = async () => {
       date: new Date(2023, 11, 7, 8, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/delta.png",
       isLiked: false,
     });
 
@@ -84,6 +90,7 @@ const seed = async () => {
       date: new Date(2023, 12, 28, 9, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/frontier.png",
       isLiked: false,
     });
 
@@ -95,6 +102,7 @@ const seed = async () => {
       date: new Date(2024, 1, 15, 6, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/american.jpg",
       isLiked: false,
     });
 
@@ -106,6 +114,7 @@ const seed = async () => {
       date: new Date(2024, 1, 28, 7, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/united.jpg",
       isLiked: false,
     });
 
@@ -117,6 +126,7 @@ const seed = async () => {
       date: new Date(2023, 10, 4, 11, 30, 0),
       origin: "Los Angeles",
       destination: "New York",
+      image: "/airlineLogo/southwest.jpg",
       isLiked: false,
     });
 
