@@ -144,6 +144,7 @@ const Quiz = () => {
     <>
       {!isSubmitted && (
         <form onSubmit={handleSubmit}>
+          <img className="bgquiz" src="./bgquiz/4.png"></img>
           <div id="quiz">
             <div className="container">
               <h1>{setOfQuestions[currentQuestion].questionText}</h1>

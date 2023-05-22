@@ -172,6 +172,7 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
             <div key={`result-${index}`}>
               <div className="lodgingCards">
                 <img
+                  className="airbnbfoto"
                   src={result.images[0]}
                   alt="airbnbImages"
                   style={{ width: "300px", height: "225px" }}
