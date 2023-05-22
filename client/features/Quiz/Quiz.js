@@ -9,7 +9,6 @@ const Quiz = () => {
   const [destination, setDestination] = useState("");
   const [origin, setOrigin] = useState("");
   const [price, setPrice] = useState();
-  // const [children, setChildren] = useState(1);
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
@@ -43,7 +42,13 @@ const Quiz = () => {
           setAdults(value);
           break;
         case "price":
-          setPrice(value);
+          const filteredPrice = value.replace(/[^0-9.]/g, "");
+          const parsedPrice = parseFloat(filteredPrice);
+          if (!isNaN(parsedPrice)) {
+            setAdults(parsedPrice);
+          } else {
+            setPrice(undefined);
+          }
           break;
         case "origin":
           setOrigin(value);
@@ -166,7 +171,6 @@ const Quiz = () => {
                 checkin={checkinCheckout.checkin}
                 checkout={checkinCheckout.checkout}
                 adults={adults}
-                // children={children}
                 price={price}
               />
             </div>
