@@ -142,9 +142,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
-import bucketlist from "../Bucketlist/BucketList";
+import BucketList from "../Bucketlist/BucketList";
 
-const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
+const Airbnb = ({ destination, checkin, checkout, adults }) => {
   const dispatch = useDispatch();
   const airbnb = useSelector((state) => state.airbnb);
   useEffect(() => {
@@ -156,7 +156,7 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
         adults: adults,
       })
     );
-  }, [dispatch, destination, checkin, checkout, adults, price]);
+  }, [dispatch, destination, checkin, checkout, adults]);
 
   const [likes, setLikes] = useState([]);
 
@@ -166,10 +166,10 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
     setLikes(newLikes);
     if (newLikes[index]) {
       const likedItem = airbnb.results[index];
-      bucketlist.addItem(likedItem); // Call the appropriate method in the BucketList component to append the liked item
+      BucketList.addItem(likedItem);
     } else {
-      const unlikedItem = airbnb.results[index];
-      bucketlist.removeItem(unlikedItem);
+      const likedItem = airbnb.results[index];
+      BucketList.removeItem(likedItem);
     }
   };
 
@@ -182,7 +182,6 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
             <div key={`result-${index}`}>
               <div className="lodgingCards">
                 <img
-                  className="airbnbfoto"
                   src={result.images[0]}
                   alt="airbnbImages"
                   style={{ width: "300px", height: "225px" }}
