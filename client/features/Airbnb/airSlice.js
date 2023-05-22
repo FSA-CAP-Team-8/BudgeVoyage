@@ -4,7 +4,7 @@ import { XRAPIDAPIKEYAIR } from "../../secrets";
 
 export const fetchAirbnbListings = createAsyncThunk(
   "airbnb/fetch",
-  async ({ destination, checkin, checkout, adults }) => {
+  async ({ destination, checkin, checkout, adults, price, currency }) => {
     const options = {
       method: "GET",
       url: "https://airbnb13.p.rapidapi.com/search-location",
@@ -13,16 +13,17 @@ export const fetchAirbnbListings = createAsyncThunk(
         checkin: checkin,
         checkout: checkout,
         adults: adults,
-        // page: "1",
-        // currency: "USD",
+        price: price,
+        currency: currency,
       },
       headers: {
-        "X-RapidAPI-Key": "cbceaa818fmsh07841f07daa59a3p1d8481jsn01cbd0fe6103",
+        "X-RapidAPI-Key": XRAPIDAPIKEYAIR,
         "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
       },
     };
 
     try {
+      console.log(data);
       const { data } = await axios.request(options);
       return data;
     } catch (err) {
@@ -33,18 +34,13 @@ export const fetchAirbnbListings = createAsyncThunk(
 
 const airSlice = createSlice({
   name: "airbnb",
-  initialState: [],
-  // { result: null, currentIndex: 0 }
+  initialState: { results: [] },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAirbnbListings.fulfilled, (state, action) => {
-      // return { ...state, result: action.payload };
       return action.payload;
     });
-    builder.addCase(fetchAirbnbListings.rejected, (state, action) => {
-      return state;
-      // return { ...state, result: null };
-    });
+    builder.addCase(fetchAirbnbListings.rejected, (state, action) => {});
   },
 });
 
