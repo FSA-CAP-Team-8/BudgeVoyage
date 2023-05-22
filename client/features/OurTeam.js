@@ -18,11 +18,16 @@ const OurTeam = () => {
         <div className="teamrow">
           <div className="column">
             <div className="card">
-              <img id="profilefoto" src="" alt="veronica"></img>
+              <img
+                src="./photogrid/veecis.png"
+                alt="veronica"
+                width="282px"
+                height="280px"
+              ></img>
               <div className="teamcontainer">
                 <h2>Veronica Cisneros</h2>
                 <p className="title">Fullstack Developer</p>
-                <p>some text that descries me lorem ipsum ipsum lorem.</p>
+                <p> a little about me</p>
                 <p>vcisneroshdz@gmail.com</p>
                 <p>
                   <button className="teambtn">contact</button>
@@ -35,7 +40,7 @@ const OurTeam = () => {
         <div className="teamrow">
           <div className="column">
             <div className="card">
-              <img src="" alt="Luis"></img>
+              <img src="" alt="Luis Samboy"></img>
               <div className="teamcontainer">
                 <h2>Luis Samboy</h2>
                 <p className="title">add role here</p>
@@ -52,7 +57,7 @@ const OurTeam = () => {
         <div className="teamrow">
           <div className="column">
             <div className="card">
-              <img src="" alt="Jesia"></img>
+              <img src="" alt="Jesiah Roe"></img>
               <div className="teamcontainer">
                 <h2>Jesiah Roe</h2>
                 <p className="title">add role here</p>
@@ -69,7 +74,7 @@ const OurTeam = () => {
         <div className="teamrow">
           <div className="column">
             <div className="card">
-              <img src="" alt="Jackie"></img>
+              <img src="" alt="Jackie Chung"></img>
               <div className="teamcontainer">
                 <h2>Jackie Chung</h2>
                 <p className="title">add role here</p>

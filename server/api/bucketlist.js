@@ -37,11 +37,10 @@ router.post("/", async (req, res, next) => {
 router.delete("/", async (req, res, next) => {
   console.log("req.body:   ", req.body);
   try {
-    const { TRIPID, USERID } = req.body;
+    const { TRIPID } = req.body;
     const bucketlist = await bucketlist.findOne({
       where: {
         tripid: TRIPID,
-        USERID: USERID,
       },
     });
     await bucketlist.destroy();

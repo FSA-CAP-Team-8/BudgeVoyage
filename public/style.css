@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #0093e9;
+  background-color: #eae7dc;
   /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
   font-family: "Montserrat", sans-serif;
   color: rgb(17, 32, 91);
@@ -112,16 +112,14 @@ nav a {
   display: flex;
   color: rgb(17, 32, 91);
   padding-top: 3em;
-  padding-left: 1em;
-  font-size: 35px;
+  padding-left: 2em;
+  font-size: 30px;
 }
 
 #about p {
   font-family: "Roboto", sans-serif;
   color: rgb(17, 32, 91);
-  padding-top: 1em;
-  padding-right: 1em;
-  padding-left: 2em;
+  padding:1em;
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -170,40 +168,51 @@ nav a {
 
 
 /* QUIZ PAGE */
+.bgquiz {
+  padding-top: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+#quiz{
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 1;
+}
+
 
 .container {
-  width: 100%;
-  max-width: 500px;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 5px 2px;
-  margin: auto;
-  margin-top: 3em;
+  /* background: none repeat scroll 0 0; */
+  color: white;
+  font-size: 30px;
+  /* font-weight: 400; */
+  margin: 2rem 3rem 0;
+  mix-blend-mode: hard-light;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .container h1 {
   display: flex;
   justify-content: center;
 }
-
-#quiz {
-  color: rgb(17, 32, 91);
-  padding-top: 6em;
-  padding-left: 1em;
-  font-size: 15px;
-}
-
-/* #cardscontainer{
-  width: 100%;
-  max-width: 800px;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 10px 2px;
-  margin: auto;
-  margin-top: 3em;
-} */
 
 #routes {
   height: 100vh;
@@ -218,20 +227,6 @@ nav a {
   align-items: center;
 }
 
-/* .submitForm input,
-label {
-  height: 2rem;
-  font-size: 1.3rem;
-  text-align: center;
-}
-
-.submitForm input:last-of-type {
-  width: 15%;
-}
-
-.submitForm input:nth-last-of-type(2) {
-  width: 15%;
-} */
 
 .submitForm button {
   background: dodgerblue;
@@ -279,7 +274,7 @@ label {
 
 .column {
   float: left;
-  width: 33.3%;
+  width: 25%;
   margin-bottom: 16px;
   padding: 0 8px;
 }
@@ -291,19 +286,16 @@ label {
   }
 }
 
-#profilefoto {
-  width: 260px;
-  height: 260px;
-  margin-left: 1em;
-}
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .teamcontainer {
   padding: 0 16px;
-  background-color: whitesmoke;
+  background-color: #5ab9ea;
+  font-size: 16px;
+  padding-top: 1em;
+  border-radius: .05em;
 }
 
 .teamcontainer::after,
@@ -314,7 +306,9 @@ label {
 }
 
 .title {
-  color: grey;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
 }
 
 .teambtn {
@@ -330,7 +324,7 @@ label {
 }
 
 .teambtn:hover {
-  background-color: #555;
+  background-color:  #eae7dc;
 }
 
 /* cards */
@@ -347,33 +341,81 @@ label {
 
 .searchComponent {
   display: flex;
-  flex-direction: column;
   padding-top: 6em;
 }
 
 /* airbnb */
 
+.lodgingCards {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(17, 32, 91);
+}
+
 .airbnbComponent {
-  width: 100%;
-  max-width: 800px;
+  width:100%;
+  max-width: 450px;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px;
   background-color: white;
-  color:rgb(17, 32, 91);
+  color: rgb(17, 32, 91);
   padding-top: 8em;
-  display:flex;
-  flex-direction: column;
-  margin:auto;
-  align-items: center;
-  padding-top: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 5em;
+  margin-left: 7em;
+  float:left;
 }
 
 .airbnbComponent h2 {
-  display:flex;
-  justify-content: center;
   margin-bottom: 1em;
 }
+
+.airbnbfoto {
+  border-radius: 0.5em;
+}
+
+.flightComponent {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  background-color: white;
+  color: rgb(17, 32, 91);
+  padding-top: 8em;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: auto;
+  margin-top:5em;
+  margin-bottom: 1em;
+  margin-right:7em;
+  float:right;
+}
+
+.flightComponent h2 {
+  margin-bottom: 1em;
+}
+
+.flightcards{
+  display:flex;
+  justify-content: space-around;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(17, 32, 91);
+}
+
+.flightfoto {
+  border-radius: 0.5em;
+}
+
+#departure {
+  margin-bottom: 2em;
+}
+
 
 #bktbtn {
   background-color: #0093e9;
@@ -389,37 +431,6 @@ label {
   margin-bottom: 2em;
   padding-top: .5em;
 }
-
-/* quiz carousel */
-/* .lodgingCardContainer {
-  width: 100%;
-}
-
-.lodgingCard {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.lodgingImage {
-  width: 100%;
-  height: 225px;
-}
-
-.lodgingLink {
-  text-decoration: none;
-  color: black;
-}
-
-.lodgingName {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-
-.lodgingPrice {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-} */
 
 /* login/signup */
 
@@ -455,6 +466,8 @@ label {
   margin: .5em;
   margin-left: 2em;
 }
+
+
 
 .Tripcontainer {
   display: grid;

@@ -144,7 +144,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
 import bucketlist from "../Bucketlist/BucketList";
 
-const Airbnb = ({ destination, checkin, checkout, adults }) => {
+const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
   const dispatch = useDispatch();
   const airbnb = useSelector((state) => state.airbnb);
   useEffect(() => {
@@ -156,7 +156,7 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
         adults: adults,
       })
     );
-  }, [dispatch, destination, checkin, checkout, adults]);
+  }, [dispatch, destination, checkin, checkout, adults, price]);
 
   const [likes, setLikes] = useState([]);
 
@@ -182,6 +182,7 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
             <div key={`result-${index}`}>
               <div className="lodgingCards">
                 <img
+                  className="airbnbfoto"
                   src={result.images[0]}
                   alt="airbnbImages"
                   style={{ width: "300px", height: "225px" }}
@@ -237,14 +238,7 @@ export default Airbnb;
 // import { useSelector, useDispatch } from "react-redux";
 // import { fetchAirbnbListings } from "./airSlice";
 
-// const Airbnb = ({
-//   destination,
-//   checkin,
-//   checkout,
-//   adults,
-//   // children,
-//   // childAges,
-// }) => {
+// const Airbnb = ({ destination, checkin, checkout, adults }) => {
 //   const dispatch = useDispatch();
 //   const airbnb = useSelector((state) => state.airbnb);
 //   const [currentIndex, setCurrentIndex] = useState(0);
@@ -256,8 +250,6 @@ export default Airbnb;
 //         checkin: checkin,
 //         checkout: checkout,
 //         adults: adults,
-//         // children: children,
-//         // childAges: childAges,
 //       })
 //     );
 //   }, [dispatch, destination, checkin, checkout, adults]);

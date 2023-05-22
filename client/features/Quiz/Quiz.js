@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
-import { NavLink } from "react-router-dom";
-import { fetchFlightsListings } from "../Flights/flightsSlice";
+import { fetchDestinationCode, fetchOriginCode } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
 import bucketlist from "../Bucketlist/BucketList";
 
@@ -10,11 +9,12 @@ const Quiz = () => {
   const dispatch = useDispatch();
   const [destination, setDestination] = useState("");
   const [origin, setOrigin] = useState("");
+  const [price, setPrice] = useState("");
+  const [adults, setAdults] = useState("");
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
   });
-  const [adults, setAdults] = useState(1);
   const [dateReturnDate, setDateReturnDate] = useState({
     date: "",
     returnDate: "",
@@ -38,11 +38,21 @@ const Quiz = () => {
         case "destination":
           setDestination(value);
           break;
-        case "setAdults":
+        case "adults":
           setAdults(value);
           break;
         case "origin":
           setOrigin(value);
+          break;
+        case "price":
+          const filteredPrice = value.replace(/[^0-9.]/g, "");
+          const parsedPrice = parseFloat(filteredPrice);
+          if (!isNaN(parsedPrice)) {
+            setPrice(parsedPrice);
+          } else {
+            setPrice(undefined);
+          }
+          break;
         default:
           break;
       }
@@ -51,32 +61,60 @@ const Quiz = () => {
 
   const setOfQuestions = [
     {
-      questionText: "Where are you traveling to?", //forflights
+      questionText: "Whats your travel budget?", //forflights
+      inputType: "number",
+      name: "price",
+      value: price,
+      hasNext: "true",
+      currency: "$",
+    },
+    {
+      questionText: "Where are you traveling from?", //forflights
       inputType: "text",
       name: "origin",
       value: origin,
+      hasNext: "true",
+    },
+    {
+      questionText: "Where are you traveling to?", //forflights
+      inputType: "text",
+      name: "destination",
+      value: destination,
+      hasNext: "true",
     },
     {
       questionText: "What days are you traveling?", //forflights
       inputType: "date",
       name: "date",
       value: dateReturnDate.date,
+      hasNext: "false",
     },
-    { inputType: "date", name: "returnDate", value: dateReturnDate.returnDate },
-
+    {
+      inputType: "date",
+      name: "returnDate",
+      value: dateReturnDate.returnDate,
+      hasNext: "true",
+    },
     {
       questionText: "Where will you be booking your stay?",
       inputType: "text",
       name: "destination",
       value: destination,
+      hasNext: "true",
     },
     {
       questionText: "what days are you booking lodging?",
       inputType: "date",
       name: "checkin",
       value: checkinCheckout.checkin,
+      hasNext: "false",
     },
-    { inputType: "date", name: "checkout", value: checkinCheckout.checkout },
+    {
+      inputType: "date",
+      name: "checkout",
+      value: checkinCheckout.checkout,
+      hasNext: "true",
+    },
     {
       questionText: "How many adults are you traveling with?",
       inputType: "text",
@@ -91,24 +129,22 @@ const Quiz = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // dispatch(
-    //   fetchFlightsListings({
-    //     origin: origin,
-    //     destination: destination,
-    //     date: dateReturnDate.date,
-    //     returnDate: dateReturnDate.returnDate,
-    //     adults: adults,
-    //   })
-    // );
-    setIsSubmitted(true);
+    try {
+      await dispatch(fetchOriginCode({ origin }));
+      await dispatch(fetchDestinationCode({ destination }));
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error fetching origin and destination codes:", error);
+    }
   };
 
   return (
     <>
       {!isSubmitted && (
         <form onSubmit={handleSubmit}>
+          <img className="bgquiz" src="./bgquiz/4.png"></img>
           <div id="quiz">
             <div className="container">
               <h1>{setOfQuestions[currentQuestion].questionText}</h1>
@@ -119,11 +155,16 @@ const Quiz = () => {
                 value={setOfQuestions[currentQuestion].value}
                 onChange={handleInputChange}
               />
-              {currentQuestion < setOfQuestions.length - 1 && (
-                <button id="nextbtn" type="button" onClick={handleNextQuestion}>
-                  next
-                </button>
-              )}
+              {currentQuestion < setOfQuestions.length - 1 &&
+                setOfQuestions[currentQuestion].hasNext && (
+                  <button
+                    id="nextbtn"
+                    type="button"
+                    onClick={handleNextQuestion}
+                  >
+                    next
+                  </button>
+                )}
               {currentQuestion === setOfQuestions.length - 1 && (
                 <button id="quizbtn" type="submit">
                   ready for your Voyage
@@ -142,18 +183,20 @@ const Quiz = () => {
                 checkin={checkinCheckout.checkin}
                 checkout={checkinCheckout.checkout}
                 adults={adults}
+                price={price}
               />
             </div>
 
-            {/* <div id="flightcard">
+            <div id="flightcard">
               <Flights
+                origin={origin}
                 destination={destination}
                 date={dateReturnDate.date}
                 returnDate={dateReturnDate.returnDate}
                 adults={adults}
-                origin={origin}
+                price={price}
               />
-            </div> */}
+            </div>
           </div>
         </>
       )}
