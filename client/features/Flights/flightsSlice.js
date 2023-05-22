@@ -10,7 +10,7 @@ export const fetchOriginCode = createAsyncThunk(
       url: "https://skyscanner50.p.rapidapi.com/api/v1/searchAirport",
       params: (query = { origin }),
       headers: {
-        "X-RapidAPI-Key": key,
+        "X-RapidAPI-Key": "856f1c46afmsh190815efb96a9b8p1f3487jsn758d06438f02",
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
     };
@@ -32,7 +32,7 @@ export const fetchDestinationCode = createAsyncThunk(
       url: "https://skyscanner50.p.rapidapi.com/api/v1/searchAirport",
       params: { query: destination },
       headers: {
-        "X-RapidAPI-Key": key,
+        "X-RapidAPI-Key": "856f1c46afmsh190815efb96a9b8p1f3487jsn758d06438f02",
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
     };
@@ -48,7 +48,7 @@ export const fetchDestinationCode = createAsyncThunk(
 
 export const fetchFlightsListings = createAsyncThunk(
   "flights/fetch",
-  async ({ origin, destination, date, returnDate, adults }) => {
+  async ({ origin, destination, date, returnDate, adults, price }) => {
     const options = {
       method: "GET",
       url: "https://skyscanner50.p.rapidapi.com/api/v1/searchFlights",
@@ -61,7 +61,7 @@ export const fetchFlightsListings = createAsyncThunk(
         price: price,
       },
       headers: {
-        "X-RapidAPI-Key": key,
+        "X-RapidAPI-Key": "856f1c46afmsh190815efb96a9b8p1f3487jsn758d06438f02",
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",
       },
     };
@@ -73,6 +73,7 @@ export const fetchFlightsListings = createAsyncThunk(
     }
   }
 );
+
 const flightsSlice = createSlice({
   name: "flights",
   initialState: [],

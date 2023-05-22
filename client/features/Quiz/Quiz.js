@@ -8,8 +8,8 @@ const Quiz = () => {
   const dispatch = useDispatch();
   const [destination, setDestination] = useState("");
   const [origin, setOrigin] = useState("");
-  const [price, setPrice] = useState();
-  const [adults, setAdults] = useState();
+  const [price, setPrice] = useState("");
+  const [adults, setAdults] = useState("");
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
@@ -132,11 +132,10 @@ const Quiz = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await dispatch(fetchOriginCode({ origin: origin }));
-      await dispatch(fetchDestinationCode({ destination: destination }));
+      await dispatch(fetchOriginCode({ origin }));
+      await dispatch(fetchDestinationCode({ destination }));
       setIsSubmitted(true);
     } catch (error) {
-      // Handle any errors that occur during the API requests
       console.error("Error fetching origin and destination codes:", error);
     }
   };
