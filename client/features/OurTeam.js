@@ -58,8 +58,14 @@ const OurTeam = () => {
               <div className="teamcontainer">
                 <h2>Luis Samboy</h2>
                 <p className="title">Fullstack Developer</p>
-                <p>some text that descries me lorem ipsum ipsum lorem.</p>
-                <p></p>
+                <p>
+                  I started pursuing a career in software engineer so I can have
+                  more flexibility in my work.
+                </p>
+                <p>
+                  Fun Fact: I've already traveled to 3 continents. My goal is to
+                  travel to all 7 (including Antarctica).
+                </p>
                 <p>
                   <button className="teambtn">contact</button>
                 </p>
