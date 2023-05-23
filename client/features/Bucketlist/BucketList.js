@@ -11,30 +11,27 @@ const bucketlist = () => {
           <div className="LodgingCard">
             <img
               className="LodgingCardImage"
-              src="AbnbResult.webp"
+              src="./photogrid/laAirbnb.webp"
               alt="Airbnb-Listing-img"
-              border-radius=".05em"
-            ></img>{" "}
-            <div className="LodgingCardAmtDays">June 10 - June 12</div>{" "}
-            <div className="LodgingCardPriceTotal">$500 total</div>{" "}
+            ></img>
+            <p>June 5 - June 10</p>
+            <p>$899</p>
           </div>{" "}
-          <span className="FlightCard">
+          <div className="FlightCard">
             {" "}
             <img
               className="FlightCardImage"
-              src="FlightResult.jpg"
+              src="./photogrid/spirit.png"
               alt="Flight-Listing-img"
             ></img>
-            <div className="FlightCardDates">June 10 - June 12</div>
-            <div className="FlightCardPriceTotal">$458 total</div>
-          </span>
-          <span className="TripTotal" height="20px" width="40px">
-            $958 Voyage Total
-          </span>{" "}
-          <div>
+            <p>June 5 - June 10</p>
+            <p>$298</p>
+          </div>
+          <div className="TripTotal">
             <button id="remove" type="button">
               Remove This Voyage
             </button>
+            $1197 Voyage Total
           </div>
         </div>
       </div>

@@ -3,14 +3,12 @@ import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
 import { fetchDestinationCode, fetchOriginCode } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
-import bucketlist from "../Bucketlist/BucketList";
 
 const Quiz = () => {
   const dispatch = useDispatch();
-  const [destination, setDestination] = useState("");
   const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
   const [price, setPrice] = useState("");
-  const [adults, setAdults] = useState("");
   const [checkinCheckout, setCheckinCheckout] = useState({
     checkin: "",
     checkout: "",
@@ -19,8 +17,10 @@ const Quiz = () => {
     date: "",
     returnDate: "",
   });
+  const [adults, setAdults] = useState("");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === "checkin" || name === "checkout") {
@@ -35,23 +35,17 @@ const Quiz = () => {
       });
     } else {
       switch (name) {
-        case "destination":
-          setDestination(value);
-          break;
-        case "adults":
-          setAdults(value);
-          break;
         case "origin":
           setOrigin(value);
           break;
+        case "destination":
+          setDestination(value);
+          break;
         case "price":
-          const filteredPrice = value.replace(/[^0-9.]/g, "");
-          const parsedPrice = parseFloat(filteredPrice);
-          if (!isNaN(parsedPrice)) {
-            setPrice(parsedPrice);
-          } else {
-            setPrice(undefined);
-          }
+          setPrice(value);
+          break;
+        case "adults":
+          setAdults(value);
           break;
         default:
           break;
@@ -65,57 +59,48 @@ const Quiz = () => {
       inputType: "number",
       name: "price",
       value: price,
-      hasNext: "true",
-      currency: "$",
     },
     {
       questionText: "Where are you traveling from?", //forflights
       inputType: "text",
       name: "origin",
       value: origin,
-      hasNext: "true",
     },
     {
       questionText: "Where are you traveling to?", //forflights
       inputType: "text",
       name: "destination",
       value: destination,
-      hasNext: "true",
     },
     {
       questionText: "What is your first day of travel?", //forflights
       inputType: "date",
       name: "date",
       value: dateReturnDate.date,
-      hasNext: "false",
     },
     {
       questionText: "When do you plan to return?",
       inputType: "date",
       name: "returnDate",
       value: dateReturnDate.returnDate,
-      hasNext: "true",
     },
     {
       questionText: "Where will you be booking your stay?",
       inputType: "text",
       name: "destination",
       value: destination,
-      hasNext: "true",
     },
     {
       questionText: "what is your first day of lodging?",
       inputType: "date",
       name: "checkin",
       value: checkinCheckout.checkin,
-      hasNext: "false",
     },
     {
       questionText: "what is your last day of lodging?",
       inputType: "date",
       name: "checkout",
       value: checkinCheckout.checkout,
-      hasNext: "true",
     },
     {
       questionText: "How many adults are you traveling with?",
@@ -157,16 +142,11 @@ const Quiz = () => {
                 value={setOfQuestions[currentQuestion].value}
                 onChange={handleInputChange}
               />
-              {currentQuestion < setOfQuestions.length - 1 &&
-                setOfQuestions[currentQuestion].hasNext && (
-                  <button
-                    id="nextbtn"
-                    type="button"
-                    onClick={handleNextQuestion}
-                  >
-                    next
-                  </button>
-                )}
+              {currentQuestion < setOfQuestions.length - 1 && (
+                <button id="nextbtn" type="button" onClick={handleNextQuestion}>
+                  next
+                </button>
+              )}
               {currentQuestion === setOfQuestions.length - 1 && (
                 <button id="quizbtn" type="submit">
                   ready for your Voyage

@@ -472,20 +472,34 @@ nav a {
 .Tripcontainer {
   display: grid;
   height: 350px;
+  width:400px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 100px;
 }
 
 .LodgingCardImage {
-  width: 260px;
-  height: 260px;
+  width: 300px;
+  height: 250px;
   margin-left: 1em;
   margin-right: 1em;
+  border-radius: .5em;
+  display: flex;
+  justify-content: center;
+}
+
+.FlightCardImage{
+  width: 300px;
+  height: 250px;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: .5em;
   display: flex;
   justify-content: center;
 }
 
 #remove{
+  align-self: flex-start;
+  margin-bottom: 12em;
   background-color: #0093e9;
   border: 2px solid;
   border-color: rgb(17, 32, 91);
@@ -493,10 +507,12 @@ nav a {
   font-size: 15px;
   border-radius: .5em;
   padding: .5em;
-  outline: none;
-  margin: .5em;
-  margin-left: 4em;
-  margin-top: 14em;
-  max-height: 40px;
-  max-width: 300px;
+}
+
+.TripTotal{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  padding-left: 10px;
 }
