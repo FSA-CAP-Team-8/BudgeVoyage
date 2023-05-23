@@ -83,13 +83,14 @@ const Quiz = () => {
       hasNext: "true",
     },
     {
-      questionText: "What days are you traveling?", //forflights
+      questionText: "What is your first day of travel?", //forflights
       inputType: "date",
       name: "date",
       value: dateReturnDate.date,
       hasNext: "false",
     },
     {
+      questionText: "When do you plan to return?",
       inputType: "date",
       name: "returnDate",
       value: dateReturnDate.returnDate,
@@ -103,13 +104,14 @@ const Quiz = () => {
       hasNext: "true",
     },
     {
-      questionText: "what days are you booking lodging?",
+      questionText: "what is your first day of lodging?",
       inputType: "date",
       name: "checkin",
       value: checkinCheckout.checkin,
       hasNext: "false",
     },
     {
+      questionText: "what is your last day of lodging?",
       inputType: "date",
       name: "checkout",
       value: checkinCheckout.checkout,
