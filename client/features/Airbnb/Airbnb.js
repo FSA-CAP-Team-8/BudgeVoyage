@@ -1,153 +1,12 @@
-// import React, { useState } from "react";
-// import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { fetchAirbnbListings } from "./airSlice";
-
-// const Airbnb = ({ destination, checkin, checkout, adults }) => {
-//   const dispatch = useDispatch();
-//   const airbnb = useSelector((state) => state.airbnb);
-//   const [currentIndex, setCurrentIndex] = useState(0);
-
-//   useEffect(() => {
-//     dispatch(
-//       fetchAirbnbListings({
-//         location: destination,
-//         checkin: checkin,
-//         checkout: checkout,
-//         adults: adults,
-//       })
-//     );
-//   }, [dispatch, destination, checkin, checkout, adults]);
-
-//   const handleNextListing = () => {
-//     const nextIndex = (currentIndex + 1) % airbnb.results.length;
-//     setCurrentIndex(nextIndex);
-//   };
-
-//   return (
-//     <div className="airbnbcard">
-//       <div>
-//         <h2>Airbnb</h2>
-//         {airbnb.results && airbnb.results.length > 0 ? (
-//           <div className="lodgingcard">
-//             <img
-//               src={airbnb.results[currentIndex].images[0]}
-//               alt="First Airbnb image"
-//               style={{ width: "300px", height: "225px" }}
-//             />
-//             <a
-//               href={airbnb.results[currentIndex].deeplink}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               <div>{airbnb.results[currentIndex].name}</div>
-//             </a>
-//             <li>total price: ${airbnb.results[currentIndex].price.total}</li>
-//           </div>
-//         ) : (
-//           <div>No AirBnb results availble</div>
-//         )}
-//         <button type="button" onClick={handleNextListing}>
-//           Next
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-// export default Airbnb;
-
-/* )}
-            {currentIndex === airbnb.results.length -1 && (
-              <button type="submit">add to Bucketlist</button>
-            )}
-          </div> */
-
-/* )}
-    </div> */
-
-//idea to render a airbnb at a time   //make a while loop, while (results)
-// const current = results.shift()
-//call our card component and pass the current
-//cardcomponent(current)
-
-//trying a carousel methid
-
-// import React from "react";
-// import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { fetchAirbnbListings } from "./airSlice";
-// import Slider from "react-slick";
-// // import "slick-carousel/slick/slick.css";
-// // import "slick-carousel/slick/slick-theme.css";
-
-// const Airbnb = ({ destination, checkin, checkout, adults }) => {
-//   const dispatch = useDispatch();
-//   const airbnb = useSelector((state) => state.airbnb);
-
-//   useEffect(() => {
-//     dispatch(
-//       fetchAirbnbListings({
-//         destination: destination,
-//         checkin: checkin,
-//         checkout: checkout,
-//         adults: adults,
-//       })
-//     );
-//   }, [dispatch, destination, checkin, checkout, adults]);
-
-//   const settings = {
-//     dots: true,
-//     infinite: true,
-//     speed: 500,
-//     slidesToShow: 1,
-//     centerMode: true,
-//   };
-
-//   return (
-//     <div className="airbnbComponent">
-//       <h2>Airbnb</h2>
-//       {airbnb.results && (
-//         <Slider {...settings}>
-//           {airbnb.results.map((result, index) => (
-//             <div key={`result-${index}`}>
-//               <div className="lodgingCards">
-//                 {result.images?.length > 0 && (
-//                   <img
-//                     src={result.images[0]}
-//                     alt="airbnbImages"
-//                     style={{ width: "300px", height: "225px" }}
-//                   />
-//                 )}
-//                 <a
-//                   href={result.deeplink}
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                 >
-//                   {" "}
-//                   <div>{result.name}</div>
-//                 </a>
-//                 <p>Total Price: ${result.price.rate} per night</p>{" "}
-//               </div>
-//             </div>
-//           ))}
-//         </Slider>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Airbnb;
-
 //mapping that works
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
+import bucketlist from "../Bucketlist/BucketList";
 
 const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
   const dispatch = useDispatch();
   const airbnb = useSelector((state) => state.airbnb);
-
   useEffect(() => {
     dispatch(
       fetchAirbnbListings({
@@ -159,126 +18,71 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
     );
   }, [dispatch, destination, checkin, checkout, adults, price]);
 
-  const handleAddBucketList = (result) => {
-    dispatch(handleAddBucketList(result));
+  const [likes, setLikes] = useState([]);
+
+  const handleLike = (index) => {
+    const newLikes = [...likes];
+    newLikes[index] = !newLikes[index];
+    setLikes(newLikes);
+    if (newLikes[index]) {
+      const likedItem = airbnb.results[index];
+      bucketlist.addItem(likedItem); // Call the appropriate method in the BucketList component to append the liked item
+    } else {
+      const unlikedItem = airbnb.results[index];
+      bucketlist.removeItem(unlikedItem);
+    }
   };
 
   return (
-    <div className="airbnbComponent">
-      <h2>Airbnb</h2>
-      {airbnb.results && (
-        <div>
-          {airbnb.results.map((result, index) => (
-            <div key={`result-${index}`}>
-              <div className="lodgingCards">
-                <img
-                  className="airbnbfoto"
-                  src={result.images[0]}
-                  alt="airbnbImages"
-                  style={{ width: "300px", height: "225px" }}
-                />
-                <a
-                  href={result.deeplink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div>{result.name}</div>
-                </a>
-                <p>Total Price: ${result.price.total}</p>{" "}
-                <button id="bktbtn" type="button" onClick={handleAddBucketList}>
-                  add to BucketList
-                </button>
+    <div id="aircard">
+      <div className="airbnbComponent">
+        <h2>Airbnb</h2>
+        {airbnb.results && (
+          <div>
+            {airbnb.results.map((result, index) => (
+              <div key={`result-${index}`}>
+                <div className="lodgingCards">
+                  <button id="likesair" onClick={() => handleLike(index)}>
+                    {likes[index] ? (
+                      <img
+                        src="heart(1).png"
+                        alt="Liked"
+                        width="20px"
+                        height="20px"
+                      />
+                    ) : (
+                      <img
+                        src="heart.png"
+                        alt="Unlike"
+                        width="16px"
+                        height="16px"
+                      />
+                    )}
+                  </button>
+                  <div>
+                    <a
+                      href={result.deeplink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {result.name}
+                    </a>
+                  </div>
+                  <img
+                    className="airbnbfoto"
+                    src={result.images[0]}
+                    alt="airbnbImages"
+                    style={{ width: "300px", height: "225px" }}
+                  />
+                  <p>Total Price: ${result.price.total}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 export default Airbnb;
-
-// kwames work
-//   let data = [];
-//   if (airbnb.results) {
-//     data = airbnb.results[0];
-//     console.log("airdata", data);
-//     return (
-//       <div className="airbnbComponent">
-//         <h2>Airbnb</h2>
-//         <div>
-//           <Results data={data} />
-//         </div>
-//       </div>
-//     );
-//   }
-// };
-
-// export default Airbnb;
-
-//attemting rendering one at a time
-
-// import React, { useState } from "react";
-// import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { fetchAirbnbListings } from "./airSlice";
-
-// const Airbnb = ({ destination, checkin, checkout, adults }) => {
-//   const dispatch = useDispatch();
-//   const airbnb = useSelector((state) => state.airbnb);
-//   const [currentIndex, setCurrentIndex] = useState(0);
-
-//   useEffect(() => {
-//     dispatch(
-//       fetchAirbnbListings({
-//         location: destination,
-//         checkin: checkin,
-//         checkout: checkout,
-//         adults: adults,
-//       })
-//     );
-//   }, [dispatch, destination, checkin, checkout, adults]);
-
-//   const handleNextListing = () => {
-//     const nextIndex = (currentIndex + 1) % airbnb.results.length;
-//     setCurrentIndex(nextIndex);
-//   };
-
-//   return (
-//     <div className="airbnbcard">
-//       <div>
-//         <h2>Airbnb</h2>
-//         {airbnb.results && airbnb.results.length > 0 ? (
-//           <div className="lodgingcard">
-//             {airbnb.results[currentIndex]?.image &&
-//             airbnb.results[currentIndex]?.image.length > 0 ? (
-//               <img
-//                 src={airbnb.results[currentIndex]?.image[0]}
-//                 alt="First Airbnb image"
-//                 style={{ width: "300px", height: "225px" }}
-//               />
-//             ) : (
-//               <div>No images available</div>
-//             )}
-//             <a
-//               href={airbnb.results[currentIndex]?.deeplink}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               <div>{airbnb.results[currentIndex]?.name}</div>
-//             </a>
-//             <li>total price: ${airbnb.results[currentIndex]?.price.total}</li>
-//           </div>
-//         ) : (
-//           <div>No Airbnb results available</div>
-//         )}
-//         <button type="button" onClick={handleNextListing}>
-//           Next
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Airbnb;

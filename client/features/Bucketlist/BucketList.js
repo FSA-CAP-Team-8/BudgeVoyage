@@ -1,42 +1,41 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 const bucketlist = () => {
   return (
     <div id="bucketlist">
+      {" "}
       <div className="bucketcontainer">
+        {" "}
         <div className="Tripcontainer">
-          <span className="LodgingCard">
+          {" "}
+          <div className="LodgingCard">
             <img
               className="LodgingCardImage"
-              src="AbnbResult.webp"
+              src="./photogrid/laAirbnb.webp"
               alt="Airbnb-Listing-img"
             ></img>
-            <div className="LodgingCardAmtDays">June 10 - June 12</div>
-            <div className="LodgingCardPriceTotal">$500 total</div>
-          </span>
-          <span className="FlightCard">
+            <p>June 5 - June 10</p>
+            <p>$899</p>
+          </div>{" "}
+          <div className="FlightCard">
+            {" "}
             <img
               className="FlightCardImage"
-              src="FlightResult.jpg"
+              src="./photogrid/spirit.png"
               alt="Flight-Listing-img"
             ></img>
-            <div className="FlightCardDates">June 10 - June 12</div>
-            <div className="FlightCardPriceTotal">$458 total</div>
-          </span>
-          <span className="TripTotal" height="20px" width="40px">
-            $958 Voyage Total
-          </span>
-          <div>
-            {" "}
+            <p>June 5 - June 10</p>
+            <p>$228.83</p>
+          </div>
+          <div className="TripTotal">
             <button id="remove" type="button">
               Remove This Voyage
             </button>
+            Voyage total: $1127.38
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 export default bucketlist;
