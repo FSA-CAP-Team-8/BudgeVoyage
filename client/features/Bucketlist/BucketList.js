@@ -25,13 +25,13 @@ const bucketlist = () => {
               alt="Flight-Listing-img"
             ></img>
             <p>June 5 - June 10</p>
-            <p>$298</p>
+            <p>$228.83</p>
           </div>
           <div className="TripTotal">
             <button id="remove" type="button">
               Remove This Voyage
             </button>
-            $1197 Voyage Total
+            Voyage total: $1127.38
           </div>
         </div>
       </div>
