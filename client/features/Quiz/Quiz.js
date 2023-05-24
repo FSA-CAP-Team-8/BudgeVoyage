@@ -3,6 +3,7 @@ import Airbnb from "../Airbnb/Airbnb";
 import Flights from "../Flights/Flights";
 import { fetchDestinationCode, fetchOriginCode } from "../Flights/flightsSlice";
 import { useDispatch } from "react-redux";
+import bucketlist from "../Bucketlist/BucketList";
 
 const Quiz = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,6 @@ const Quiz = () => {
   const [adults, setAdults] = useState("");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === "checkin" || name === "checkout") {

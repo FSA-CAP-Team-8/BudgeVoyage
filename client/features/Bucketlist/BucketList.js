@@ -1,6 +1,5 @@
 import React from "react";
 
-const bucketlist = () => {
   return (
     <div id="bucketlist">
       {" "}

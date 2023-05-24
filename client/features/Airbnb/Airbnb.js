@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
 import bucketlist from "../Bucketlist/BucketList";
 
-const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
+
+const Airbnb = ({ destination, checkin, checkout, adults }) => {
   const dispatch = useDispatch();
   const airbnb = useSelector((state) => state.airbnb);
   useEffect(() => {
@@ -26,6 +27,7 @@ const Airbnb = ({ destination, checkin, checkout, adults, price }) => {
     setLikes(newLikes);
     if (newLikes[index]) {
       const likedItem = airbnb.results[index];
+
       bucketlist.addItem(likedItem); // Call the appropriate method in the BucketList component to append the liked item
     } else {
       const unlikedItem = airbnb.results[index];
