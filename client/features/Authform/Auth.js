@@ -34,6 +34,7 @@ const AuthForm = ({ name, displayName }) => {
 
   return (
     <div id="signupForm">
+      <img id="signinbg" src="./photogrid/lug1.png"></img>
       <div className="signupcontainer">
         {
           <form onSubmit={handleSubmit} name={name}>

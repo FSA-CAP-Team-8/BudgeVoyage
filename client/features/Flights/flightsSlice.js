@@ -8,7 +8,7 @@ export const fetchOriginCode = createAsyncThunk(
     const options = {
       method: "GET",
       url: "https://skyscanner50.p.rapidapi.com/api/v1/searchAirport",
-      params: (query = { origin }),
+      params: { query: origin },
       headers: {
         "X-RapidAPI-Key": "856f1c46afmsh190815efb96a9b8p1f3487jsn758d06438f02",
         "X-RapidAPI-Host": "skyscanner50.p.rapidapi.com",

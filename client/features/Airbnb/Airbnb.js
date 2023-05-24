@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAirbnbListings } from "./airSlice";
-import BucketList from "../Bucketlist/BucketList";
+import bucketlist from "../Bucketlist/BucketList";
+
 
 const Airbnb = ({ destination, checkin, checkout, adults }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
         adults: adults,
       })
     );
-  }, [dispatch, destination, checkin, checkout, adults]);
+  }, [dispatch, destination, checkin, checkout, adults, price]);
 
   const [likes, setLikes] = useState([]);
 
@@ -26,56 +27,62 @@ const Airbnb = ({ destination, checkin, checkout, adults }) => {
     setLikes(newLikes);
     if (newLikes[index]) {
       const likedItem = airbnb.results[index];
-      BucketList.addItem(likedItem);
+
+      bucketlist.addItem(likedItem); // Call the appropriate method in the BucketList component to append the liked item
     } else {
-      const likedItem = airbnb.results[index];
-      BucketList.removeItem(likedItem);
+      const unlikedItem = airbnb.results[index];
+      bucketlist.removeItem(unlikedItem);
     }
   };
 
   return (
-    <div className="airbnbComponent">
-      <h2>Airbnb</h2>
-      {airbnb.results && (
-        <div>
-          {airbnb.results.map((result, index) => (
-            <div key={`result-${index}`}>
-              <div className="lodgingCards">
-                <img
-                  src={result.images[0]}
-                  alt="airbnbImages"
-                  style={{ width: "300px", height: "225px" }}
-                />
-                <a
-                  href={result.deeplink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div>{result.name}</div>
-                </a>
-                <p>Total Price: ${result.price.total}</p>
-                <button onClick={() => handleLike(index)}>
-                  {likes[index] ? (
-                    <img
-                      src="heart(1).png"
-                      alt="Liked"
-                      height="20px"
-                      width="20px"
-                    />
-                  ) : (
-                    <img
-                      src="heart.png"
-                      alt="Unlike"
-                      width="16px"
-                      height="16px"
-                    />
-                  )}
-                </button>
+    <div id="aircard">
+      <div className="airbnbComponent">
+        <h2>Airbnb</h2>
+        {airbnb.results && (
+          <div>
+            {airbnb.results.map((result, index) => (
+              <div key={`result-${index}`}>
+                <div className="lodgingCards">
+                  <button id="likesair" onClick={() => handleLike(index)}>
+                    {likes[index] ? (
+                      <img
+                        src="heart(1).png"
+                        alt="Liked"
+                        width="20px"
+                        height="20px"
+                      />
+                    ) : (
+                      <img
+                        src="heart.png"
+                        alt="Unlike"
+                        width="16px"
+                        height="16px"
+                      />
+                    )}
+                  </button>
+                  <div>
+                    <a
+                      href={result.deeplink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {result.name}
+                    </a>
+                  </div>
+                  <img
+                    className="airbnbfoto"
+                    src={result.images[0]}
+                    alt="airbnbImages"
+                    style={{ width: "300px", height: "225px" }}
+                  />
+                  <p>Total Price: ${result.price.total}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

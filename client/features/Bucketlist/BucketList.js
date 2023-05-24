@@ -1,33 +1,40 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-
-export const BucketList = () => {
-  const [likedItems, setLikedItems] = useState([]);
-
-  const addItem = (item) => {
-    setLikedItems((prevItems) => [...prevItems, item]);
-  };
-
-  const removeItem = (item) => {
-    setLikedItems((prevItems) =>
-      prevItems.filter((prevItem) => prevItem !== item)
-    );
-  };
+import React from "react";
 
   return (
-    <div className="bucketList">
-      <h2>Bucket List</h2>
-      {likedItems.length === 0 ? (
-        <p>No items liked yet.</p>
-      ) : (
-        <ul>
-          {likedItems.map((item, index) => (
-            <li key={index}>{item.name}</li>
-          ))}
-        </ul>
-      )}
+    <div id="bucketlist">
+      {" "}
+      <div className="bucketcontainer">
+        {" "}
+        <div className="Tripcontainer">
+          {" "}
+          <div className="LodgingCard">
+            <img
+              className="LodgingCardImage"
+              src="./photogrid/laAirbnb.webp"
+              alt="Airbnb-Listing-img"
+            ></img>
+            <p>June 5 - June 10</p>
+            <p>$899</p>
+          </div>{" "}
+          <div className="FlightCard">
+            {" "}
+            <img
+              className="FlightCardImage"
+              src="./photogrid/spirit.png"
+              alt="Flight-Listing-img"
+            ></img>
+            <p>June 5 - June 10</p>
+            <p>$228.83</p>
+          </div>
+          <div className="TripTotal">
+            <button id="remove" type="button">
+              Remove This Voyage
+            </button>
+            Voyage total: $1127.38
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
-
-export default BucketList;
+export default bucketlist;
