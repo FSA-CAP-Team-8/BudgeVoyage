@@ -21,7 +21,7 @@ const OurTeam = () => {
               <img
                 src="./photogrid/vcis.png"
                 alt="veronica"
-                width="282px"
+                width="269px"
                 height="280px"
               ></img>
               <div className="teamcontainer">
@@ -52,7 +52,7 @@ const OurTeam = () => {
               <img
                 src="./photogrid/luisS.png"
                 alt="Luis Samboy"
-                width="282px"
+                width="269px"
                 height="280px"
               ></img>
               <div className="teamcontainer">
@@ -80,7 +80,7 @@ const OurTeam = () => {
               <img
                 src="./photogrid/jroe.png"
                 alt="Jesiah Roe"
-                width="282px"
+                width="269px"
                 height="280px"
               ></img>
               <div className="teamcontainer">
@@ -112,7 +112,7 @@ const OurTeam = () => {
               <img
                 src="./photogrid/jackiec.png"
                 alt="Jackie Chung"
-                width="282px"
+                width="269px"
                 height="280px"
               ></img>
               <div className="teamcontainer">
